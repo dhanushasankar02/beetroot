@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <title>Beetroot Detox | Farm-to-Bottle Organic Juices</title>
+  <!-- Google Fonts + Tailwind CSS + Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ---------- CUSTOM VARIABLES & GLOBAL RESET ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --accent: #BC2F4C;
+      --accent-secondary: #E2A76F;
+      --accent-glow: rgba(188, 47, 76, 0.35);
+      --bg-primary: #0A0C0F;
+      --bg-secondary: #0F1217;
+      --card-bg: #1A1E26;
+      --text-primary: #F7F5F0;
+      --text-muted: #CFD3DC;
+      --border-light: rgba(255,255,255,0.06);
+      --shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.5);
+      --hero-overlay: rgba(0, 0, 0, 0.7);
+      --session-overlay-bg: linear-gradient(115deg, rgba(10,12,15,0.85), rgba(10,12,15,0.6));
+      --footer-bg: #0C0F14;
+    }
+
+    body.light {
+      --bg-primary: #FEF8F5;
+      --bg-secondary: #FFFFFF;
+      --card-bg: #FFFFFF;
+      --text-primary: #1A2A2F;
+      --text-muted: #1F3A42;
+      --border-light: rgba(0,0,0,0.08);
+      --shadow: 0 15px 30px -12px rgba(0, 0, 0, 0.1);
+      --accent: #A52A44;
+      --accent-secondary: #D6894A;
+      --accent-glow: rgba(165, 42, 68, 0.2);
+      --footer-bg: #F4EFEA;
+      --hero-overlay: rgba(255, 248, 240, 0.85);
+      --session-overlay-bg: linear-gradient(115deg, rgba(255,248,240,0.9), rgba(255,248,240,0.8));
+    }
+
+    body.dark {
+      --bg-primary: #0A0C0F;
+      --bg-secondary: #0F1217;
+      --card-bg: #191E27;
+      --text-primary: #F9F5EF;
+      --text-muted: #C2C9D2;
+      --border-light: rgba(255,255,255,0.05);
+      --accent: #D1495B;
+      --accent-secondary: #E6B17E;
+      --accent-glow: rgba(209, 73, 91, 0.3);
+      --footer-bg: #0C0F14;
+      --hero-overlay: rgba(0, 0, 0, 0.75);
+      --session-overlay-bg: linear-gradient(115deg, rgba(10,12,15,0.85), rgba(10,12,15,0.6));
+    }
+
+    /* Override Tailwind & Hardcoded colors for Dark Mode */
+    body.dark .text-gray-800, 
+    body.dark .text-gray-900,
+    body.dark .text-gray-700,
+    body.dark .text-emerald-800,
+    body.dark .text-emerald-700 { color: var(--text-primary) !important; }
+    
+    body.dark .text-gray-600,
+    body.dark .text-gray-500,
+    body.dark .text-emerald-600 { color: var(--text-muted) !important; }
+    
+    body.dark .bg-white,
+    body.dark .bg-emerald-50,
+    body.dark .bg-amber-50,
+    body.dark .bg-emerald-100 { background-color: var(--card-bg) !important; }
+    
+    body.dark .bg-gradient-to-br,
+    body.dark .bg-gradient-to-r { background-image: none !important; background-color: var(--bg-primary) !important; }
+    
+    body.dark #session3 { background: var(--bg-secondary) !important; }
+    body.dark #session5 { background: var(--bg-primary) !important; }
+    body.dark .process-step { background: var(--card-bg) !important; border-color: var(--border-light) !important; }
+    body.dark .stat-card { background: var(--card-bg) !important; color: var(--text-primary) !important; }
+    body.dark .bg-white\/70,
+    body.dark .bg-white\/88 { background-color: rgba(26, 30, 39, 0.8) !important; border-color: var(--border-light) !important; }
+    body.dark .bg-white\/10 { background-color: rgba(255, 255, 255, 0.05) !important; }
+    body.dark .shadow-lg, body.dark .shadow-md { box-shadow: 0 10px 25px -5px rgba(0,0,0,0.4) !important; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      transition: background-color 0.3s ease, color 0.3s ease;
+      padding-top: 68px;
+    }
+    .playfair {
+      font-family: 'Playfair Display', serif;
+    }
+    /* session layout */
+    .session {
+      min-height: 100vh;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    .content-container {
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 4rem 1.5rem;
+      position: relative;
+      z-index: 2;
+    }
+    /* Process step cards */
+    .process-step {
+      transition: all 0.4s ease;
+      background: rgba(255,255,240,0.88);
+      backdrop-filter: blur(4px);
+    }
+    .process-step:hover {
+      background: rgba(255,255,255,0.96);
+      transform: scale(1.02);
+    }
+    /* stat card */
+    .stat-card {
+      transition: all 0.3s ease;
+      backdrop-filter: blur(8px);
+      background: rgba(255, 255, 255, 0.92);
+      border-radius: 2rem;
+      box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.1);
+    }
+    .stat-card:hover {
+      transform: translateY(-8px);
+      background: white;
+      box-shadow: 0 25px 40px -12px rgba(0, 0, 0, 0.2);
+    }
+    .counter-number {
+      font-size: 3.5rem;
+      font-weight: 800;
+      line-height: 1.1;
+    }
+    @media (min-width: 768px) {
+      .counter-number { font-size: 4rem; }
+    }
+    /* fade-up animation */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s cubic-bezier(0.2, 0.9, 0.4, 1.1), transform 0.7s ease;
+    }
+    .fade-up.visible {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+    }
+
+    /* ========= STABLE NAVBAR (logo left, menu center, controls right) ========= */
+    nav {
+      background-color: var(--card-bg);
+      border-bottom: 2px solid color-mix(in srgb, var(--accent) 35%, transparent);
+      backdrop-filter: blur(14px);
+      position: fixed;
+      top: 0;
+      z-index: 1000;
+      width: 100%;
+      transition: background 0.2s ease;
+    }
+    body.light nav {
+      background: rgba(255, 252, 248, 0.96);
+      backdrop-filter: blur(14px);
+      border-bottom-color: rgba(165, 42, 68, 0.3);
+    }
+    body.dark nav {
+      background: rgba(16, 19, 26, 0.97);
+      backdrop-filter: blur(14px);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0.75rem 2rem;
+      flex-wrap: nowrap;
+      position: relative;
+    }
+
+    /* Logo - always left */
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+      text-decoration: none;
+      transition: transform 0.3s ease;
+    }
+    .logo:hover {
+      transform: scale(1.05);
+    }
+    .logo-text {
+      background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+      background-clip: text !important;
+      -webkit-background-clip: text !important;
+      color: transparent !important;
+      -webkit-text-fill-color: transparent;
+      font-weight: 800;
+      font-size: 1rem;
+      letter-spacing: -0.3px;
+    }
+    .logo-icon-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      background: color-mix(in srgb, var(--accent) 12%, transparent);
+      border-radius: 12px;
+      flex-shrink: 0;
+    }
+    .logo-icon-wrapper i {
+      background: none;
+      color: var(--accent);
+      font-size: 1.4rem;
+    }
+    .logo-icon-wrapper .fa-droplet, .logo-icon-wrapper .fa-tint {
+      position: absolute;
+      font-size: 1.6rem;
+      opacity: 0.8;
+    }
+    .logo-icon-wrapper .fa-leaf {
+      position: relative;
+      font-size: 0.9rem;
+      color: var(--accent-secondary);
+      z-index: 2;
+      margin-top: 4px;
+    }
+
+    /* Nav links wrapper - desktop */
+    .nav-links-center {
+      display: flex;
+      align-items: center;
+      flex: 1;
+      justify-content: flex-end;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: nowrap;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 500;
+      color: var(--text-primary);
+      transition: color 0.2s, border-bottom 0.2s;
+      white-space: nowrap;
+      font-size: 0.95rem;
+      padding-bottom: 4px;
+    }
+    .nav-links a.active {
+      color: var(--accent);
+      border-bottom: 2px solid var(--accent);
+    }
+    .nav-links a:hover:not(.active) {
+      color: var(--accent);
+    }
+
+    /* dropdowns */
+    .dropdown {
+      position: relative;
+    }
+    .dropdown > a {
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      white-space: nowrap;
+    }
+    .dropdown-menu {
+      position: absolute;
+      top: calc(100% + 0.6rem);
+      left: 0;
+      background-color: var(--card-bg);
+      border-radius: 20px;
+      padding: 0.6rem 0;
+      min-width: 190px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.2s ease, visibility 0.2s;
+      z-index: 100;
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+    }
+    .dropdown-menu a {
+      display: block;
+      padding: 0.6rem 1.4rem;
+      color: var(--text-primary);
+      font-size: 0.9rem;
+      white-space: nowrap;
+      border-bottom: none;
+    }
+    .dropdown-menu a:hover {
+      background-color: color-mix(in srgb, var(--accent) 18%, transparent);
+      color: var(--accent);
+    }
+    .dropdown:hover .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Right side controls */
+    .navbar-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      flex-shrink: 0;
+    }
+    .mode-toggle, .rtl-toggle, .login-btn {
+      background: transparent;
+      border: 1.5px solid var(--accent);
+      border-radius: 40px;
+      padding: 0.4rem 0.9rem;
+      cursor: pointer;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      transition: all 0.2s ease;
+      backdrop-filter: blur(4px);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+    .mode-toggle:hover, .rtl-toggle:hover, .login-btn:hover {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+    .login-btn {
+      background: color-mix(in srgb, var(--accent) 15%, transparent);
+    }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: var(--accent);
+      flex-shrink: 0;
+      z-index: 1001;
+    }
+
+    /* ========= FULLY RESPONSIVE MOBILE & TABLET ========= */
+    @media (max-width: 1050px) {
+      .nav-links-center {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 85%;
+        max-width: 340px;
+        height: 100vh;
+        background-color: var(--card-bg);
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding: 5rem 2rem 2rem;
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.4s, opacity 0.4s;
+        z-index: 1000;
+        box-shadow: -10px 0 30px rgba(0,0,0,0.25);
+        border-left: 2px solid var(--accent);
+        gap: 1.5rem;
+        overflow-y: auto;
+        display: flex;
+        visibility: hidden;
+        opacity: 0;
+        pointer-events: none;
+        transform: translateX(100%);
+      }
+      .nav-links-center.active {
+        visibility: visible;
+        opacity: 1;
+        pointer-events: all;
+        transform: translateX(0);
+      }
+      body[dir="rtl"] .nav-links-center {
+        right: auto;
+        left: 0;
+        border-left: none;
+        border-right: 2px solid var(--accent);
+        transform: translateX(-100%);
+      }
+      body[dir="rtl"] .nav-links-center.active { transform: translateX(0); }
+      .nav-links {
+        position: static;
+        transform: none;
+        left: auto;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        gap: 1.2rem;
+      }
+      .nav-links a { font-size: 1rem; white-space: normal; }
+      .dropdown { width: 100%; }
+      .dropdown-menu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        display: none;
+        background: transparent;
+        padding-left: 1rem;
+        box-shadow: none;
+        border: none;
+        backdrop-filter: none;
+        margin-top: 0.5rem;
+        width: 100%;
+      }
+      .dropdown-menu a { white-space: normal; padding: 0.5rem 1rem; }
+      .dropdown.open .dropdown-menu { display: block; }
+      .navbar-controls { margin-top: 1.2rem; width: 100%; justify-content: flex-start; flex-wrap: wrap; gap: 0.8rem; }
+      .hamburger { display: block; }
+    }
+
+    footer {
+      background: var(--footer-bg);
+      border-top: 1px solid var(--border-light);
+      padding: 3rem 2rem 1.5rem;
+      margin-top: auto;
+      width: 100%;
+    }
+    .footer-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      align-items: start;
+    }
+    .footer-col h4 { font-size: 1.2rem; margin-bottom: 1rem; color: var(--accent); }
+    .footer-col p, .footer-col a { color: var(--text-muted); text-decoration: none; line-height: 1.7; font-size: 0.9rem; }
+    .footer-col a:hover { color: var(--accent); }
+    .social-links { display: flex; gap: 1rem; margin-top: 0.8rem; flex-wrap: wrap; }
+    .social-links a {
+      background: var(--bg-primary);
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: 0.2s;
+      border: 1px solid var(--border-light);
+      color: var(--text-muted);
+    }
+    .social-links a:hover { background: var(--accent); color: white; transform: translateY(-3px); }
+    .footer-bottom { text-align: center; margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-light); font-size: 0.8rem; color: var(--text-muted); }
+    @media (max-width: 650px) {
+      .footer-container { grid-template-columns: 1fr; text-align: center; }
+      .social-links { justify-content: center; }
+    }
+    html {
+      scroll-padding-top: 80px;
+    }
+  
+    /* --- GLOBAL RESPONSIVE FIX --- */
+    html, body {
+      overflow-x: hidden;
+      max-width: 100vw;
+    }
+    img, video, iframe {
+      max-width: 100%;
+      height: auto;
+    }
+    @media (max-width: 850px) {
+      [style*="grid-template-columns: 1fr 1.2fr"],
+      [style*="grid-template-columns: 1.2fr 1fr"],
+      [style*="grid-template-columns: 1fr 1fr"],
+      [style*="grid-template-columns: 1fr 1.5fr"],
+      [style*="grid-template-columns: 1.5fr 1fr"],
+      [style*="grid-template-columns: 1.2fr 0.8fr"],
+      [style*="grid-template-columns: 0.8fr 1.2fr"] {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+      }
+      [style*="gap: 4rem"] {
+        gap: 2rem !important;
+      }
+      [style*="gap: 3rem"] {
+        gap: 1.5rem !important;
+      }
+      /* Prevent text overflow */
+      h1, h2, h3, h4, h5, h6, p, span, div {
+        max-width: 100%;
+        word-wrap: break-word;
+      }
+    }
+
+  </style>
+</head>
+<body class="dark" dir="ltr">
+  <!-- ================= STICKY NAVBAR (first) ================= -->
+  <nav>
+    <div class="nav-container">
+      <!-- Logo left -->
+      <a href="index.html" class="logo">
+        <div class="logo-icon-wrapper">
+          <i class="fas fa-droplet"></i>
+          <i class="fas fa-leaf"></i>
+        </div>
+        <span class="logo-text">Beetroot Detox</span>
+      </a>
+
+      <!-- Nav links and controls grouped for mobile menu -->
+      <div class="nav-links-center" id="navLinksCenter">
+        <div class="nav-links">
+          <div class="dropdown">
+            <a href="./index.html">Home <i class="fas fa-chevron-down"></i></a>
+            <div class="dropdown-menu">
+              <a href="./index.html" data-page="home1">Home 1</a>
+              <a href="./home2.html" data-page="home2">Home 2</a>
+            </div>
+          </div>
+          <a href="./about.html" data-page="about">About</a>
+          <a href="./store.html" data-page="store">Store</a>
+          <a href="./ingredients.html" data-page="ingredients" class="active">Ingredients</a>
+          <a href="./nutrition.html" data-page="nutrition">Nutrition Guide</a>
+          <div class="dropdown">
+            <a href="./packages.html">Cleanse <i class="fas fa-chevron-down"></i></a>
+            <div class="dropdown-menu">
+              <a href="./packages.html" data-page="packages">Packages</a>
+              <a href="./Subscription.html" data-page="subscription">Subscription</a>
+            </div>
+          </div>
+          <a href="./contact.html" data-page="contact">Contact</a>                 
+        </div>
+        <div class="navbar-controls">
+          <button class="mode-toggle" id="darkModeToggle"><i class="fas fa-moon"></i> Dark</button>
+          <button class="rtl-toggle" id="rtlToggle"><i class="fas fa-exchange-alt"></i> RTL</button>
+          <button class="login-btn" id="loginBtn"><i class="fas fa-sign-in-alt"></i> Login</button>
+        </div>
+      </div>
+
+      <!-- Mobile hamburger (right side) -->
+      <div class="hamburger" id="hamburger"><i class="fas fa-bars"></i></div>
+    </div>
+  </nav>
+
+  <!-- ==================== 6 STORYTELLING SESSIONS (farm-to-bottle journey) ==================== -->
+  
+  <!-- SESSION 1: Organic Farms Imagery -->
+  <section id="session1" class="session" style="background-image: linear-gradient(135deg, rgba(28, 52, 27, 0.6), rgba(0,0,0,0.4)), url('./image/in.jpg'); background-size: cover; background-position: center 30%;">
+    <div class="content-container text-white">
+      <div class="max-w-3xl fade-up">
+        <span class="inline-block px-4 py-1.5 bg-amber-500/80 backdrop-blur-sm rounded-full text-sm font-semibold tracking-wide mb-5"><i class="fas fa-seedling mr-2"></i> Regenerative Organic</span>
+        <h1 class="playfair text-5xl md:text-7xl font-bold leading-tight mb-6">Where the Earth<br>Speaks <span class="border-b-4 border-amber-400">Purity</span></h1>
+        <p class="text-lg md:text-xl text-white/90 max-w-xl mb-8">Nestled in pristine farmlands, our organic fields produce nutrient-rich harvest—untouched by chemicals, kissed by nature.</p>
+        <div class="flex flex-wrap gap-4">
+          <a href="#session5" class="bg-white text-gray-900 hover:bg-amber-100 px-8 py-3 rounded-full font-semibold transition-all shadow-lg flex items-center gap-2">Discover the roots <i class="fas fa-arrow-right"></i></a>
+          <a href="#session3" class="border border-white/60 hover:bg-white/20 px-8 py-3 rounded-full font-medium transition-all">Farm-to-bottle journey</a>
+        </div>
+      </div>
+    </div>
+    <div class="absolute bottom-8 left-0 right-0 text-center text-white/60 text-sm animate-bounce hidden md:block">
+      <i class="fas fa-chevron-down"></i> Scroll to explore
+    </div>
+  </section>
+
+  <!-- SESSION 2: Farmers & Fresh Vegetables -->
+  <section id="session2" class="session" style="background-image: linear-gradient(120deg, #1C2E1A 0%, #2B4127 100%), url('./image/in2.jpg'); background-blend-mode: overlay; background-size: cover; background-position: center 40%;">
+    <div class="content-container text-white">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div class="fade-up">
+          <i class="fas fa-hands-helping text-amber-300 text-4xl mb-5"></i>
+          <h2 class="playfair text-4xl md:text-5xl font-bold mb-5">Honoring the Hands<br>That Feed Us</h2>
+          <p class="text-white/90 text-lg leading-relaxed">Generations of dedicated farmers nurture every seedling, hand-picking each heirloom vegetable at peak ripeness. Their wisdom and care translate into vibrant produce — earthy carrots, crimson tomatoes, and crisp greens.</p>
+          <div class="mt-8 flex items-center gap-6 flex-wrap">
+            <div><i class="fas fa-check-circle text-amber-400 mr-2"></i> Heirloom varieties</div>
+            <div><i class="fas fa-check-circle text-amber-400 mr-2"></i> No GMO, no pesticide</div>
+            <div><i class="fas fa-check-circle text-amber-400 mr-2"></i> Fair trade certified</div>
+          </div>
+        </div>
+        <div class="relative rounded-2xl overflow-hidden shadow-2xl fade-up" style="animation-delay: 0.2s;">
+          <div class="bg-white/10 backdrop-blur-sm p-4 rounded-2xl border border-white/20">
+            <img src="./image/Fresh beetroot and juice.jpg" alt="Fresh vegetables harvest" class="rounded-xl w-full object-cover h-80 md:h-96 shadow-md">
+            <p class="text-sm text-white/80 mt-3 text-center"><i class="fas fa-tractor mr-1"></i> Daily harvest at sunrise</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SESSION 3: Farm-to-Bottle Process -->
+  <section id="session3" class="session" style="background: linear-gradient(145deg, #FEF3E4 0%, #E9F0E3 100%);">
+    <div class="content-container">
+      <div class="text-center mb-12 fade-up">
+        <span class="text-emerald-700 text-sm font-semibold tracking-wider bg-emerald-100/70 px-4 py-1 rounded-full">FROM EARTH TO ELIXIR</span>
+        <h2 class="playfair text-4xl md:text-5xl font-bold mt-3 text-gray-800">The Artisanal Farm-to-Bottle<br> Journey</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto mt-4">Cold-pressed within hours of harvest, locking nature’s vitality in every bottle.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mt-8">
+        <div class="process-step rounded-2xl p-6 text-center shadow-lg">
+          <div class="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fas fa-tractor text-2xl text-emerald-700"></i></div>
+          <h3 class="font-bold text-xl mb-2">1. Organic Harvest</h3>
+          <p class="text-gray-600">Hand-selected vegetables & botanicals at sunrise.</p>
+        </div>
+        <div class="process-step rounded-2xl p-6 text-center shadow-lg">
+          <div class="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fas fa-oil-can text-2xl text-emerald-700"></i></div>
+          <h3 class="font-bold text-xl mb-2">2. Cold-Pressed</h3>
+          <p class="text-gray-600">Gentle hydraulic press, zero heat for max nutrients.</p>
+        </div>
+        <div class="process-step rounded-2xl p-6 text-center shadow-lg">
+          <div class="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fas fa-flask text-2xl text-emerald-700"></i></div>
+          <h3 class="font-bold text-xl mb-2">3. Bottled Fresh</h3>
+          <p class="text-gray-600">Glass bottles, antioxidant protection, sealed in hours.</p>
+        </div>
+        <div class="process-step rounded-2xl p-6 text-center shadow-lg">
+          <div class="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fas fa-truck-fast text-2xl text-emerald-700"></i></div>
+          <h3 class="font-bold text-xl mb-2">4. To Your Table</h3>
+          <p class="text-gray-600">Direct farm-to-table delivery, minimal carbon footprint.</p>
+        </div>
+      </div>
+      <div class="mt-12 bg-white/70 backdrop-blur-sm p-6 rounded-2xl flex flex-wrap justify-between items-center gap-4 border border-emerald-100 shadow-sm fade-up">
+        <div class="flex items-center gap-3"><i class="fas fa-leaf text-3xl text-emerald-600"></i><span class="font-semibold">No preservatives • No additives</span></div>
+        <div class="flex items-center gap-3"><i class="fas fa-clock text-3xl text-amber-600"></i><span class="font-semibold">Bottled within 4h of harvest</span></div>
+        <div><i class="fas fa-recycle text-3xl text-emerald-600"></i><span class="font-semibold ml-2">100% recyclable glass</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SESSION 4: Healthy Lifestyle Branding -->
+  <section id="session4" class="session" style="background: linear-gradient(125deg, #264e2e 0%, #2B5B2F 100%), url('./image/in1.jpg'); background-blend-mode: overlay; background-size: cover; background-position: center;">
+    <div class="content-container text-white text-center">
+      <div class="max-w-3xl mx-auto fade-up bg-black/20 backdrop-blur-md p-8 md:p-12 rounded-[2rem] border border-white/10">
+        <i class="fas fa-heartbeat text-amber-300 text-4xl mb-4"></i>
+        <h2 class="playfair text-4xl md:text-5xl font-bold mb-5">Reconnect with<br>Vibrant Living</h2>
+        <p class="text-white/95 text-lg mb-6">Beetroot Detox isn't just a drink — it's a daily ritual that fuels your body with clean, plant-powered energy. Embrace a lifestyle where wellness meets flavor, and each sip supports organic farming communities.</p>
+        <div class="flex flex-wrap justify-center gap-6 my-6">
+          <div><i class="fas fa-person-walking text-amber-300 text-xl"></i> <span class="ml-2">Boosted vitality</span></div>
+          <div><i class="fas fa-spa text-amber-300 text-xl"></i> <span class="ml-2">Radiant skin & immunity</span></div>
+          <div><i class="fas fa-brain text-amber-300 text-xl"></i> <span class="ml-2">Mental clarity</span></div>
+        </div>
+        <a href="#session5" class="inline-flex items-center bg-white text-emerald-800 hover:bg-amber-50 px-8 py-3 rounded-full font-semibold transition-all shadow-xl gap-2">Join the wellness movement <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SESSION 5: Animated Statistics -->
+  <section id="session5" class="session bg-gradient-to-br from-white to-amber-50/40">
+    <div class="content-container">
+      <div class="text-center max-w-3xl mx-auto mb-16 fade-up">
+        <span class="text-emerald-700 font-semibold bg-emerald-100 px-5 py-1.5 rounded-full text-sm"><i class="fas fa-chart-line mr-1"></i> Our impact in numbers</span>
+        <h2 class="playfair text-4xl md:text-5xl font-bold text-gray-800 mt-4">Rooted in Trust,<br> Harvesting Happiness</h2>
+        <p class="text-gray-600 text-lg mt-3">Every statistic reflects our dedication to organic integrity and community well-being.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="stat-card p-8 text-center transition-all duration-500 hover:scale-105">
+          <div class="w-20 h-20 bg-emerald-100 rounded-3xl flex items-center justify-center mx-auto mb-5 shadow-md"><i class="fas fa-certificate text-4xl text-emerald-700"></i></div>
+          <div class="counter-number text-emerald-800" id="counterOrganic">0</div>
+          <div class="text-2xl font-bold text-emerald-700 inline-block ml-1">%</div>
+          <h3 class="text-2xl font-bold text-gray-800 mt-3">Certified Organic</h3>
+          <p class="text-gray-500 mt-2">USDA & EU organic standards, farm verified</p>
+        </div>
+        <div class="stat-card p-8 text-center transition-all duration-500 hover:scale-105">
+          <div class="w-20 h-20 bg-amber-100 rounded-3xl flex items-center justify-center mx-auto mb-5 shadow-md"><i class="fas fa-smile-wink text-4xl text-amber-700"></i></div>
+          <div class="counter-number text-amber-800" id="counterCustomers">0</div>
+          <span class="text-2xl font-bold text-amber-800">+</span>
+          <h3 class="text-2xl font-bold text-gray-800 mt-3">Happy Customers</h3>
+          <p class="text-gray-500 mt-2">5-star reviews & love from 10k+ households</p>
+        </div>
+        <div class="stat-card p-8 text-center transition-all duration-500 hover:scale-105">
+          <div class="w-20 h-20 bg-emerald-100 rounded-3xl flex items-center justify-center mx-auto mb-5 shadow-md"><i class="fas fa-droplet text-4xl text-emerald-700"></i></div>
+          <div class="counter-number text-emerald-800" id="counterDaily">0</div>
+          <span class="text-2xl font-bold text-emerald-800">+ Bottles</span>
+          <h3 class="text-2xl font-bold text-gray-800 mt-3">Fresh Daily Production</h3>
+          <p class="text-gray-500 mt-2">Cold-pressed & shipped within 24h</p>
+        </div>
+      </div>
+      <div class="text-center mt-12 fade-up">
+        <p class="text-gray-500 italic flex items-center justify-center gap-2"><i class="fas fa-seedling text-emerald-600"></i> Our production runs on solar energy & zero waste philosophy</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SESSION 6: Fresh Daily Production Showcase -->
+  <section id="session6" class="session" style="background: #FBF7F0 url('./image/in3.jpg') no-repeat center center/cover; background-blend-mode: overlay; background-color: rgba(0,0,0,0.55);">
+    <div class="content-container text-white">
+      <div class="max-w-3xl fade-up bg-black/30 backdrop-blur-sm rounded-3xl p-8 md:p-12 border border-white/20">
+        <i class="fas fa-sun-plant-wilt text-4xl text-amber-300 mb-4"></i>
+        <h2 class="playfair text-4xl md:text-5xl font-bold mb-4">Fresh Every Sunrise,<br> Delivered to You</h2>
+        <p class="text-white/95 text-lg mb-6">Our commitment: production starts before dawn — crisp vegetables become vibrant bottles, reaching your doorstep within a day. 100% traceable from farm to bottle.</p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 my-8">
+          <div class="flex items-center gap-3"><i class="fas fa-check-circle text-amber-400 text-xl"></i> <span>Today's harvest → tomorrow's bottle</span></div>
+          <div class="flex items-center gap-3"><i class="fas fa-check-circle text-amber-400 text-xl"></i> <span>Farmers' cooperative model</span></div>
+          <div class="flex items-center gap-3"><i class="fas fa-check-circle text-amber-400 text-xl"></i> <span>Zero synthetic inputs</span></div>
+        </div>
+        <div class="flex flex-wrap gap-4 mt-4">
+          <a href="#" class="bg-amber-500 hover:bg-amber-600 text-white px-8 py-3 rounded-full font-semibold transition-all inline-flex items-center gap-2 shadow-lg"><i class="fas fa-store"></i> Shop Fresh Collection</a>
+          <a href="#" class="border border-white/70 hover:bg-white/20 px-7 py-3 rounded-full font-medium transition-all"><i class="fas fa-truck-fast"></i> Subscribe & Save</a>
+        </div>
+        <p class="text-sm text-white/70 mt-6"><i class="fas fa-map-marker-alt mr-1"></i> Partner farms: California, Tuscany, & Costa Rica</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==================== ALL SCRIPTS (dark/light, RTL, mobile, counters, animations) ==================== -->
+  <!-- ================= UNIFIED FOOTER (last) ================= -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-col">
+        <a href="index.html" class="logo" style="margin-bottom: 1.2rem; text-decoration: none;">
+          <div class="logo-icon-wrapper">
+            <i class="fas fa-droplet"></i>
+            <i class="fas fa-leaf"></i>
+          </div>
+          <span class="logo-text">Beetroot Detox</span>
+        </a>
+        <p>Cold-pressed organic juices. Cleanse, energize, thrive.</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <p><a href="./index.html">Home</a></p>
+        <p><a href="./about.html">About</a></p>
+        <p><a href="./store.html">Store</a></p>
+        <p><a href="./Subscription.html">Subscription</a></p>
+        <p><a href="./contact.html">Contact Us</a></p>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <p><a href="./Ingredients.html">Ingredients</a></p>
+        <p><a href="./packages.html">Packages</a></p>
+        <p><a href="./Nutrition.html">Nutrition</a></p>
+      </div>
+      <div class="footer-col">
+        <h4>Get Fresh Updates</h4>
+        <p><i class="fas fa-envelope"></i> hello@beetrootdetox.com</p>
+        <p><i class="fas fa-phone-alt"></i> +1 (800) 234-5678</p>
+        <p><i class="fas fa-map-marker-alt"></i> Nationwide delivery</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2025 Beetroot Detox — Organic Juice Cleanse. Rooted vitality.
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      // THEME TOGGLE & RTL & LOGIN (unified)
+      const darkToggle = document.getElementById('darkModeToggle');
+      const rtlToggle = document.getElementById('rtlToggle');
+      const loginButton = document.getElementById('loginBtn');
+      const body = document.body;
+
+      function setTheme(theme) {
+        if (theme === 'light') {
+          body.classList.remove('dark');
+          body.classList.add('light');
+          if (darkToggle) darkToggle.innerHTML = '<i class="fas fa-sun"></i> Light';
+        } else {
+          body.classList.remove('light');
+          body.classList.add('dark');
+          if (darkToggle) darkToggle.innerHTML = '<i class="fas fa-moon"></i> Dark';
+        }
+      }
+      if (darkToggle) {
+        darkToggle.addEventListener('click', () => {
+          const isDark = body.classList.contains('dark');
+          if (isDark) { setTheme('light'); localStorage.setItem('beetroot-theme', 'light'); }
+          else { setTheme('dark'); localStorage.setItem('beetroot-theme', 'dark'); }
+        });
+      }
+      const savedTheme = localStorage.getItem('beetroot-theme');
+      if (savedTheme === 'light') setTheme('light'); else setTheme('dark');
+
+      function setDir(dir) {
+        if (dir === 'rtl') {
+          document.documentElement.setAttribute('dir', 'rtl');
+          body.setAttribute('dir', 'rtl');
+          if (rtlToggle) rtlToggle.innerHTML = '<i class="fas fa-exchange-alt"></i> LTR';
+        } else {
+          document.documentElement.setAttribute('dir', 'ltr');
+          body.setAttribute('dir', 'ltr');
+          if (rtlToggle) rtlToggle.innerHTML = '<i class="fas fa-exchange-alt"></i> RTL';
+        }
+      }
+      if (rtlToggle) {
+        rtlToggle.addEventListener('click', () => {
+          const currentDir = document.documentElement.getAttribute('dir') || 'ltr';
+          if (currentDir === 'ltr') { setDir('rtl'); localStorage.setItem('beetroot-dir', 'rtl'); }
+          else { setDir('ltr'); localStorage.setItem('beetroot-dir', 'ltr'); }
+        });
+      }
+      const savedDir = localStorage.getItem('beetroot-dir');
+      if (savedDir === 'rtl') setDir('rtl'); else setDir('ltr');
+
+      if (loginButton) {
+        loginButton.addEventListener('click', (e) => {
+          e.preventDefault();
+          window.location.href = 'login.html';
+        });
+      }
+
+      const hamburger = document.getElementById('hamburger');
+      const navCenter = document.getElementById('navLinksCenter');
+      
+      if(hamburger && navCenter) {
+        hamburger.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const isActive = navCenter.classList.toggle('active');
+          hamburger.innerHTML = isActive ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+
+        document.addEventListener('click', (e) => {
+          if (navCenter.classList.contains('active') && !navCenter.contains(e.target) && !hamburger.contains(e.target)) {
+            navCenter.classList.remove('active');
+            hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+          }
+        });
+
+        document.querySelectorAll('.nav-links a, .dropdown-menu a').forEach(link => {
+          link.addEventListener('click', () => {
+            if (navCenter.classList.contains('active')) {
+              navCenter.classList.remove('active');
+              hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+          });
+        });
+      }
+
+      const dropdowns = document.querySelectorAll('.dropdown');
+      dropdowns.forEach(drop => {
+        const trigger = drop.querySelector(':scope > a');
+        if(trigger) {
+          trigger.addEventListener('click', (e) => {
+            if (window.innerWidth <= 1050) {
+              const menu = drop.querySelector('.dropdown-menu');
+              if(menu) {
+                e.preventDefault();
+                drop.classList.toggle('open');
+              }
+            }
+          });
+        }
+      });
+      window.addEventListener('resize', () => {
+        if(window.innerWidth > 1050) {
+          dropdowns.forEach(d => d.classList.remove('open'));
+          if(navCenter && navCenter.classList.contains('active')) {
+            navCenter.classList.remove('active');
+            hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+          }
+        }
+      });
+
+      // COUNTER ANIMATION & FADE-UP OBSERVER
+      const organicCounter = document.getElementById('counterOrganic');
+      const customersCounter = document.getElementById('counterCustomers');
+      const dailyCounter = document.getElementById('counterDaily');
+      const targets = { organic: 100, customers: 10000, daily: 2850 };
+      let animated = false, countersStarted = false;
+
+      function animateNumber(element, start, end, duration, isOrganic = false, isCustomers = false, isDaily = false) {
+        let startTimestamp = null;
+        const step = (timestamp) => {
+          if (!startTimestamp) startTimestamp = timestamp;
+          const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+          const currentValue = Math.floor(progress * (end - start) + start);
+          if (isOrganic) element.innerText = currentValue;
+          else if (isCustomers) element.innerText = currentValue.toLocaleString();
+          else if (isDaily) element.innerText = currentValue.toLocaleString();
+          else element.innerText = currentValue;
+          if (progress < 1) requestAnimationFrame(step);
+          else { if (isOrganic) element.innerText = end; else if (isCustomers) element.innerText = end.toLocaleString(); else if (isDaily) element.innerText = end.toLocaleString(); }
+        };
+        requestAnimationFrame(step);
+      }
+      function startCounters() {
+        if (countersStarted) return;
+        countersStarted = true;
+        animateNumber(organicCounter, 0, targets.organic, 2000, true, false, false);
+        animateNumber(customersCounter, 0, targets.customers, 2100, false, true, false);
+        animateNumber(dailyCounter, 0, targets.daily, 2000, false, false, true);
+      }
+      const statsSection = document.getElementById('session5');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => { if (entry.isIntersecting && !animated) { animated = true; startCounters(); } });
+      }, { threshold: 0.4 });
+      if (statsSection) observer.observe(statsSection);
+      window.addEventListener('load', () => {
+        if (statsSection && statsSection.getBoundingClientRect().top < window.innerHeight - 100) {
+          if (!animated) { animated = true; startCounters(); }
+        }
+        const fadeElements = document.querySelectorAll('.fade-up');
+        const fadeObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); fadeObserver.unobserve(entry.target); } });
+        }, { threshold: 0.2 });
+        fadeElements.forEach(el => fadeObserver.observe(el));
+        fadeElements.forEach(el => { if (el.getBoundingClientRect().top < window.innerHeight - 50) el.classList.add('visible'); });
+      });
+    })();
+  </script>
+</body>
+</html>

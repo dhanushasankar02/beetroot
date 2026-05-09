@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <title>Subscriptions | Beetroot Detox — Earth’s Crimson Energy</title>
+  <!-- Google Fonts + Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --accent: #BC2F4C;
+      --accent-secondary: #E2A76F;
+      --accent-glow: rgba(188, 47, 76, 0.35);
+      --bg-primary: #0A0C0F;
+      --bg-secondary: #0F1217;
+      --card-bg: #1A1E26;
+      --text-primary: #F7F5F0;
+      --text-muted: #CFD3DC;
+      --border-light: rgba(255,255,255,0.06);
+      --shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.5);
+      --hero-overlay: rgba(0, 0, 0, 0.7);
+      --session-overlay-bg: linear-gradient(115deg, rgba(10,12,15,0.85), rgba(10,12,15,0.6));
+      --footer-bg: #0C0F14;
+    }
+
+    body.light {
+      --bg-primary: #FEF8F5;
+      --bg-secondary: #FFFFFF;
+      --card-bg: #FFFFFF;
+      --text-primary: #1A2A2F;
+      --text-muted: #1F3A42;
+      --border-light: rgba(0,0,0,0.08);
+      --shadow: 0 15px 30px -12px rgba(0, 0, 0, 0.1);
+      --accent: #A52A44;
+      --accent-secondary: #D6894A;
+      --accent-glow: rgba(165, 42, 68, 0.2);
+      --footer-bg: #F4EFEA;
+      --hero-overlay: rgba(255, 248, 240, 0.85);
+      --session-overlay-bg: linear-gradient(115deg, rgba(255,248,240,0.9), rgba(255,248,240,0.8));
+    }
+
+    body.dark {
+      --bg-primary: #0A0C0F;
+      --bg-secondary: #0F1217;
+      --card-bg: #191E27;
+      --text-primary: #F9F5EF;
+      --text-muted: #C2C9D2;
+      --border-light: rgba(255,255,255,0.05);
+      --accent: #D1495B;
+      --accent-secondary: #E6B17E;
+      --accent-glow: rgba(209, 73, 91, 0.3);
+      --footer-bg: #0C0F14;
+      --hero-overlay: rgba(0, 0, 0, 0.75);
+      --session-overlay-bg: linear-gradient(115deg, rgba(10,12,15,0.85), rgba(10,12,15,0.6));
+    }
+
+    html, body {
+      overflow-x: hidden;
+      width: 100%;
+      position: relative;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      transition: background-color 0.2s ease, color 0.2s ease;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      scroll-behavior: smooth;
+      line-height: 1.5;
+      overflow-x: hidden;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+      padding-top: 68px;
+    }
+    body::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* ========= STABLE NAVBAR (logo left, menu center, controls right) ========= */
+    nav {
+      background-color: var(--card-bg);
+      border-bottom: 2px solid color-mix(in srgb, var(--accent) 35%, transparent);
+      backdrop-filter: blur(14px);
+      position: fixed;
+      top: 0;
+      z-index: 1000;
+      width: 100%;
+      transition: background 0.2s ease;
+    }
+    body.light nav {
+      background: rgba(255, 252, 248, 0.96);
+      backdrop-filter: blur(14px);
+      border-bottom-color: rgba(165, 42, 68, 0.3);
+    }
+    body.dark nav {
+      background: rgba(16, 19, 26, 0.97);
+      backdrop-filter: blur(14px);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0.75rem 2rem;
+      flex-wrap: nowrap;
+      position: relative;
+    }
+
+    /* Logo - always left */
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+      text-decoration: none;
+      transition: transform 0.3s ease;
+    }
+    .logo:hover {
+      transform: scale(1.05);
+    }
+    .logo-text {
+      background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+      background-clip: text !important;
+      -webkit-background-clip: text !important;
+      color: transparent !important;
+      -webkit-text-fill-color: transparent;
+      font-weight: 800;
+      font-size: 1rem;
+      letter-spacing: -0.3px;
+    }
+    .logo-icon-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      background: color-mix(in srgb, var(--accent) 12%, transparent);
+      border-radius: 12px;
+      flex-shrink: 0;
+    }
+    .logo-icon-wrapper i {
+      background: none;
+      color: var(--accent);
+      font-size: 1.4rem;
+    }
+    .logo-icon-wrapper .fa-droplet, .logo-icon-wrapper .fa-tint {
+      position: absolute;
+      font-size: 1.6rem;
+      opacity: 0.8;
+    }
+    .logo-icon-wrapper .fa-leaf {
+      position: relative;
+      font-size: 0.9rem;
+      color: var(--accent-secondary);
+      z-index: 2;
+      margin-top: 4px;
+    }
+
+    /* Nav links wrapper - desktop */
+    .nav-links-center {
+      display: flex;
+      align-items: center;
+      flex: 1;
+      justify-content: flex-end;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: nowrap;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 500;
+      color: var(--text-primary);
+      transition: color 0.2s, border-bottom 0.2s;
+      white-space: nowrap;
+      font-size: 0.95rem;
+      padding-bottom: 4px;
+    }
+    .nav-links a.active {
+      color: var(--accent);
+      border-bottom: 2px solid var(--accent);
+    }
+    .nav-links a:hover:not(.active) {
+      color: var(--accent);
+    }
+
+    /* dropdowns */
+    .dropdown {
+      position: relative;
+    }
+    .dropdown > a {
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      white-space: nowrap;
+    }
+    .dropdown-menu {
+      position: absolute;
+      top: calc(100% + 0.6rem);
+      left: 0;
+      background-color: var(--card-bg);
+      border-radius: 20px;
+      padding: 0.6rem 0;
+      min-width: 190px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.2s ease, visibility 0.2s;
+      z-index: 100;
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+    }
+    .dropdown-menu a {
+      display: block;
+      padding: 0.6rem 1.4rem;
+      color: var(--text-primary);
+      font-size: 0.9rem;
+      white-space: nowrap;
+      border-bottom: none;
+    }
+    .dropdown-menu a:hover {
+      background-color: color-mix(in srgb, var(--accent) 18%, transparent);
+      color: var(--accent);
+    }
+    .dropdown:hover .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Right side controls */
+    .navbar-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      flex-shrink: 0;
+    }
+    .mode-toggle, .rtl-toggle, .login-btn {
+      background: transparent;
+      border: 1.5px solid var(--accent);
+      border-radius: 40px;
+      padding: 0.4rem 0.9rem;
+      cursor: pointer;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      transition: all 0.2s ease;
+      backdrop-filter: blur(4px);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+    .mode-toggle:hover, .rtl-toggle:hover, .login-btn:hover {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+    .login-btn {
+      background: color-mix(in srgb, var(--accent) 15%, transparent);
+    }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: var(--accent);
+      flex-shrink: 0;
+      z-index: 1001;
+    }
+
+    /* ========= FULLY RESPONSIVE MOBILE & TABLET ========= */
+    @media (max-width: 1050px) {
+      .nav-links-center {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 85%;
+        max-width: 340px;
+        height: 100vh;
+        background-color: var(--card-bg);
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding: 5rem 2rem 2rem;
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.4s, opacity 0.4s;
+        z-index: 1000;
+        box-shadow: -10px 0 30px rgba(0,0,0,0.25);
+        border-left: 2px solid var(--accent);
+        gap: 1.5rem;
+        overflow-y: auto;
+        display: flex;
+        visibility: hidden;
+        opacity: 0;
+        pointer-events: none;
+        transform: translateX(100%);
+      }
+      .nav-links-center.active {
+        visibility: visible;
+        opacity: 1;
+        pointer-events: all;
+        transform: translateX(0);
+      }
+      body[dir="rtl"] .nav-links-center {
+        right: auto;
+        left: 0;
+        border-left: none;
+        border-right: 2px solid var(--accent);
+        transform: translateX(-100%);
+      }
+      body[dir="rtl"] .nav-links-center.active { transform: translateX(0); }
+      .nav-links {
+        position: static;
+        transform: none;
+        left: auto;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        gap: 1.2rem;
+      }
+      .nav-links a { font-size: 1rem; white-space: normal; }
+      .dropdown { width: 100%; }
+      .dropdown-menu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        display: none;
+        background: transparent;
+        padding-left: 1rem;
+        box-shadow: none;
+        border: none;
+        backdrop-filter: none;
+        margin-top: 0.5rem;
+        width: 100%;
+      }
+      .dropdown-menu a { white-space: normal; padding: 0.5rem 1rem; }
+      .dropdown.open .dropdown-menu { display: block; }
+      .navbar-controls { margin-top: 1.2rem; width: 100%; justify-content: flex-start; flex-wrap: wrap; gap: 0.8rem; }
+      .hamburger { display: block; }
+    }
+
+    /* Subscription Page Custom Styles */
+    main { flex: 1; }
+    section { padding: 6rem 10%; position: relative; }
+    .playfair { font-family: 'Playfair Display', serif; }
+
+    /* Hero */
+    .sub-hero {
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: linear-gradient(var(--hero-overlay), var(--hero-overlay)), url('./image/bg2.jpg') center/cover no-repeat;
+      background-attachment: fixed;
+    }
+    .sub-hero h1 { font-size: clamp(3rem, 8vw, 5.5rem); margin-bottom: 1.5rem; }
+    .sub-hero span { color: var(--accent); }
+    .sub-hero p { font-size: 1.2rem; color: var(--text-muted); max-width: 700px; margin: 0 auto 2.5rem; }
+
+    /* The Process */
+    .process-section { background: var(--bg-secondary); }
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 3rem;
+      text-align: center;
+      margin-top: 4rem;
+    }
+    .process-item { padding: 3rem 2rem; background: var(--card-bg); border-radius: 32px; border: 1px solid var(--border-light); transition: transform 0.3s ease; }
+    .process-item:hover { transform: translateY(-10px); border-color: var(--accent); }
+    .process-item i { font-size: 3.5rem; color: var(--accent-secondary); margin-bottom: 1.5rem; display: block; }
+    .process-item h3 { font-size: 1.8rem; margin-bottom: 1rem; }
+
+    /* Tiers */
+    .tiers-section { background: var(--bg-primary); }
+    .tiers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2.5rem;
+      margin-top: 4rem;
+    }
+    .tier-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-light);
+      padding: 4rem 2.5rem;
+      border-radius: 40px;
+      text-align: center;
+      position: relative;
+      transition: all 0.4s ease;
+    }
+    .tier-card:hover { transform: translateY(-15px); box-shadow: var(--shadow); }
+    .tier-card.popular { border: 2px solid var(--accent); transform: scale(1.05); z-index: 2; }
+    .popular-tag {
+      position: absolute;
+      top: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--accent);
+      color: white;
+      padding: 0.5rem 1.5rem;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    .price { font-size: 4rem; font-weight: 800; color: var(--accent); margin: 1.5rem 0; }
+    .price span { font-size: 1rem; color: var(--text-muted); font-weight: 400; }
+    .tier-features { list-style: none; margin: 2.5rem 0; text-align: left; }
+    .tier-features li { margin-bottom: 1.2rem; display: flex; align-items: center; gap: 12px; color: var(--text-muted); font-size: 1.05rem; }
+    .tier-features i { color: #4CAF50; font-size: 1.2rem; }
+    .sub-btn {
+      width: 100%;
+      padding: 1.3rem;
+      background: var(--accent);
+      border: none;
+      color: white;
+      font-weight: 700;
+      border-radius: 60px;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .sub-btn:hover { background: #9E2C46; transform: scale(1.02); }
+
+    /* Dashboard Preview */
+    .dashboard-preview {
+      background: var(--bg-secondary);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .dash-text h2 { font-size: 3.5rem; margin-bottom: 1.5rem; }
+    .dash-visual {
+      background: var(--card-bg);
+      padding: 3rem;
+      border-radius: 40px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border-light);
+    }
+    .dash-status {
+      display: flex;
+      justify-content: space-between;
+      padding: 1.5rem;
+      background: color-mix(in srgb, var(--accent) 8%, transparent);
+      border-radius: 18px;
+      margin-bottom: 2rem;
+      font-weight: 600;
+    }
+    .btn-control {
+      padding: 1rem 2rem;
+      border-radius: 15px;
+      border: 1px solid var(--border-light);
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      cursor: pointer;
+      font-weight: 600;
+      width: 100%;
+      margin-bottom: 1rem;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    .btn-control:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* Loyalty */
+    .loyalty-section { text-align: center; background: var(--bg-primary); }
+    .loyalty-grid {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+      margin-top: 4rem;
+    }
+    .loyalty-step {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      border: 3px dashed var(--accent);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      background: var(--card-bg);
+      transition: all 0.4s ease;
+    }
+    .loyalty-step:hover { border-style: solid; background: color-mix(in srgb, var(--accent) 5%, transparent); transform: translateY(-10px); }
+    .loyalty-step.active { border-style: solid; border-color: var(--accent-secondary); box-shadow: 0 0 20px var(--accent-glow); }
+    .loyalty-step i { font-size: 2.5rem; color: var(--accent); margin-bottom: 0.5rem; }
+
+    /* FAQ */
+    .faq-section { background: var(--bg-secondary); }
+    .faq-container { max-width: 900px; margin: 4rem auto 0; }
+    .faq-item {
+      background: var(--card-bg);
+      margin-bottom: 1.2rem;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid var(--border-light);
+      transition: all 0.3s ease;
+    }
+    .faq-question {
+      padding: 1.8rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 1.15rem;
+    }
+    .faq-answer { padding: 0 1.8rem 1.8rem; color: var(--text-muted); display: none; line-height: 1.8; }
+    .faq-item.open { border-color: var(--accent); }
+    .faq-item.open .faq-answer { display: block; }
+    .faq-item.open i { transform: rotate(180deg); color: var(--accent); }
+
+    /* Footer */
+    footer {
+      background: var(--footer-bg);
+      border-top: 1px solid var(--border-light);
+      padding: 3rem 2rem 1.5rem;
+      margin-top: auto;
+      width: 100%;
+    }
+    .footer-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      align-items: start;
+    }
+    .footer-col h4 { font-size: 1.2rem; margin-bottom: 1rem; color: var(--accent); }
+    .footer-col p, .footer-col a { color: var(--text-muted); text-decoration: none; line-height: 1.7; font-size: 0.9rem; }
+    .footer-col a:hover { color: var(--accent); }
+    .social-links { display: flex; gap: 1rem; margin-top: 0.8rem; flex-wrap: wrap; }
+    .social-links a {
+      background: var(--bg-primary);
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: 0.2s;
+      border: 1px solid var(--border-light);
+      color: var(--text-muted);
+    }
+    .social-links a:hover { background: var(--accent); color: white; transform: translateY(-3px); }
+    .footer-bottom { text-align: center; margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-light); font-size: 0.8rem; color: var(--text-muted); }
+
+    @media (max-width: 1050px) {
+      .dashboard-preview { grid-template-columns: 1fr; text-align: center; gap: 3rem; }
+      .sub-hero h1 { font-size: 3.5rem; }
+      .loyalty-grid { gap: 1.5rem; }
+      .loyalty-step { width: 150px; height: 150px; }
+    }
+  </style>
+</head>
+<body class="dark">
+
+  <nav>
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <div class="logo-icon-wrapper">
+          <i class="fas fa-droplet"></i>
+          <i class="fas fa-leaf"></i>
+        </div>
+        <span class="logo-text">Beetroot Detox</span>
+      </a>
+
+      <div class="nav-links-center" id="navLinksCenter">
+        <div class="nav-links">
+          <div class="dropdown">
+            <a href="./index.html">Home <i class="fas fa-chevron-down"></i></a>
+            <div class="dropdown-menu">
+              <a href="./index.html">Home 1</a>
+              <a href="./home2.html">Home 2</a>
+            </div>
+          </div>
+          <a href="./about.html">About</a>
+          <a href="./store.html">Store</a>
+          <a href="./ingredients.html">Ingredients</a>
+          <a href="./nutrition.html">Nutrition Guide</a>
+          <div class="dropdown">
+            <a href="./packages.html">Cleanse <i class="fas fa-chevron-down"></i></a>
+            <div class="dropdown-menu">
+              <a href="./packages.html">Packages</a>
+              <a href="./Subscription.html">Subscription</a>
+            </div>
+          </div>
+          <a href="./contact.html">Contact</a>                 
+        </div>
+        <div class="navbar-controls">
+          <button class="mode-toggle" id="darkModeToggle"><i class="fas fa-moon"></i> Dark</button>
+          <button class="rtl-toggle" id="rtlToggle"><i class="fas fa-exchange-alt"></i> RTL</button>
+          <button class="login-btn" id="loginBtn"><i class="fas fa-sign-in-alt"></i> Login</button>
+        </div>
+      </div>
+
+      <div class="hamburger" id="hamburger"><i class="fas fa-bars"></i></div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="sub-hero">
+      <div class="hero-content">
+        <h1 class="playfair">The <span>Subscription</span> Service<br>Designed for Vitality</h1>
+        <p>Raw, organic, cold-pressed beetroot infusions delivered to your doorstep. Join our growing community of high-vibrational humans.</p>
+        <a href="#plans" class="sub-btn" style="width: auto; padding: 1.3rem 3.5rem;">Pick Your Plan</a>
+      </div>
+    </section>
+
+    <section class="process-section">
+      <div style="text-align: center; margin-bottom: 3rem;">
+        <h2 class="playfair">How Your Loop Works</h2>
+      </div>
+      <div class="process-grid">
+        <div class="process-item">
+          <i class="fas fa-palette"></i>
+          <h3>Curate Your Crate</h3>
+          <p>Choose from our base Ruby blends or customize your own mix of seasonal infusions.</p>
+        </div>
+        <div class="process-item">
+          <i class="fas fa-clock"></i>
+          <h3>Set Your Pulse</h3>
+          <p>Choose weekly, bi-weekly, or monthly delivery. Total flexibility, zero commitment.</p>
+        </div>
+        <div class="process-item">
+          <i class="fas fa-truck-fast"></i>
+          <h3>Dawn Delivery</h3>
+          <p>Freshly pressed within 12 hours and delivered chilled to your door before you wake up.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="plans" class="tiers-section">
+      <div style="text-align: center; margin-bottom: 3rem;">
+        <h2 class="playfair">Choose Your Vitality Tier</h2>
+        <p style="color: var(--text-muted);">Cancel or pause anytime. Subscribers save 20% on every bottle.</p>
+      </div>
+      <div class="tiers-grid">
+        <div class="tier-card">
+          <h3>The Sprout</h3>
+          <div class="price">$42<span>/mo</span></div>
+          <ul class="tier-features">
+            <li><i class="fas fa-check"></i> 6 Cold-pressed bottles</li>
+            <li><i class="fas fa-check"></i> 1 Seasonal limited drop</li>
+            <li><i class="fas fa-check"></i> Standard morning delivery</li>
+            <li><i class="fas fa-check"></i> 24/7 Nutritionist access</li>
+          </ul>
+          <button class="sub-btn">Join Sprout</button>
+        </div>
+        <div class="tier-card popular">
+          <div class="popular-tag">BEST VALUE</div>
+          <h3>The Ritual</h3>
+          <div class="price">$78<span>/mo</span></div>
+          <ul class="tier-features">
+            <li><i class="fas fa-check"></i> 12 Cold-pressed bottles</li>
+            <li><i class="fas fa-check"></i> 3 Seasonal limited drops</li>
+            <li><i class="fas fa-check"></i> Priority morning delivery</li>
+            <li><i class="fas fa-check"></i> Free wellness e-book</li>
+          </ul>
+          <button class="sub-btn">Begin Ritual</button>
+        </div>
+        <div class="tier-card">
+          <h3>The Alchemist</h3>
+          <div class="price">$145<span>/mo</span></div>
+          <ul class="tier-features">
+            <li><i class="fas fa-check"></i> 24 Cold-pressed bottles</li>
+            <li><i class="fas fa-check"></i> All seasonal drops included</li>
+            <li><i class="fas fa-check"></i> Glass bottle return reward</li>
+            <li><i class="fas fa-check"></i> 24/7 Nutritionist access</li>
+          </ul>
+          <button class="sub-btn">Go Alchemist</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="dashboard-preview">
+      <div class="dash-text">
+        <h2 class="playfair">Manage Your <span>Flow</span></h2>
+        <p style="color: var(--text-muted); line-height: 1.8;">Your subscription should adapt to you, not the other way around. Our intuitive dashboard gives you complete control over your delivery schedule and flavor profiles.</p>
+        <div style="margin-top: 2rem;">
+          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.2rem;">
+            <i class="fas fa-check-circle" style="color:var(--accent);"></i>
+            <span>One-click skip or pause functionality</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 1rem;">
+            <i class="fas fa-check-circle" style="color:var(--accent);"></i>
+            <span>Real-time delivery tracking and notifications</span>
+          </div>
+        </div>
+      </div>
+      <div class="dash-visual">
+        <div class="dash-status">
+          <span>Status: <span style="color: #4CAF50;">Next Batch Oct 10</span></span>
+          <span>Ritual Tier</span>
+        </div>
+        <button class="btn-control"><i class="fas fa-pause"></i> Pause Delivery</button>
+        <button class="btn-control"><i class="fas fa-forward"></i> Skip This Cycle</button>
+        <button class="btn-control" style="background: var(--accent); color: white; border: none;"><i class="fas fa-shuffle"></i> Swap Flavor Blends</button>
+      </div>
+    </section>
+
+    <section class="loyalty-section">
+      <div style="text-align: center; margin-bottom: 2rem;">
+        <h2 class="playfair">The Growth Journey</h2>
+        <p style="color: var(--text-muted);">Rewards for staying rooted in your health.</p>
+      </div>
+      <div class="loyalty-grid">
+        <div class="loyalty-step active">
+          <i class="fas fa-seedling"></i>
+          <span style="font-weight: 700;">Sprout</span>
+          <p style="font-size: 0.8rem; color: var(--text-muted);">Month 1-3</p>
+        </div>
+        <div class="loyalty-step">
+          <i class="fas fa-leaf"></i>
+          <span style="font-weight: 700;">Growth</span>
+          <p style="font-size: 0.8rem; color: var(--text-muted);">Month 4-6</p>
+        </div>
+        <div class="loyalty-step">
+          <i class="fas fa-tree"></i>
+          <span style="font-weight: 700;">Harvest</span>
+          <p style="font-size: 0.8rem; color: var(--text-muted);">Month 7-12</p>
+        </div>
+        <div class="loyalty-step">
+          <i class="fas fa-crown"></i>
+          <span style="font-weight: 700;">Legacy</span>
+          <p style="font-size: 0.8rem; color: var(--text-muted);">1 Year+</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <h2 class="playfair" style="text-align: center; margin-bottom: 3rem;">Subscription Intelligence</h2>
+      <div class="faq-container">
+        <div class="faq-item">
+          <div class="faq-question">How are the juices kept cold during delivery? <i class="fas fa-chevron-down"></i></div>
+          <div class="faq-answer">We use custom-engineered, biodegradable insulation and non-toxic ice packs that maintain a temperature of 2-4°C for up to 12 hours at your doorstep.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">Can I customize my box every week? <i class="fas fa-chevron-down"></i></div>
+          <div class="faq-answer">Absolutely. You have until 48 hours before your delivery window to swap flavors in your dashboard. If you don't choose, we'll send our "Farmer's Pick" seasonal rotation.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">What is the glass return program? <i class="fas fa-chevron-down"></i></div>
+          <div class="faq-answer">For "The Alchemist" tier, leave your clean empty bottles in the delivery bag. We collect, sanitize, and reuse them — reducing our carbon footprint by 40% compared to recycling.</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-col">
+        <a href="index.html" class="logo" style="margin-bottom: 1.2rem; text-decoration: none;">
+          <div class="logo-icon-wrapper">
+            <i class="fas fa-droplet"></i>
+            <i class="fas fa-leaf"></i>
+          </div>
+          <span class="logo-text">Beetroot Detox</span>
+        </a>
+        <p>Cold-pressed organic juices. Cleanse, energize, thrive.</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <p><a href="./index.html">Home</a></p>
+        <p><a href="./about.html">About</a></p>
+        <p><a href="./store.html">Store</a></p>
+        <p><a href="./Subscription.html">Subscription</a></p>
+        <p><a href="./contact.html">Contact Us</a></p>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <p><a href="./Ingredients.html">Ingredients</a></p>
+        <p><a href="./packages.html">Packages</a></p>
+        <p><a href="./Nutrition.html">Nutrition</a></p>
+      </div>
+      <div class="footer-col">
+        <h4>Get Fresh Updates</h4>
+        <p><i class="fas fa-envelope"></i> hello@beetrootdetox.com</p>
+        <p><i class="fas fa-phone-alt"></i> +1 (800) 234-5678</p>
+        <p><i class="fas fa-map-marker-alt"></i> Nationwide delivery</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2025 Beetroot Detox — Organic Juice Cleanse. Rooted vitality.
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      const body = document.body;
+      const darkToggle = document.getElementById('darkModeToggle');
+      const rtlToggle = document.getElementById('rtlToggle');
+      const loginBtn = document.getElementById('loginBtn');
+      
+      function setTheme(theme) {
+        if (theme === 'light') {
+          body.classList.remove('dark');
+          body.classList.add('light');
+          if(darkToggle) darkToggle.innerHTML = '<i class="fas fa-sun"></i> Light';
+        } else {
+          body.classList.remove('light');
+          body.classList.add('dark');
+          if(darkToggle) darkToggle.innerHTML = '<i class="fas fa-moon"></i> Dark';
+        }
+      }
+
+      if(darkToggle) {
+        darkToggle.addEventListener('click', () => {
+          const isDark = body.classList.contains('dark');
+          setTheme(isDark ? 'light' : 'dark');
+          localStorage.setItem('beetroot-theme', isDark ? 'light' : 'dark');
+        });
+      }
+
+      const savedTheme = localStorage.getItem('beetroot-theme') || 'dark';
+      setTheme(savedTheme);
+
+      function setDir(dir) {
+        if(dir === 'rtl') {
+          document.documentElement.setAttribute('dir', 'rtl');
+          body.setAttribute('dir', 'rtl');
+          if(rtlToggle) rtlToggle.innerHTML = '<i class="fas fa-exchange-alt"></i> LTR';
+        } else {
+          document.documentElement.setAttribute('dir', 'ltr');
+          body.setAttribute('dir', 'ltr');
+          if(rtlToggle) rtlToggle.innerHTML = '<i class="fas fa-exchange-alt"></i> RTL';
+        }
+      }
+
+      if(rtlToggle) {
+        rtlToggle.addEventListener('click', () => {
+          const cur = document.documentElement.getAttribute('dir') || 'ltr';
+          setDir(cur === 'ltr' ? 'rtl' : 'ltr');
+          localStorage.setItem('beetroot-dir', cur === 'ltr' ? 'rtl' : 'ltr');
+        });
+      }
+
+      const savedDir = localStorage.getItem('beetroot-dir') || 'ltr';
+      setDir(savedDir);
+
+      if(loginBtn) {
+        loginBtn.addEventListener('click', () => {
+          window.location.href = 'login.html';
+        });
+      }
+
+      const hamburger = document.getElementById('hamburger');
+      const navCenter = document.getElementById('navLinksCenter');
+      
+      if(hamburger && navCenter) {
+        hamburger.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const isActive = navCenter.classList.toggle('active');
+          hamburger.innerHTML = isActive ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+
+        document.addEventListener('click', (e) => {
+          if (navCenter.classList.contains('active') && !navCenter.contains(e.target) && !hamburger.contains(e.target)) {
+            navCenter.classList.remove('active');
+            hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+          }
+        });
+      }
+
+      const dropdowns = document.querySelectorAll('.dropdown');
+      dropdowns.forEach(drop => {
+        const trigger = drop.querySelector(':scope > a');
+        if(trigger) {
+          trigger.addEventListener('click', (e) => {
+            if (window.innerWidth <= 1050) {
+              const menu = drop.querySelector('.dropdown-menu');
+              if(menu) {
+                e.preventDefault();
+                drop.classList.toggle('open');
+              }
+            }
+          });
+        }
+      });
+
+      const faqItems = document.querySelectorAll('.faq-item');
+      faqItems.forEach(item => {
+        item.querySelector('.faq-question').addEventListener('click', () => {
+          item.classList.toggle('open');
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

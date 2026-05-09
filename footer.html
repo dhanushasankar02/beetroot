@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <title>Footer Only | Beetroot Detox</title>
+  <!-- Google Fonts + Font Awesome (required for icons) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ========== RESET & GLOBAL VARIABLES (only what footer needs) ========== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* DARK MODE (default as in original) */
+    body.dark {
+      --bg-primary: #0A0C0F;
+      --bg-secondary: #0F1217;
+      --card-bg: #1A1E26;
+      --text-primary: #EAEAEF;
+      --text-muted: #B0B8C5;
+      --border-light: rgba(255,255,255,0.05);
+      --accent: #E25A7A;
+      --accent-secondary: #3BB08B;
+      --footer-bg: #0C0F14;
+    }
+    /* LIGHT MODE (optional, but keep for consistency) */
+    body.light {
+      --bg-primary: #F9F9FC;
+      --bg-secondary: #FFFFFF;
+      --card-bg: #FFFFFF;
+      --text-primary: #1E2A32;
+      --text-muted: #4A5B6E;
+      --border-light: rgba(0,0,0,0.08);
+      --accent: #C94F6E;
+      --accent-secondary: #2E9D7A;
+      --footer-bg: #F1F2F6;
+    }
+
+    body {
+      background-color: var(--bg-primary);
+    }
+
+    /* ========== FOOTER STYLES (exactly as original) ========== */
+    footer {
+      background: var(--footer-bg);
+      border-top: 1px solid var(--border-light);
+      padding: 3rem 2rem 1.5rem;
+      margin-top: auto;
+      width: 100%;
+    }
+    .footer-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      align-items: start;
+    }
+    .footer-col h4 {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      color: var(--accent);
+    }
+    .footer-col p, .footer-col a {
+      color: var(--text-muted);
+      text-decoration: none;
+      line-height: 1.7;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+    .footer-col a:hover {
+      color: var(--accent);
+    }
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 0.8rem;
+    }
+    .social-links a {
+      background: var(--bg-primary);
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: 0.2s;
+      border: 1px solid var(--border-light);
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+    .social-links a:hover {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+      transform: translateY(-3px);
+    }
+    .footer-bottom {
+      text-align: center;
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border-light);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+    /* RTL support (minimal, not crucial but keeps alignment) */
+    body[dir="rtl"] .footer-col i {
+      margin-right: 0;
+      margin-left: 8px;
+    }
+    @media (max-width: 650px) {
+      .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .social-links {
+        justify-content: center;
+      }
+    }
+
+    /* Optional: demo note that only footer is shown */
+    .demo-note {
+      text-align: center;
+      padding: 1rem;
+      background: var(--bg-secondary);
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      border-bottom: 1px solid var(--border-light);
+    }
+  
+    /* --- GLOBAL RESPONSIVE FIX --- */
+    html, body {
+      overflow-x: hidden;
+      max-width: 100vw;
+    }
+    img, video, iframe {
+      max-width: 100%;
+      height: auto;
+    }
+    @media (max-width: 850px) {
+      [style*="grid-template-columns: 1fr 1.2fr"],
+      [style*="grid-template-columns: 1.2fr 1fr"],
+      [style*="grid-template-columns: 1fr 1fr"],
+      [style*="grid-template-columns: 1fr 1.5fr"],
+      [style*="grid-template-columns: 1.5fr 1fr"],
+      [style*="grid-template-columns: 1.2fr 0.8fr"],
+      [style*="grid-template-columns: 0.8fr 1.2fr"] {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+      }
+      [style*="gap: 4rem"] {
+        gap: 2rem !important;
+      }
+      [style*="gap: 3rem"] {
+        gap: 1.5rem !important;
+      }
+      /* Prevent text overflow */
+      h1, h2, h3, h4, h5, h6, p, span, div {
+        max-width: 100%;
+        word-wrap: break-word;
+      }
+    }
+
+  </style>
+</head>
+<body class="dark" dir="ltr">
+  <!-- Simple hint that this is only the footer (no other sections) -->
+  <div class="demo-note">
+    <i class="fas fa-arrow-down"></i> Pure Footer Component — Icons fully functional <i class="fas fa-heart" style="color: var(--accent);"></i>
+  </div>
+
+  <!-- ========== ONLY FOOTER SECTION (preserved exactly) ========== -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-col">
+        <h4><i class="fas fa-leaf"></i> Beetroot Detox</h4>
+        <p>Cold-pressed organic juices delivered fresh. Cleanse, energize, and thrive with nature’s best ingredients.</p>
+        <div class="social-links">
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <p><a href="#">Home 1</a></p>
+        <p><a href="#">Home 2</a></p>
+        <p><a href="#">Cleanse Packages</a></p>
+        <p><a href="#">Subscription</a></p>
+        <p><a href="#">Organic Store</a></p>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <p><a href="#">Help Center</a></p>
+        <p><a href="#">Shipping & Returns</a></p>
+        <p><a href="#">Wholesale Inquiry</a></p>
+        <p><a href="#">Privacy Policy</a></p>
+        <p><a href="#">Contact Us</a></p>
+      </div>
+      <div class="footer-col">
+        <h4>Get Fresh Updates</h4>
+        <p><i class="fas fa-envelope"></i> hello@beetrootdetox.com</p>
+        <p><i class="fas fa-phone-alt"></i> +1 (800) 234-5678</p>
+        <p><i class="fas fa-map-marker-alt"></i> Nationwide delivery + local hubs in NYC, LA, Austin.</p>
+        <p style="margin-top: 0.5rem;"><i class="fas fa-truck-fast"></i> Free shipping on subscriptions</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Beetroot Detox — Organic Juice Cleanse Delivery. All rights reserved. | Designed for vitality</span>
+    </div>
+  </footer>
+
+  <!-- simple script to toggle dark/light mode (optional but enhances demo) 
+       You can click the text below to switch themes, but footer remains standalone -->
+  <div style="text-align: center; margin: 1rem; font-size: 0.75rem;">
+    <button id="themeToggle" style="background: var(--accent); border: none; border-radius: 40px; padding: 0.3rem 1rem; color: white; cursor: pointer; font-family: inherit;">🌓 Toggle Dark/Light Mode</button>
+  </div>
+  <script>
+    (function() {
+      const body = document.body;
+      const toggleBtn = document.getElementById('themeToggle');
+      function setTheme(theme) {
+        if (theme === 'light') {
+          body.classList.remove('dark');
+          body.classList.add('light');
+        } else {
+          body.classList.remove('light');
+          body.classList.add('dark');
+        }
+      }
+      if (toggleBtn) {
+        toggleBtn.addEventListener('click', () => {
+          const isDark = body.classList.contains('dark');
+          if (isDark) {
+            setTheme('light');
+            localStorage.setItem('beetroot-footer-theme', 'light');
+          } else {
+            setTheme('dark');
+            localStorage.setItem('beetroot-footer-theme', 'dark');
+          }
+        });
+      }
+      const savedTheme = localStorage.getItem('beetroot-footer-theme');
+      if (savedTheme === 'light') setTheme('light');
+      else setTheme('dark');
+    })();
+  </script>
+</body>
+</html>

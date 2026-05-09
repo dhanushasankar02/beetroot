@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <title>404 - Lost in the Orchard | Beetroot Detox</title>
+  <!-- Google Fonts + Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --accent: #BC2F4C;
+      --accent-secondary: #E2A76F;
+      --accent-glow: rgba(188, 47, 76, 0.35);
+      --bg-primary: #0A0C0F;
+      --bg-secondary: #0F1217;
+      --card-bg: #1A1E26;
+      --text-primary: #F7F5F0;
+      --text-muted: #CFD3DC;
+      --border-light: rgba(255,255,255,0.06);
+      --shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.5);
+      --hero-overlay: rgba(0, 0, 0, 0.7);
+    }
+
+    body.light {
+      --bg-primary: #FEF8F5;
+      --bg-secondary: #FFFFFF;
+      --card-bg: #FFFFFF;
+      --text-primary: #1A2A2F;
+      --text-muted: #1F3A42;
+      --border-light: rgba(0,0,0,0.08);
+      --shadow: 0 15px 30px -12px rgba(0, 0, 0, 0.1);
+      --accent: #A52A44;
+      --accent-secondary: #D6894A;
+      --accent-glow: rgba(165, 42, 68, 0.2);
+      --hero-overlay: rgba(255, 248, 240, 0.85);
+    }
+
+    body.dark {
+      --bg-primary: #0A0C0F;
+      --bg-secondary: #0F1217;
+      --card-bg: #191E27;
+      --text-primary: #F9F5EF;
+      --text-muted: #C2C9D2;
+      --border-light: rgba(255,255,255,0.05);
+      --accent: #D1495B;
+      --accent-secondary: #E6B17E;
+      --accent-glow: rgba(209, 73, 91, 0.3);
+      --hero-overlay: rgba(0, 0, 0, 0.75);
+    }
+
+    html, body {
+      overflow-x: hidden;
+      width: 100%;
+      position: relative;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      transition: background-color 0.2s ease, color 0.2s ease;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      scroll-behavior: smooth;
+      line-height: 1.5;
+    }
+
+    /* ========= 404 SECTION ========= */
+    .error-section {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      padding: 4rem 2rem;
+      overflow: hidden;
+      background: var(--bg-primary);
+    }
+
+    .error-container {
+      max-width: 1200px;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      z-index: 2;
+    }
+
+    .error-content {
+      text-align: left;
+    }
+
+    .error-code {
+      font-size: 8rem;
+      font-weight: 900;
+      line-height: 1;
+      background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      margin-bottom: 1rem;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .error-title {
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      color: var(--text-primary);
+    }
+
+    .error-message {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      margin-bottom: 3rem;
+      max-width: 500px;
+      line-height: 1.8;
+    }
+
+    .btn-primary {
+      background: linear-gradient(105deg, var(--accent), #9E2C46);
+      border: none;
+      padding: 1.2rem 2.8rem;
+      border-radius: 50px;
+      font-weight: 700;
+      color: white;
+      transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      cursor: pointer;
+      font-size: 1.1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 12px 22px rgba(188, 47, 76, 0.4);
+      text-decoration: none;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 28px rgba(188, 47, 76, 0.5);
+    }
+
+    .error-image-wrapper {
+      position: relative;
+      border-radius: 40px;
+      overflow: hidden;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+      aspect-ratio: 4/5;
+    }
+
+    .error-image-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .error-image-wrapper:hover img {
+      transform: scale(1.05);
+    }
+
+    .bg-glow {
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .navbar-controls {
+      position: fixed;
+      top: 2rem;
+      right: 2rem;
+      display: flex;
+      gap: 1rem;
+      z-index: 100;
+    }
+
+    .mode-toggle, .rtl-toggle {
+      background: rgba(255,255,255,0.05);
+      border: 1.5px solid var(--accent);
+      border-radius: 40px;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      transition: all 0.2s ease;
+      backdrop-filter: blur(10px);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .mode-toggle:hover, .rtl-toggle:hover {
+      background: var(--accent);
+      color: white;
+    }
+
+    /* Animation classes */
+    .fade-on-scroll {
+      opacity: 0;
+      transform: translateY(35px);
+      transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .fade-on-scroll.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* --- GLOBAL RESPONSIVE FIX (from index.html/standard) --- */
+    @media (max-width: 1200px) {
+      h1 { font-size: 2.8rem; }
+      .error-code { font-size: 7rem; }
+    }
+
+    @media (max-width: 992px) {
+      .error-container { grid-template-columns: 1fr; text-align: center; gap: 3rem; }
+      .error-content { text-align: center; }
+      .error-message { margin: 0 auto 3rem; }
+      .error-image-wrapper { max-width: 500px; margin: 0 auto; order: -1; }
+      .navbar-controls { top: 1rem; right: 1rem; left: 1rem; justify-content: center; }
+      h1 { font-size: 2.5rem; }
+    }
+
+    @media (max-width: 768px) {
+      .error-code { font-size: 6rem; }
+      .error-title { font-size: 2.2rem; }
+      .btn-primary { padding: 1rem 2rem; font-size: 1rem; }
+    }
+
+    @media (max-width: 480px) {
+      .error-code { font-size: 4.5rem; }
+      .error-title { font-size: 1.8rem; }
+    }
+
+    /* Prevent text overflow and ensure consistency */
+    html, body {
+      overflow-x: hidden;
+      max-width: 100vw;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    h1, h2, h3, h4, h5, h6, p, span, div {
+      max-width: 100%;
+      word-wrap: break-word;
+    }
+
+    [dir="rtl"] { text-align: right; }
+    [dir="rtl"] .error-content { text-align: right; }
+    [dir="rtl"] .navbar-controls { right: auto; left: 2rem; }
+  </style>
+</head>
+<body class="dark">
+  <div class="bg-glow"></div>
+
+  <!-- Error Section -->
+  <main class="error-section">
+    <div class="error-container fade-on-scroll">
+      <div class="error-content">
+        <div class="error-code">404</div>
+        <h1 class="error-title">Oops! You've Spilled the Juice.</h1>
+        <p class="error-message">The page you're looking for has been squeezed out of existence or moved to a fresher location. Let's get you back to the roots.</p>
+        <a href="index.html" class="btn-primary">
+          <i class="fas fa-arrow-left"></i> Return to Home
+        </a>
+      </div>
+
+      <div class="error-image-wrapper">
+        <img src="image/404-juice.png" alt="Spilled Juice 404">
+      </div>
+    </div>
+  </main>
+
+  <script>
+    (function() {
+      const body = document.body;
+      const darkToggle = document.getElementById('darkModeToggle');
+      const rtlToggle = document.getElementById('rtlToggle');
+
+      function setTheme(theme) {
+        if (theme === 'light') {
+          body.classList.remove('dark');
+          body.classList.add('light');
+          if(darkToggle) darkToggle.innerHTML = '<i class="fas fa-sun"></i> Light';
+        } else {
+          body.classList.remove('light');
+          body.classList.add('dark');
+          if(darkToggle) darkToggle.innerHTML = '<i class="fas fa-moon"></i> Dark';
+        }
+      }
+
+      if(darkToggle) {
+        darkToggle.addEventListener('click', () => {
+          const isDark = body.classList.contains('dark');
+          setTheme(isDark ? 'light' : 'dark');
+          localStorage.setItem('beetroot-theme', isDark ? 'light' : 'dark');
+        });
+      }
+
+      const savedTheme = localStorage.getItem('beetroot-theme');
+      setTheme(savedTheme === 'light' ? 'light' : 'dark');
+
+      function setDir(dir) {
+        if(dir === 'rtl') {
+          document.documentElement.setAttribute('dir','rtl');
+          body.setAttribute('dir','rtl');
+          if(rtlToggle) rtlToggle.innerHTML = '<i class="fas fa-exchange-alt"></i> LTR';
+        } else {
+          document.documentElement.setAttribute('dir','ltr');
+          body.setAttribute('dir','ltr');
+          if(rtlToggle) rtlToggle.innerHTML = '<i class="fas fa-exchange-alt"></i> RTL';
+        }
+      }
+
+      if(rtlToggle) {
+        rtlToggle.addEventListener('click', () => {
+          const cur = document.documentElement.getAttribute('dir') || 'ltr';
+          setDir(cur === 'ltr' ? 'rtl' : 'ltr');
+          localStorage.setItem('beetroot-dir', cur === 'ltr' ? 'rtl' : 'ltr');
+        });
+      }
+
+      const savedDir = localStorage.getItem('beetroot-dir');
+      if(savedDir) setDir(savedDir); else setDir('ltr');
+
+      // Intersection Observer for animations (from index.html)
+      const fadeElements = document.querySelectorAll('.fade-on-scroll');
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+            }
+          });
+        }, { threshold: 0.1 });
+        fadeElements.forEach(el => observer.observe(el));
+      } else {
+        fadeElements.forEach(el => el.classList.add('visible'));
+      }
+    })();
+  </script>
+</body>
+</html>

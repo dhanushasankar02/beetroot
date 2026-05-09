@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <title>Beetroot & Juice | Vital Nutrition Guide + Detox Section</title>
+  <!-- Google Fonts: modern, clean & readable -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --accent: #BC2F4C;
+      --accent-secondary: #E2A76F;
+      --accent-glow: rgba(188, 47, 76, 0.35);
+      --bg-primary: #0A0C0F;
+      --bg-secondary: #0F1217;
+      --card-bg: #1A1E26;
+      --text-primary: #F7F5F0;
+      --text-muted: #CFD3DC;
+      --border-light: rgba(255,255,255,0.06);
+      --shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.5);
+      --hero-overlay: rgba(0, 0, 0, 0.7);
+      --session-overlay-bg: linear-gradient(115deg, rgba(10,12,15,0.85), rgba(10,12,15,0.6));
+      --footer-bg: #0C0F14;
+    }
+
+    body.light {
+      --bg-primary: #FEF8F5;
+      --bg-secondary: #FFFFFF;
+      --card-bg: #FFFFFF;
+      --text-primary: #1A2A2F;
+      --text-muted: #1F3A42;
+      --border-light: rgba(0,0,0,0.08);
+      --shadow: 0 15px 30px -12px rgba(0, 0, 0, 0.1);
+      --accent: #A52A44;
+      --accent-secondary: #D6894A;
+      --accent-glow: rgba(165, 42, 68, 0.2);
+      --footer-bg: #F4EFEA;
+      --hero-overlay: rgba(255, 248, 240, 0.85);
+      --session-overlay-bg: linear-gradient(115deg, rgba(255,248,240,0.9), rgba(255,248,240,0.8));
+    }
+
+    body.dark {
+      --bg-primary: #0A0C0F;
+      --bg-secondary: #0F1217;
+      --card-bg: #191E27;
+      --text-primary: #F9F5EF;
+      --text-muted: #C2C9D2;
+      --border-light: rgba(255,255,255,0.05);
+      --accent: #D1495B;
+      --accent-secondary: #E6B17E;
+      --accent-glow: rgba(209, 73, 91, 0.3);
+      --footer-bg: #0C0F14;
+      --hero-overlay: rgba(0, 0, 0, 0.75);
+      --session-overlay-bg: linear-gradient(115deg, rgba(10,12,15,0.85), rgba(10,12,15,0.6));
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      scroll-behavior: smooth;
+      line-height: 1.5;
+      padding-top: 68px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    /* ===== HERO SECTION - FULL SCREEN BACKGROUND ===== */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: url('./image/nu.jpg') no-repeat center center/cover;
+      background-attachment: fixed; /* subtle parallax effect, adds depth */
+      isolation: isolate;
+    }
+
+    /* Dark overlay for readability */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(45, 20, 20, 0.6) 0%, rgba(85, 30, 25, 0.75) 100%);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      padding: 2rem;
+      color: #fff;
+      backdrop-filter: brightness(1) blur(0px);
+      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      animation: fadeInUp 0.9s ease-out;
+    }
+
+    .hero-content h1 {
+      font-size: clamp(2.8rem, 8vw, 5rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.25rem;
+      background: linear-gradient(135deg, #FFFFFF, #FFD9C5);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      text-shadow: none;
+    }
+
+    .hero-content p {
+      font-size: clamp(1.1rem, 4vw, 1.4rem);
+      font-weight: 400;
+      margin-bottom: 2rem;
+      opacity: 0.95;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      color: #FFF6ED;
+    }
+
+    .btn-guide {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: #c73d23;
+      border: none;
+      padding: 1rem 2.2rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: white;
+      border-radius: 60px;
+      cursor: pointer;
+      transition: transform 0.25s ease, background 0.25s;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+      font-family: inherit;
+    }
+
+    .btn-guide:hover {
+      background: #a62f19;
+      transform: translateY(-4px);
+      box-shadow: 0 12px 22px rgba(0,0,0,0.25);
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ===== 7 SESSIONS STYLES ===== */
+    .sessions-wrapper {
+      background: var(--bg-primary);
+    }
+
+    .session {
+      padding: 5rem 1.5rem;
+      max-width: 1280px;
+      margin: 0 auto;
+      border-bottom: 1px solid rgba(199, 61, 35, 0.12);
+      transition: background 0.2s;
+    }
+
+    .session:last-child {
+      border-bottom: none;
+    }
+
+    .session-container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 3rem;
+    }
+
+    /* alternate layout: image left or right via flex order */
+    .session-container.reverse {
+      flex-direction: row-reverse;
+    }
+
+    .session-text {
+      flex: 1 1 45%;
+    }
+
+    .session-image {
+      flex: 1 1 45%;
+      max-height: 450px;
+      border-radius: 2rem;
+      overflow: hidden;
+      box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s;
+    }
+
+    .session-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .session-image:hover img {
+      transform: scale(1.03);
+    }
+
+    /* TOPIC COLOR: BEETROOT COLOR ONLY (deep beetroot red) */
+    .session h2 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--accent);    /* pure beetroot hue — rich, earthy crimson */
+      margin-bottom: 1rem;
+      letter-spacing: -0.3px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .session h2:after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: var(--accent);  /* beetroot matching underline */
+      border-radius: 4px;
+    }
+
+    .session p {
+      font-size: 1.08rem;
+      color: var(--text-primary);
+      margin: 1.2rem 0;
+      line-height: 1.6;
+    }
+
+    .session ul {
+      margin: 1rem 0 0 1.25rem;
+      list-style-type: none;
+    }
+
+    .session li {
+      margin: 0.6rem 0;
+      position: relative;
+      padding-left: 1.5rem;
+      font-size: 1rem;
+    }
+
+    .session li::before {
+      content: "●";
+      color: #c73d23;
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+      font-size: 1.2rem;
+    }
+
+    .highlight-badge {
+      display: inline-block;
+      background: color-mix(in srgb, var(--accent) 15%, transparent);
+      color: var(--accent);
+      padding: 0.2rem 0.8rem;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    /* responsive: on tablet/mobile stack, remove reverse order */
+    @media (max-width: 880px) {
+      .session-container, .session-container.reverse {
+        flex-direction: column;
+      }
+      .session-text, .session-image {
+        flex: 1 1 100%;
+      }
+      .session {
+        padding: 3rem 1.5rem;
+      }
+      .session h2 {
+        font-size: 1.9rem;
+      }
+      .hero-content h1 {
+        font-size: 2.6rem;
+      }
+    }
+
+    /* decorative rounded corners */
+    .session-image {
+      border-radius: 28px;
+    }
+
+    /* ========= STABLE NAVBAR (logo left, menu center, controls right) ========= */
+    nav {
+      background-color: var(--card-bg);
+      border-bottom: 2px solid color-mix(in srgb, var(--accent) 35%, transparent);
+      backdrop-filter: blur(14px);
+      position: fixed;
+      top: 0;
+      z-index: 1000;
+      width: 100%;
+      transition: background 0.2s ease;
+    }
+    body.light nav {
+      background: rgba(255, 252, 248, 0.96);
+      backdrop-filter: blur(14px);
+      border-bottom-color: rgba(165, 42, 68, 0.3);
+    }
+    body.dark nav {
+      background: rgba(16, 19, 26, 0.97);
+      backdrop-filter: blur(14px);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0.75rem 2rem;
+      flex-wrap: nowrap;
+      position: relative;
+    }
+
+    /* Logo - always left */
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+      text-decoration: none;
+      transition: transform 0.3s ease;
+    }
+    .logo:hover {
+      transform: scale(1.05);
+    }
+    .logo-text {
+      background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+      background-clip: text !important;
+      -webkit-background-clip: text !important;
+      color: transparent !important;
+      -webkit-text-fill-color: transparent;
+      font-weight: 800;
+      font-size: 1rem;
+      letter-spacing: -0.3px;
+    }
+    .logo-icon-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      background: color-mix(in srgb, var(--accent) 12%, transparent);
+      border-radius: 12px;
+      flex-shrink: 0;
+    }
+    .logo-icon-wrapper i {
+      background: none;
+      color: var(--accent);
+      font-size: 1.4rem;
+    }
+    .logo-icon-wrapper .fa-droplet, .logo-icon-wrapper .fa-tint {
+      position: absolute;
+      font-size: 1.6rem;
+      opacity: 0.8;
+    }
+    .logo-icon-wrapper .fa-leaf {
+      position: relative;
+      font-size: 0.9rem;
+      color: var(--accent-secondary);
+      z-index: 2;
+      margin-top: 4px;
+    }
+
+    /* Nav links wrapper - desktop: display contents to allow children to be positioned by nav-container */
+    .nav-links-center {
+      display: flex;
+      align-items: center;
+      flex: 1;
+      justify-content: flex-end; /* Push controls to the right */
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: nowrap;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      /* Center menu on desktop */
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 500;
+      color: var(--text-primary);
+      transition: color 0.2s, border-bottom 0.2s;
+      white-space: nowrap;
+      font-size: 0.95rem;
+      padding-bottom: 4px;
+    }
+    .nav-links a.active {
+      color: var(--accent);
+      border-bottom: 2px solid var(--accent);
+    }
+    .nav-links a:hover:not(.active) {
+      color: var(--accent);
+    }
+
+    /* dropdowns */
+    .dropdown {
+      position: relative;
+    }
+    .dropdown > a {
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      white-space: nowrap;
+    }
+    .dropdown-menu {
+      position: absolute;
+      top: calc(100% + 0.6rem);
+      left: 0;
+      background-color: var(--card-bg);
+      border-radius: 20px;
+      padding: 0.6rem 0;
+      min-width: 190px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.2s ease, visibility 0.2s;
+      z-index: 100;
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+    }
+    .dropdown-menu a {
+      display: block;
+      padding: 0.6rem 1.4rem;
+      color: var(--text-primary);
+      font-size: 0.9rem;
+      white-space: nowrap;
+      border-bottom: none;
+    }
+    .dropdown-menu a:hover {
+      background-color: color-mix(in srgb, var(--accent) 18%, transparent);
+      color: var(--accent);
+    }
+    .dropdown:hover .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Right side controls */
+    .navbar-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      flex-shrink: 0;
+    }
+    .mode-toggle, .rtl-toggle, .login-btn {
+      background: transparent;
+      border: 1.5px solid var(--accent);
+      border-radius: 40px;
+      padding: 0.4rem 0.9rem;
+      cursor: pointer;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      transition: all 0.2s ease;
+      backdrop-filter: blur(4px);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+    .mode-toggle:hover, .rtl-toggle:hover, .login-btn:hover {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+    .login-btn {
+      background: color-mix(in srgb, var(--accent) 15%, transparent);
+    }
+
+    /* Hamburger - hidden on desktop */
+    .hamburger {
+      display: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: var(--accent);
+      flex-shrink: 0;
+      z-index: 1001;
+    }
+
+    /* ========= FULLY RESPONSIVE MOBILE & TABLET ========= */
+    @media (max-width: 1050px) {
+      .nav-links-center {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 85%;
+        max-width: 340px;
+        height: 100vh;
+        background-color: var(--card-bg);
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding: 5rem 2rem 2rem;
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.4s, opacity 0.4s;
+        z-index: 1000;
+        box-shadow: -10px 0 30px rgba(0,0,0,0.25);
+        border-left: 2px solid var(--accent);
+        border-right: none;
+        gap: 1.5rem;
+        overflow-y: auto;
+        display: flex;
+        visibility: hidden;
+        opacity: 0;
+        pointer-events: none;
+        transform: translateX(100%);
+      }
+      .nav-links-center.active {
+        visibility: visible;
+        opacity: 1;
+        pointer-events: all;
+        transform: translateX(0);
+      }
+      .nav-links {
+        position: static;
+        transform: none;
+        left: auto;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        gap: 1.2rem;
+      }
+      .nav-links a {
+        font-size: 1rem;
+        white-space: normal;
+      }
+      .dropdown {
+        width: 100%;
+      }
+      .dropdown-menu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        display: none;
+        background: transparent;
+        padding-left: 1rem;
+        box-shadow: none;
+        border: none;
+        backdrop-filter: none;
+        margin-top: 0.5rem;
+        width: 100%;
+      }
+      .dropdown-menu a {
+        white-space: normal;
+        padding: 0.5rem 1rem;
+      }
+      .dropdown.open .dropdown-menu {
+        display: block;
+      }
+      .navbar-controls {
+        margin-top: 1.2rem;
+        width: 100%;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+      }
+      .hamburger {
+        display: block;
+      }
+    }
+
+    footer {
+      background: var(--footer-bg);
+      border-top: 1px solid var(--border-light);
+      padding: 3rem 2rem 1.5rem;
+      margin-top: auto;
+      width: 100%;
+    }
+    .footer-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      align-items: start;
+    }
+    .footer-col h4 {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      color: var(--accent);
+    }
+    .footer-col p, .footer-col a {
+      color: var(--text-muted);
+      text-decoration: none;
+      line-height: 1.7;
+      font-size: 0.9rem;
+    }
+    .footer-col a:hover {
+      color: var(--accent);
+    }
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 0.8rem;
+      flex-wrap: wrap;
+    }
+    .social-links a {
+      background: var(--bg-primary);
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: 0.2s;
+      border: 1px solid var(--border-light);
+      color: var(--text-muted);
+    }
+    .social-links a:hover {
+      background: var(--accent);
+      color: white;
+      transform: translateY(-3px);
+    }
+    .footer-bottom {
+      text-align: center;
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border-light);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .btn-secondary {
+      display: inline-block;
+      margin-top: 1rem;
+      font-weight: 500;
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1.5px solid var(--accent);
+      transition: color 0.2s, border-color 0.2s;
+      cursor: default;
+    }
+  </style>
+</head>
+<body class="light">
+  <nav>
+    <div class="nav-container">
+      <!-- Logo left -->
+      <a href="index.html" class="logo">
+        <div class="logo-icon-wrapper">
+          <i class="fas fa-droplet"></i>
+          <i class="fas fa-leaf"></i>
+        </div>
+        <span class="logo-text">Beetroot Detox</span>
+      </a>
+
+      <!-- Nav links and controls grouped for mobile menu -->
+      <div class="nav-links-center" id="navLinksCenter">
+        <div class="nav-links">
+          <div class="dropdown">
+            <a href="./index.html">Home <i class="fas fa-chevron-down"></i></a>
+            <div class="dropdown-menu">
+              <a href="./index.html" data-page="home1">Home 1</a>
+              <a href="./home2.html" data-page="home2">Home 2</a>
+            </div>
+          </div>
+          <a href="./about.html" data-page="about">About</a>
+          <a href="./store.html" data-page="store">Store</a>
+          <a href="./ingredients.html" data-page="ingredients">Ingredients</a>
+          <a href="./nutrition.html" data-page="nutrition" class="active">Nutrition Guide</a>
+          <div class="dropdown">
+            <a href="./packages.html">Cleanse <i class="fas fa-chevron-down"></i></a>
+            <div class="dropdown-menu">
+              <a href="./packages.html" data-page="packages">Packages</a>
+              <a href="./Subscription.html" data-page="subscription">Subscription</a>
+            </div>
+          </div>
+          <a href="./contact.html" data-page="contact">Contact</a>                 
+        </div>
+        <div class="navbar-controls">
+          <button class="mode-toggle" id="darkModeToggle"><i class="fas fa-sun"></i> Light</button>
+          <button class="rtl-toggle" id="rtlToggle"><i class="fas fa-exchange-alt"></i> RTL</button>
+          <button class="login-btn" id="loginBtn"><i class="fas fa-sign-in-alt"></i> Login</button>
+        </div>
+      </div>
+
+      <!-- Mobile hamburger (right side) -->
+      <div class="hamburger" id="hamburger"><i class="fas fa-bars"></i></div>
+    </div>
+  </nav>
+
+<main>
+  <!-- HERO SECTION: full screen background image with beetroot & juice vibe -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Beetroot & Juice<br>Nutrition Guide</h1>
+      <p>Unlock nature’s ruby root — packed with nitrates, antioxidants, and vibrant energy. Discover why this crimson superfood transforms wellness from the inside out.</p>
+      <button class="btn-guide" id="exploreBtn">Explore 7 Sessions →</button>
+    </div>
+  </section>
+
+  <div class="sessions-wrapper">
+    <!-- SESSION 1 : Nutritional Profile -->
+    <section class="session" id="session1">
+      <div class="session-container">
+        <div class="session-image">
+          <img src="./image/Beetroot juice in a glass.jpg" alt="Fresh organic beetroots with vibrant red color and leafy greens" loading="lazy">
+        </div>
+        <div class="session-text">
+          <h2>01. Nutritional Powerhouse</h2>
+          <p>Beetroot is low in calories yet packed with essential vitamins and minerals. A single cup delivers folate, manganese, potassium, iron, and vitamin C — each playing a vital role in metabolism and immunity.</p>
+          <ul>
+            <li><strong>Folate (B9):</strong> Supports cell function & tissue growth</li>
+            <li><strong>Manganese:</strong> Bone health & antioxidant defense</li>
+            <li><strong>Potassium:</strong> Heart rhythm & muscle contractions</li>
+            <li><strong>Dietary fiber:</strong> Aids digestion & gut health</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SESSION 2 : Health Benefits -->
+    <section class="session" id="session2">
+      <div class="session-container reverse">
+        <div class="session-image">
+          <img src="./image/Glass of fresh beetroot juice with heart illustration feel.jpg" alt="Glass of fresh beetroot juice with heart illustration feel, showing health benefits" loading="lazy">
+        </div>
+        <div class="session-text">
+          <h2>02. Remarkable Health Benefits</h2>
+          <p>Regular consumption of beetroot and its juice has been linked to lower blood pressure, enhanced athletic endurance, and reduced inflammation. The natural nitrates convert to Nitric Oxide, widening blood vessels.</p>
+          <ul>
+            <li><strong>Blood pressure regulation:</strong> Natural vasodilation effect</li>
+            <li><strong>Exercise performance:</strong> Improves oxygen efficiency + delays fatigue</li>
+            <li><strong>Anti-inflammatory:</strong> Betalains fight oxidative stress</li>
+            <li><strong>Brain health:</strong> Increased blood flow to frontal lobe</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SESSION 3 : Beetroot Juice Preparation -->
+    <section class="session" id="session3">
+      <div class="session-container">
+        <div class="session-image">
+          <img src="./image/Homemade beetroot juice.jpg" alt="Homemade beetroot juice being poured into glass with fresh beets nearby" loading="lazy">
+        </div>
+        <div class="session-text">
+          <h2>03. How to Make Beetroot Juice</h2>
+          <p>Unlock maximum flavor & nutrients in three simple methods. Always choose organic beets for the best taste and health benefits. Combine with complementary fruits to balance earthiness.</p>
+          <ul>
+            <li><strong>Juicer method:</strong> Wash, peel (optional), juice raw beets with ginger</li>
+            <li><strong>Blender method:</strong> Blend chopped beets + water, strain through nut milk bag</li>
+            <li><strong>Pro tip:</strong> Add lemon, apple or carrot to cut earthy tones</li>
+            <li><strong>Storage:</strong> Drink fresh within 24h for maximum nutrient retention</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SESSION 4 : Timing & Dosage -->
+    <section class="session" id="session4">
+      <div class="session-container reverse">
+        <div class="session-image">
+          <img src="./image/Two colorful glasses of beet.jpg" alt="Beetroot juice in a glass with morning sunlight, concept of timing intake" loading="lazy">
+        </div>
+        <div class="session-text">
+          <h2>04. Optimal Timing & Dosage</h2>
+          <p>When and how much you consume impacts results. Start with small amounts to allow your body to adjust. Pre-workout or morning consumption offers the biggest benefits.</p>
+          <ul>
+            <li><strong>Daily recommendation:</strong> 150–250ml (5–8 oz) of pure juice</li>
+            <li><strong>Best time to drink:</strong> 30–60 minutes before exercise or on empty stomach</li>
+            <li><strong>Athletes:</strong> 2–3 hours before endurance training</li>
+            <li><strong>Caution:</strong> Beeturia (red urine) is harmless, but monitor if prone to oxalates</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SESSION 5 : Delicious Beetroot Recipes -->
+    <section class="session" id="session5">
+      <div class="session-container">
+        <div class="session-image">
+          <img src="./image/Berry Beet Burst.jpg" alt="Two colorful glasses of beet based juice blends with apple and ginger" loading="lazy">
+        </div>
+        <div class="session-text">
+          <h2>05. Delicious Beetroot Juice Recipes</h2>
+          <p>Make your daily beetroot ritual irresistible with creative combinations. These recipes balance sweetness, tang, and earthiness while multiplying nutrients.</p>
+          <ul>
+            <li><strong>Ruby Stamina:</strong> 1 beetroot + 2 carrots + 1 orange + ½ lemon</li>
+            <li><strong>Golden Glow:</strong> 1 beet + 1 apple + 1-inch ginger + cucumber</li>
+            <li><strong>Berry Beet Blast:</strong> ½ beet + handful of berries + splash of coconut water</li>
+            <li><strong>Spicy Detox:</strong> Beet + celery + turmeric + black pepper (enhances curcumin absorption)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SESSION 6 : Selection & Storage Tips -->
+    <section class="session" id="session6">
+      <div class="session-container reverse">
+        <div class="session-image">
+          <img src="./image/Fresh beets with green tops.jpg" alt="Fresh beets with green tops at farmers market, selection and storage concept" loading="lazy">
+        </div>
+        <div class="session-text">
+          <h2>06. Selection & Storage Mastery</h2>
+          <p>Peak flavor starts with choosing the right beets and keeping them fresh. Learn how to preserve nutrients and avoid waste whether you juice immediately or store for later.</p>
+          <ul>
+            <li><strong>Selection:</strong> Firm, smooth, deep red/purple beets with crisp greens (no wilting)</li>
+            <li><strong>Storage (fresh roots):</strong> Remove greens, store in perforated bag in fridge for 2 weeks</li>
+            <li><strong>Freezing:</strong> Blanch chopped beets; freeze for up to 6 months</li>
+            <li><strong>Juice prep ahead:</strong> Store in airtight glass jar (fridge) max 24–48h</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEVENTH SECTION: DETOX, SKIN & NATURAL GLOW -->
+    <section class="session" id="session7">
+      <div class="session-container">
+        <div class="session-image">
+          <img src="./image/Fresh vegetables harvest.jpg" alt="Fresh beetroot juice with glowing skin and detox concept, fruits and beets on wooden table" loading="lazy">
+        </div>
+        <div class="session-text">
+          <h2>07. Beetroot for Detox & Skin Glow</h2>
+          <p>Deep red pigments (betalains) assist liver detoxification pathways and combat oxidative stress. Beetroot juice nourishes skin from within — reducing inflammation, dark spots, and promoting a natural flush.</p>
+          <ul>
+            <li><strong>Liver support:</strong> Betalains stimulate phase II detox enzymes</li>
+            <li><strong>Skin clarity:</strong> Vitamin C & antioxidants boost collagen, fight acne</li>
+            <li><strong>Natural detox juice:</strong> Blend beet + lemon + mint + cucumber for morning cleanse</li>
+            <li><strong>Blood purification:</strong> Iron & folate enhance red blood cell production → rosy complexion</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-col">
+        <a href="index.html" class="logo" style="margin-bottom: 1.2rem; text-decoration: none;">
+          <div class="logo-icon-wrapper">
+            <i class="fas fa-droplet"></i>
+            <i class="fas fa-leaf"></i>
+          </div>
+          <span class="logo-text">Beetroot Detox</span>
+        </a>
+        <p>Cold-pressed organic juices. Cleanse, energize, thrive.</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <p><a href="./index.html">Home</a></p>
+        <p><a href="./about.html">About</a></p>
+        <p><a href="./store.html">Store</a></p>
+        <p><a href="./Subscription.html">Subscription</a></p>
+        <p><a href="./contact.html">Contact Us</a></p>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <p><a href="./Ingredients.html">Ingredients</a></p>
+        <p><a href="./packages.html">Packages</a></p>
+        <p><a href="./Nutrition.html">Nutrition</a></p>
+      </div>
+      <div class="footer-col">
+        <h4>Get Fresh Updates</h4>
+        <p><i class="fas fa-envelope"></i> hello@beetrootdetox.com</p>
+        <p><i class="fas fa-phone-alt"></i> +1 (800) 234-5678</p>
+        <p><i class="fas fa-map-marker-alt"></i> Nationwide delivery</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2025 Beetroot Detox — Organic Juice Cleanse. Rooted vitality.
+    </div>
+  </footer>
+
+<!-- smooth scroll from hero button to first session -->
+<script>
+  (function() {
+    const body = document.body;
+    const darkToggle = document.getElementById('darkModeToggle');
+    const rtlToggle = document.getElementById('rtlToggle');
+    const loginBtn = document.getElementById('loginBtn');
+    function setTheme(theme) {
+      if (theme === 'light') { body.classList.remove('dark'); body.classList.add('light'); if(darkToggle) darkToggle.innerHTML = '<i class="fas fa-sun"></i> Light'; }
+      else { body.classList.remove('light'); body.classList.add('dark'); if(darkToggle) darkToggle.innerHTML = '<i class="fas fa-moon"></i> Dark'; }
+    }
+    if(darkToggle) darkToggle.addEventListener('click', () => { const isDark = body.classList.contains('dark'); setTheme(isDark ? 'light' : 'dark'); localStorage.setItem('beetroot-theme', isDark ? 'light' : 'dark'); });
+    const savedTheme = localStorage.getItem('beetroot-theme'); setTheme(savedTheme === 'light' ? 'light' : 'dark');
+    function setDir(dir) { if(dir === 'rtl') { document.documentElement.setAttribute('dir','rtl'); body.setAttribute('dir','rtl'); if(rtlToggle) rtlToggle.innerHTML = '<i class="fas fa-exchange-alt"></i> LTR'; } else { document.documentElement.setAttribute('dir','ltr'); body.setAttribute('dir','ltr'); if(rtlToggle) rtlToggle.innerHTML = '<i class="fas fa-exchange-alt"></i> RTL'; } }
+    if(rtlToggle) rtlToggle.addEventListener('click', () => { const cur = document.documentElement.getAttribute('dir') || 'ltr'; setDir(cur === 'ltr' ? 'rtl' : 'ltr'); localStorage.setItem('beetroot-dir', cur === 'ltr' ? 'rtl' : 'ltr'); });
+    const savedDir = localStorage.getItem('beetroot-dir'); if(savedDir) setDir(savedDir); else setDir('ltr');
+    if(loginBtn) {
+      loginBtn.addEventListener('click', () => {
+        window.location.href = 'login.html';
+      });
+    }
+
+    const hamburger = document.getElementById('hamburger');
+    const navCenter = document.getElementById('navLinksCenter');
+    
+    if(hamburger && navCenter) {
+      hamburger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isActive = navCenter.classList.toggle('active');
+        hamburger.innerHTML = isActive ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+      });
+
+      // Close menu when clicking outside
+      document.addEventListener('click', (e) => {
+        if (navCenter.classList.contains('active') && !navCenter.contains(e.target) && !hamburger.contains(e.target)) {
+          navCenter.classList.remove('active');
+          hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+        }
+      });
+
+      // Close menu when clicking links
+      document.querySelectorAll('.nav-links a, .dropdown-menu a').forEach(link => {
+        link.addEventListener('click', () => {
+          if (navCenter.classList.contains('active')) {
+            navCenter.classList.remove('active');
+            hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+          }
+        });
+      });
+    }
+
+    const dropdowns = document.querySelectorAll('.dropdown');
+    dropdowns.forEach(drop => {
+      const trigger = drop.querySelector(':scope > a');
+      if(trigger) {
+        trigger.addEventListener('click', (e) => {
+          if (window.innerWidth <= 1050) {
+            e.preventDefault();
+            drop.classList.toggle('open');
+          }
+        });
+      }
+    });
+    window.addEventListener('resize', () => {
+      if(window.innerWidth > 1050) {
+        dropdowns.forEach(d => d.classList.remove('open'));
+        if(navCenter && navCenter.classList.contains('active')) {
+          navCenter.classList.remove('active');
+          hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+        }
+      }
+    });
+
+    const exploreBtn = document.getElementById('exploreBtn');
+    if (exploreBtn) {
+      exploreBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        const firstSession = document.getElementById('session1');
+        if (firstSession) {
+          firstSession.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    }
+  })();
+</script>
+</body>
+</html>
