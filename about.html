@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <link rel="icon" type="image/png" href="favicon.png">
   <title>About Us | Beetroot Detox — Earth’s Crimson Energy</title>
+  <link rel="preload" as="image" href="./image/farm_harvest_optimized.png">
+  <link rel="preload" as="image" href="./image/Organic beetroot harvest.jpg">
   <!-- Google Fonts + Font Awesome -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -346,6 +348,7 @@
       }
       .nav-links a { font-size: 1rem; white-space: normal; }
       .dropdown { width: 100%; }
+      .dropdown:hover .dropdown-menu { display: block; }
       .dropdown-menu {
         position: static;
         opacity: 1;
@@ -420,8 +423,8 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      background: linear-gradient(var(--hero-overlay), var(--hero-overlay)), url('./image/Beetroot farm harvest.jpg') no-repeat center center/cover;
-      background-attachment: fixed;
+      background: linear-gradient(var(--hero-overlay), var(--hero-overlay)), url('./image/farm_harvest_optimized.png') no-repeat center center/cover;
+      background-attachment: scroll;
     }
 
     .about-hero-content {
@@ -719,7 +722,7 @@
     <section class="story-section">
       <div class="story-grid">
         <div class="story-image">
-          <img src="./image/Organic beetroot harvest.jpg" alt="Organic farming process">
+          <img src="./image/Organic beetroot harvest.jpg" alt="Organic farming process" loading="eager" decoding="async" width="600" height="450">
         </div>
         <div class="story-content">
           <h2 class="playfair">Our Story</h2>
@@ -838,7 +841,7 @@
           </div>
         </div>
         <div class="story-image">
-          <img src="./image/Pure Beet Elixir.jpg" alt="Lab testing and science">
+          <img src="./image/Pure Beet Elixir.jpg" alt="Lab testing and science" loading="lazy" decoding="async">
         </div>
       </div>
     </section>

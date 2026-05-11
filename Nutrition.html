@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <link rel="icon" type="image/png" href="favicon.png">
   <title>Beetroot & Juice | Vital Nutrition Guide + Detox Section</title>
+  <link rel="preload" as="image" href="./image/nu_optimized.png">
+  <link rel="preload" as="image" href="./image/glass_optimized.png">
   <!-- Google Fonts: modern, clean & readable -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -81,8 +83,8 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      background: url('./image/nu.jpg') no-repeat center center/cover;
-      background-attachment: fixed; /* subtle parallax effect, adds depth */
+      background: url('./image/nu_optimized.png') no-repeat center center/cover;
+      background-attachment: scroll; /* smooth scroll performance */
       isolation: isolate;
     }
 
@@ -103,7 +105,8 @@
       color: #fff;
       backdrop-filter: brightness(1) blur(0px);
       text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-      animation: fadeInUp 0.9s ease-out;
+      animation: fadeInUp 0.5s ease-out;
+      will-change: transform, opacity;
     }
 
     .hero-content h1 {
@@ -560,6 +563,9 @@
       .dropdown {
         width: 100%;
       }
+      .dropdown:hover .dropdown-menu {
+        display: block;
+      }
       .dropdown-menu {
         position: static;
         opacity: 1;
@@ -727,7 +733,7 @@
     <section class="session" id="session1">
       <div class="session-container">
         <div class="session-image">
-          <img src="./image/Beetroot juice in a glass.jpg" alt="Fresh organic beetroots with vibrant red color and leafy greens" loading="lazy">
+          <img src="./image/glass_optimized.png" alt="Fresh organic beetroots with vibrant red color and leafy greens" loading="eager" decoding="async" width="600" height="450">
         </div>
         <div class="session-text">
           <h2>01. Nutritional Powerhouse</h2>
@@ -746,7 +752,7 @@
     <section class="session" id="session2">
       <div class="session-container reverse">
         <div class="session-image">
-          <img src="./image/Glass of fresh beetroot juice with heart illustration feel.jpg" alt="Glass of fresh beetroot juice with heart illustration feel, showing health benefits" loading="lazy">
+          <img src="./image/Glass of fresh beetroot juice with heart illustration feel.jpg" alt="Glass of fresh beetroot juice with heart illustration feel, showing health benefits" loading="eager" decoding="async" width="600" height="450">
         </div>
         <div class="session-text">
           <h2>02. Remarkable Health Benefits</h2>
@@ -765,7 +771,7 @@
     <section class="session" id="session3">
       <div class="session-container">
         <div class="session-image">
-          <img src="./image/Homemade beetroot juice.jpg" alt="Homemade beetroot juice being poured into glass with fresh beets nearby" loading="lazy">
+          <img src="./image/Homemade beetroot juice.jpg" alt="Homemade beetroot juice being poured into glass with fresh beets nearby" loading="lazy" decoding="async" width="600" height="450">
         </div>
         <div class="session-text">
           <h2>03. How to Make Beetroot Juice</h2>
@@ -784,7 +790,7 @@
     <section class="session" id="session4">
       <div class="session-container reverse">
         <div class="session-image">
-          <img src="./image/Two colorful glasses of beet.jpg" alt="Beetroot juice in a glass with morning sunlight, concept of timing intake" loading="lazy">
+          <img src="./image/Two colorful glasses of beet.jpg" alt="Beetroot juice in a glass with morning sunlight, concept of timing intake" loading="lazy" decoding="async" width="600" height="450">
         </div>
         <div class="session-text">
           <h2>04. Optimal Timing & Dosage</h2>
@@ -803,7 +809,7 @@
     <section class="session" id="session5">
       <div class="session-container">
         <div class="session-image">
-          <img src="./image/Berry Beet Burst.jpg" alt="Two colorful glasses of beet based juice blends with apple and ginger" loading="lazy">
+          <img src="./image/Berry Beet Burst.jpg" alt="Two colorful glasses of beet based juice blends with apple and ginger" loading="lazy" decoding="async">
         </div>
         <div class="session-text">
           <h2>05. Delicious Beetroot Juice Recipes</h2>
@@ -822,7 +828,7 @@
     <section class="session" id="session6">
       <div class="session-container reverse">
         <div class="session-image">
-          <img src="./image/Fresh beets with green tops.jpg" alt="Fresh beets with green tops at farmers market, selection and storage concept" loading="lazy">
+          <img src="./image/Fresh beets with green tops.jpg" alt="Fresh beets with green tops at farmers market, selection and storage concept" loading="lazy" decoding="async">
         </div>
         <div class="session-text">
           <h2>06. Selection & Storage Mastery</h2>
@@ -841,7 +847,7 @@
     <section class="session" id="session7">
       <div class="session-container">
         <div class="session-image">
-          <img src="./image/Fresh vegetables harvest.jpg" alt="Fresh beetroot juice with glowing skin and detox concept, fruits and beets on wooden table" loading="lazy">
+          <img src="./image/Fresh vegetables harvest.jpg" alt="Fresh beetroot juice with glowing skin and detox concept, fruits and beets on wooden table" loading="lazy" decoding="async">
         </div>
         <div class="session-text">
           <h2>07. Beetroot for Detox & Skin Glow</h2>

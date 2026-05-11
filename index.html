@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Beetroot Detox | Earth’s Crimson Energy</title>
   <link rel="icon" type="image/png" href="favicon.png">
+  <!-- Preload Critical Images -->
+  <link rel="preload" as="image" href="./image/bg.jpg">
+  <link rel="preload" as="image" href="./image/Fresh beetroot and juice.jpg">
+  
   <!-- Google Fonts + Font Awesome -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -353,6 +357,7 @@
       }
       .nav-links a { font-size: 1rem; white-space: normal; }
       .dropdown { width: 100%; }
+      .dropdown:hover .dropdown-menu { display: block; }
       .dropdown-menu {
         position: static;
         opacity: 1;
@@ -379,13 +384,24 @@
       padding: 0 2rem;
       width: 100%;
     }
+.btn-wrapper{
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
 
+@media (max-width: 768px){
+  .btn-wrapper{
+    justify-content: center;
+  }
+}
     .session {
       padding: 8rem 0;
       position: relative;
       background-size: cover;
       background-position: center;
-      background-attachment: fixed;
+      background-attachment: scroll;
       overflow: hidden;
       border-bottom: 1px solid var(--border-light);
       width: 100%;
@@ -551,7 +567,8 @@
     .fade-on-scroll {
       opacity: 0;
       transform: translateY(35px);
-      transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+      transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+      will-change: transform, opacity;
     }
     .fade-on-scroll.visible {
       opacity: 1;
@@ -743,7 +760,7 @@
       background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('./image/bg.jpg');
       background-size: cover;
       background-position: center;
-      background-attachment: fixed;
+      background-attachment: scroll;
       position: relative;
       overflow: hidden;
       border-radius: 60px;
@@ -868,12 +885,14 @@
             <div class="section-tag">Earth's Crimson Energy</div>
             <h1>Beetroot<br>Vitality, Naturally</h1>
             <p style="font-size: 1.3rem; margin-bottom: 2rem;">Organic cold-pressed elixirs & beetroot blends — fuel your day with deep crimson energy, antioxidants, and earthy goodness.</p>
-            <div style="display: flex; gap: 1.5rem; flex-wrap: wrap; margin-top: 2rem;">
-              <a href="#juices" class="btn-primary">Explore Juices <i class="fas fa-arrow-right"></i></a>
-            </div>
+          <div class="btn-wrapper">
+  <a href="#juices" class="btn-primary">
+    Explore Juices <i class="fas fa-arrow-right"></i>
+  </a>
+</div>
           </div>
           <div class="hero-image-wrap">
-            <img src="./image/Fresh beetroot and juice.jpg" alt="Fresh beetroot and juice" style="background: radial-gradient(circle, rgba(188,47,76,0.3) 0%, rgba(0,0,0,0) 70%); border-radius: 50%; padding: 0.5rem; max-height: 450px; width: auto; object-fit: contain;">
+            <img src="./image/Fresh beetroot and juice.jpg" alt="Fresh beetroot and juice" fetchpriority="high" decoding="async" width="450" height="450" style="background: radial-gradient(circle, rgba(188,47,76,0.3) 0%, rgba(0,0,0,0) 70%); border-radius: 50%; padding: 0.5rem; max-height: 450px; width: auto; object-fit: contain;">
           </div>
         </div>
       </div>
@@ -894,7 +913,7 @@
             </div>
           </div>
           <div class="feature-img-wrap" style="text-align: center;">
-            <img src="./image/Fresh beetroot and juice.jpg" alt="Fresh beetroot and juice">
+            <img src="./image/Fresh beetroot and juice.jpg" alt="Fresh beetroot and juice" loading="eager" decoding="async" width="600" height="400">
           </div>
         </div>
       </div>
@@ -921,7 +940,7 @@
       <div class="container">
         <div class="split-layout fade-on-scroll">
           <div class="feature-img-wrap" style="text-align: center;">
-            <img src="./image/Beetroot farm harvest.jpg" alt="Beetroot farm harvest">
+            <img src="./image/farm_harvest_optimized.png" alt="Beetroot farm harvest" loading="eager" decoding="async" width="600" height="400">
           </div>
           <div class="story-text">
             <div class="section-tag">Our Process</div>
@@ -941,10 +960,10 @@
         <h2 class="section-title">Our Signature Ruby Blends</h2>
         <p class="section-sub">Cold-pressed, never watered down — experience beetroot reimagined in 6 vibrant recipes</p>
         <div class="card-grid">
-          <div class="card"><img class="card-img" src="./image/Pure Beet Elixir.jpg" alt="Pure Beet Elixir"><div class="card-body"><div class="card-title">Pure Beet Elixir</div><div class="card-text">Earthy, subtly sweet single-origin beetroot with a splash of lemon. Pure detox power.</div><div class="card-price">$6.90</div></div></div>
-          <div class="card"><img class="card-img" src="./image/Berry Beet Burst.jpg" alt="Berry Beet Burst"><div class="card-body"><div class="card-title">Berry Beet Burst</div><div class="card-text">Beetroot, wild berries, ginger, and mint — antioxidant-rich, zesty refreshment.</div><div class="card-price">$7.50</div></div></div>
-          <div class="card"><img class="card-img" src="./image/Golden Sunrise.jpg" alt="Golden Sunrise"><div class="card-body"><div class="card-title">Golden Sunrise</div><div class="card-text">Golden beet + orange + turmeric + carrot, anti-inflammatory sunshine in a glass.</div><div class="card-price">$7.90</div></div></div>
-          <div class="card"><img class="card-img" src="./image/Spicy Roots.jpg" alt="Spicy Roots"><div class="card-body"><div class="card-title">Spicy Roots</div><div class="card-text">Beet, ginger, cayenne, and apple metabolism booster with a warming kick.</div><div class="card-price">$7.20</div></div></div>
+          <div class="card"><img class="card-img" src="./image/Pure Beet Elixir.jpg" alt="Pure Beet Elixir" loading="lazy" decoding="async" width="300" height="220"><div class="card-body"><div class="card-title">Pure Beet Elixir</div><div class="card-text">Earthy, subtly sweet single-origin beetroot with a splash of lemon. Pure detox power.</div><div class="card-price">$6.90</div></div></div>
+          <div class="card"><img class="card-img" src="./image/Berry Beet Burst.jpg" alt="Berry Beet Burst" loading="lazy" decoding="async" width="300" height="220"><div class="card-body"><div class="card-title">Berry Beet Burst</div><div class="card-text">Beetroot, wild berries, ginger, and mint — antioxidant-rich, zesty refreshment.</div><div class="card-price">$7.50</div></div></div>
+          <div class="card"><img class="card-img" src="./image/Golden Sunrise.jpg" alt="Golden Sunrise" loading="lazy" decoding="async" width="300" height="220"><div class="card-body"><div class="card-title">Golden Sunrise</div><div class="card-text">Golden beet + orange + turmeric + carrot, anti-inflammatory sunshine in a glass.</div><div class="card-price">$7.90</div></div></div>
+          <div class="card"><img class="card-img" src="./image/Spicy Roots.jpg" alt="Spicy Roots" loading="lazy" decoding="async" width="300" height="220"><div class="card-body"><div class="card-title">Spicy Roots</div><div class="card-text">Beet, ginger, cayenne, and apple metabolism booster with a warming kick.</div><div class="card-price">$7.20</div></div></div>
          
         </div>
       </div>

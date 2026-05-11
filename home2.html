@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <link rel="icon" type="image/png" href="favicon.png">
   <title>Beetroot Detox | Organic Juice Cleanse — Rooted Vitality</title>
+  <link rel="preload" as="image" href="./image/bg3.jpg">
+  <link rel="preload" as="image" href="./image/Fresh vegetables harvest.jpg">
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
@@ -370,6 +372,9 @@
       .dropdown {
         width: 100%;
       }
+      .dropdown:hover .dropdown-menu {
+        display: block;
+      }
       .dropdown-menu {
         position: static;
         opacity: 1;
@@ -467,7 +472,7 @@
       position: relative;
       background-size: cover;
       background-position: center;
-      background-attachment: fixed;
+      background-attachment: scroll;
       overflow: hidden;
       border-bottom: 1px solid var(--border-light);
       width: 100%;
@@ -633,7 +638,8 @@
     .fade-on-scroll {
       opacity: 0;
       transform: translateY(35px);
-      transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+      transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+      will-change: transform, opacity;
     }
     .fade-on-scroll.visible {
       opacity: 1;
@@ -961,8 +967,8 @@
               <button class="btn-outline" id="revealBtn">Read More</button>
             </div>
           </div>
-          <div class="hero-image-wrap">
-            <img src="./image/Beetroot juice bottle.jpg" alt="Beetroot juice bottle" style="background: radial-gradient(circle, rgba(188,47,76,0.3) 0%, rgba(0,0,0,0) 70%); border-radius: 50%; padding: 0.5rem;">
+          <div class="hero-image-wrap fade-on-scroll">
+            <img src="./image/Fresh vegetables harvest.jpg" alt="Fresh vegetables harvest" fetchpriority="high" decoding="async" width="550" height="400" style="filter: drop-shadow(0 20px 40px rgba(0,0,0,0.4));">
           </div>
         </div>
       </div>
@@ -973,7 +979,9 @@
       <div class="session-overlay" style="background: var(--session-overlay-bg);"></div>
       <div class="container">
         <div class="split-layout fade-on-scroll">
-          <div class="feature-img-wrap"><img src="./image/Organic beetroot harvest.jpg" alt="Organic beetroot harvest"></div>
+          <div class="feature-img-wrap" style="text-align: center;">
+            <img src="./image/Organic beetroot harvest.jpg" alt="Organic beetroot harvest" loading="eager" decoding="async" width="600" height="450">
+          </div>
           <div class="feature-text">
             <div class="section-tag">The Source</div>
             <h2>From Earth to First Sip.</h2>
@@ -989,9 +997,21 @@
       <div class="container">
         <div style="text-align: center;"><div class="section-tag">Liquid Gold</div><h2>Our Signature Blends</h2></div>
         <div class="juice-grid fade-on-scroll">
-          <div class="juice-card"><img src="./image/The Original Root1.jpg" alt="The Original Root"><h3>The Original Root</h3><p style="color: var(--accent); font-weight: 700;">$8.50</p><button class="btn-primary" style="padding: 0.8rem 1.5rem; font-size: 0.9rem;">Add to Cart</button></div>
-          <div class="juice-card"><img src="./image/Golden Sunrise.jpg" alt="Golden Sunrise"><h3>Golden Sunrise</h3><p style="color: var(--accent); font-weight: 700;">$9.00</p><button class="btn-primary" style="padding: 0.8rem 1.5rem; font-size: 0.9rem;">Add to Cart</button></div>
-          <div class="juice-card"><img src="./image/Deep Forest.jpg" alt="Deep Forest"><h3>Deep Forest</h3><p style="color: var(--accent); font-weight: 700;">$9.50</p><button class="btn-primary" style="padding: 0.8rem 1.5rem; font-size: 0.9rem;">Add to Cart</button></div>
+          <div class="juice-card">
+            <img src="./image/Original Root.jpg" alt="Original Root" loading="lazy" decoding="async" width="300" height="350">
+            <h3>Original Root</h3>
+            <p style="color: var(--accent); font-weight: 700;">$8.50</p><button class="btn-primary" style="padding: 0.8rem 1.5rem; font-size: 0.9rem;">Add to Cart</button>
+          </div>
+          <div class="juice-card">
+            <img src="./image/Zen Beet.jpg" alt="Zen Beet" loading="lazy" decoding="async" width="300" height="350">
+            <h3>Zen Beet</h3>
+            <p style="color: var(--accent); font-weight: 700;">$9.00</p><button class="btn-primary" style="padding: 0.8rem 1.5rem; font-size: 0.9rem;">Add to Cart</button>
+          </div>
+          <div class="juice-card">
+            <img src="./image/Ruby Zest.jpg" alt="Ruby Zest" loading="lazy" decoding="async" width="300" height="350">
+            <h3>Ruby Zest</h3>
+            <p style="color: var(--accent); font-weight: 700;">$9.50</p><button class="btn-primary" style="padding: 0.8rem 1.5rem; font-size: 0.9rem;">Add to Cart</button>
+          </div>
         </div>
       </div>
     </section>
@@ -999,7 +1019,7 @@
     <section class="session" style="background-image: url('./image/bg5.jpg');">
       <div class="session-overlay" style="background: var(--session-overlay-bg);"></div>
       <div class="container">
-        <div class="split-layout"><div><div class="section-tag">The Process</div><h2>Pure Vitality,<br>No Compromise.</h2><div class="process-steps"><div class="step-item" style="background:var(--bg-secondary); border-radius:24px; padding:1.5rem;"><h3>Cold Pressing</h3><p>5 tons of pressure, full enzyme profile.</p></div><div class="step-item" style="background:var(--bg-secondary); border-radius:24px; padding:1.5rem;"><h3>Glass Bottling</h3><p>Zero BPA, preserves freshness.</p></div><div class="step-item" style="background:var(--bg-secondary); border-radius:24px; padding:1.5rem;"><h3>HPP Safety</h3><p>Raw nutrition naturally preserved.</p></div></div></div><div><img src="./image/bg3.jpg" style="border-radius: 28px; width:100%;"></div></div>
+        <div class="split-layout"><div><div class="section-tag">The Process</div><h2>Pure Vitality,<br>No Compromise.</h2><div class="process-steps"><div class="step-item" style="background:var(--bg-secondary); border-radius:24px; padding:1.5rem;"><h3>Cold Pressing</h3><p>5 tons of pressure, full enzyme profile.</p></div><div class="step-item" style="background:var(--bg-secondary); border-radius:24px; padding:1.5rem;"><h3>Glass Bottling</h3><p>Zero BPA, preserves freshness.</p></div><div class="step-item" style="background:var(--bg-secondary); border-radius:24px; padding:1.5rem;"><h3>HPP Safety</h3><p>Raw nutrition naturally preserved.</p></div></div></div><div><img src="./image/bg3.jpg" style="border-radius: 28px; width:100%;" loading="lazy" decoding="async"></div></div>
       </div>
     </section>
 

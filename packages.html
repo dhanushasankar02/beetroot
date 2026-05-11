@@ -6,6 +6,8 @@
   <link rel="icon" type="image/png" href="favicon.png">
   <title>Pure Radiance | Cleanse & Detox Packages</title>
   <meta name="description" content="Transform your wellbeing with our curated cleanse packages — 1-Day, 2-Day, 3-Day, 5-Day & 7-Day programs. No artificial fillers, just pure nourishment.">
+  <link rel="preload" as="image" href="./image/pg.jpg">
+  <link rel="preload" as="image" href="./image/glass_optimized.png">
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
   <style>
     * {
@@ -356,6 +358,9 @@
       .dropdown {
         width: 100%;
       }
+      .dropdown:hover .dropdown-menu {
+        display: block;
+      }
       .dropdown-menu {
         position: static;
         opacity: 1;
@@ -509,7 +514,7 @@
       justify-content: center;
       text-align: center;
       background: url('./image/pg.jpg') no-repeat center center/cover;
-      background-attachment: fixed;
+      background-attachment: scroll;
       background-size: cover;
     }
 
@@ -637,7 +642,7 @@
       min-height: 65vh;
       background-size: cover;
       background-position: center;
-      background-attachment: fixed;
+      background-attachment: scroll;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -797,7 +802,8 @@
     .reveal {
       opacity: 0;
       transform: translateY(40px);
-      transition: 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+      transition: 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+      will-change: transform, opacity;
     }
     .reveal.active {
       opacity: 1;
@@ -966,7 +972,7 @@
   <section class="package-session">
     <div class="package-container session-split reveal">
       <div class="package-img-wrap">
-        <img src="./image/Beetroot juice in a glass.jpg" alt="1-Day Reset Cleanse">
+        <img src="./image/glass_optimized.png" alt="1-Day Reset Cleanse" loading="eager" decoding="async" width="600" height="480">
       </div>
       <div class="package-details">
         
@@ -1000,7 +1006,7 @@
         <a href="#" class="btn-pkg">Start your glow up</a>
       </div>
       <div class="package-img-wrap">
-        <img src="./image/Day Refresher Cleanse.jpg" alt="2-Day Refresher Cleanse">
+        <img src="./image/Day Refresher Cleanse.jpg" alt="2-Day Refresher Cleanse" loading="eager" decoding="async" width="600" height="480">
       </div>
     </div>
   </section>
@@ -1027,7 +1033,7 @@
   <section class="package-session">
     <div class="package-container session-asymmetric reveal">
       <div class="img-offset">
-        <img src="./image/Day Deep Purify.jpg" alt="5-Day Deep Purify" style="width: 100%;">
+        <img src="./image/Day Deep Purify.jpg" alt="5-Day Deep Purify" style="width: 100%;" loading="lazy" decoding="async" width="600" height="480">
       </div>
       <div class="package-details">
         
@@ -1055,7 +1061,7 @@
       <div class="library-grid">
         <!-- Juice 1: Red -->
         <div class="library-item">
-          <img src="./image/Deep Root Juice.jpg" alt="Deep Root Juice">
+          <img src="./image/Deep Root Juice.jpg" alt="Deep Root Juice" loading="lazy" decoding="async" width="400" height="450">
           <div class="library-overlay">
             <div class="lib-title">Deep Root Red</div>
             <div class="lib-desc">Beetroot, Apple, Lemon, Ginger. Focused on blood oxygenation and stamina.</div>
@@ -1063,7 +1069,7 @@
         </div>
         <!-- Juice 2: Green -->
         <div class="library-item">
-          <img src="./image/The Green Detox.jpg" alt="The Green Detox">
+          <img src="./image/The Green Detox.jpg" alt="The Green Detox" loading="lazy" decoding="async" width="400" height="450">
           <div class="library-overlay">
             <div class="lib-title">Emerald Detox</div>
             <div class="lib-desc">Kale, Spinach, Celery, Cucumber. The ultimate alkalizing powerhouse.</div>
@@ -1071,7 +1077,7 @@
         </div>
         <!-- Juice 3: Yellow/Orange -->
         <div class="library-item">
-          <img src="./image/Golden Glow Juice.jpg" alt="Golden Glow Juice">
+          <img src="./image/Golden Glow Juice.jpg" alt="Golden Glow Juice" loading="lazy" decoding="async" width="400" height="450">
           <div class="library-overlay">
             <div class="lib-title">Golden Glow</div>
             <div class="lib-desc">Carrot, Turmeric, Black Pepper, Lemon. Anti-inflammatory and skin-brightening.</div>

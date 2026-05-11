@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <link rel="icon" type="image/png" href="favicon.png">
   <title>Subscriptions | Beetroot Detox — Earth’s Crimson Energy</title>
+  <link rel="preload" as="image" href="./image/bg2.jpg">
   <!-- Google Fonts + Font Awesome -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -346,6 +347,7 @@
       }
       .nav-links a { font-size: 1rem; white-space: normal; }
       .dropdown { width: 100%; }
+      .dropdown:hover .dropdown-menu { display: block; }
       .dropdown-menu {
         position: static;
         opacity: 1;
@@ -378,7 +380,7 @@
       justify-content: center;
       text-align: center;
       background: linear-gradient(var(--hero-overlay), var(--hero-overlay)), url('./image/bg2.jpg') center/cover no-repeat;
-      background-attachment: fixed;
+      background-attachment: scroll;
     }
     .sub-hero h1 { font-size: clamp(3rem, 8vw, 5.5rem); margin-bottom: 1.5rem; }
     .sub-hero span { color: var(--accent); }
@@ -636,7 +638,7 @@
       <div class="hero-content">
         <h1 class="playfair">The <span>Subscription</span> Service<br>Designed for Vitality</h1>
         <p>Raw, organic, cold-pressed beetroot infusions delivered to your doorstep. Join our growing community of high-vibrational humans.</p>
-        <a href="#plans" class="sub-btn" style="width: auto; padding: 1.3rem 3.5rem;">Pick Your Plan</a>
+        <a href="#plans" class="sub-btn" style="width: auto; padding: 1.3rem 3.5rem;" fetchpriority="high">Pick Your Plan</a>
       </div>
     </section>
 

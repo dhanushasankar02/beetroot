@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <link rel="icon" type="image/png" href="favicon.png">
   <title>Store | Beetroot Detox — Premium Cold-Pressed Juices</title>
+  <link rel="preload" as="image" href="./image/bg.jpg">
+  <link rel="preload" as="image" href="./image/Beetroot juice bottle.jpg">
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
@@ -369,6 +371,7 @@
       }
       .nav-links a { font-size: 1rem; white-space: normal; }
       .dropdown { width: 100%; }
+      .dropdown:hover .dropdown-menu { display: block; }
       .dropdown-menu {
         position: static;
         opacity: 1;
@@ -427,7 +430,7 @@
     .hero-session {
       background-size: cover;
       background-position: center;
-      background-attachment: fixed;
+      background-attachment: scroll;
       min-height: 90vh;
       display: flex;
       align-items: center;
@@ -640,7 +643,7 @@
           <a href="#featured" class="btn-primary">Shop All Juices <i class="fas fa-shopping-cart"></i></a>
         </div>
         <div class="hero-visual">
-          <img src="./image/Beetroot juice bottle.jpg" alt="Beetroot Juice">
+          <img src="./image/Beetroot juice bottle.jpg" alt="Beetroot Juice" fetchpriority="high" decoding="async" width="500" height="500">
         </div>
       </div>
     </section>
@@ -651,63 +654,63 @@
         <h2 class="section-title">Our Signature Elixirs</h2>
         <div class="product-grid">
           <div class="product-card">
-            <img src="./image/Pure Beet Elixir.jpg" class="product-img" alt="Pure Beet">
+            <img src="./image/Pure Beet Elixir.jpg" class="product-img" alt="Pure Beet" loading="eager" decoding="async" width="320" height="280">
             <div class="product-name">Pure Beet Elixir</div>
             <div class="product-price">$8.50</div>
             <p class="product-desc">100% single-origin beetroot with a touch of lemon for freshness. Pure detox power.</p>
             <button class="btn-primary">Add to Cart</button>
           </div>
           <div class="product-card">
-            <img src="./image/Berry Beet Burst.jpg" class="product-img" alt="Berry Beet">
+            <img src="./image/Berry Beet Burst.jpg" class="product-img" alt="Berry Beet" loading="eager" decoding="async" width="320" height="280">
             <div class="product-name">Berry Beet Burst</div>
             <div class="product-price">$9.00</div>
             <p class="product-desc">Beetroot combined with wild blueberries and raspberries for an antioxidant punch.</p>
             <button class="btn-primary">Add to Cart</button>
           </div>
           <div class="product-card">
-            <img src="./image/Golden Sunrise.jpg" class="product-img" alt="Golden Sunrise">
+            <img src="./image/Golden Sunrise.jpg" class="product-img" alt="Golden Sunrise" loading="eager" decoding="async" width="320" height="280">
             <div class="product-name">Golden Sunrise</div>
             <div class="product-price">$9.50</div>
             <p class="product-desc">Golden beets, turmeric, and orange. The ultimate anti-inflammatory morning blend.</p>
             <button class="btn-primary">Add to Cart</button>
           </div>
           <div class="product-card">
-            <img src="./image/Spicy Roots.jpg" class="product-img" alt="Spicy Roots">
+            <img src="./image/Spicy Roots.jpg" class="product-img" alt="Spicy Roots" loading="eager" decoding="async" width="320" height="280">
             <div class="product-name">Spicy Roots</div>
             <div class="product-price">$8.75</div>
             <p class="product-desc">Beetroot, ginger, and a hint of cayenne to fire up your metabolism.</p>
             <button class="btn-primary">Add to Cart</button>
           </div>
           <div class="product-card">
-            <img src="./image/Deep Forest.jpg" class="product-img" alt="Deep Forest">
+            <img src="./image/Deep Forest.jpg" class="product-img" alt="Deep Forest" loading="lazy" decoding="async" width="320" height="280">
             <div class="product-name">Deep Forest Greens</div>
             <div class="product-price">$9.25</div>
             <p class="product-desc">Beet greens, kale, and beetroot. Earthy, rich, and packed with minerals.</p>
             <button class="btn-primary">Add to Cart</button>
           </div>
           <div class="product-card">
-            <img src="./image/Ruby Zest.jpg" class="product-img" alt="Ruby Zest">
+            <img src="./image/Ruby Zest.jpg" class="product-img" alt="Ruby Zest" loading="lazy" decoding="async" width="320" height="280">
             <div class="product-name">Ruby Zest</div>
             <div class="product-price">$8.50</div>
             <p class="product-desc">Beetroot, green apple, and lime. A crisp and refreshing afternoon pick-me-up.</p>
             <button class="btn-primary">Add to Cart</button>
           </div>
           <div class="product-card">
-            <img src="./image/Zen Beet.jpg" class="product-img" alt="Zen Beet">
+            <img src="./image/Zen Beet.jpg" class="product-img" alt="Zen Beet" loading="lazy" decoding="async" width="320" height="280">
             <div class="product-name">Zen Beet</div>
             <div class="product-price">$9.75</div>
             <p class="product-desc">Beetroot, cucumber, and mint. Calm your system and hydrate deeply.</p>
             <button class="btn-primary">Add to Cart</button>
           </div>
           <div class="product-card">
-            <img src="./image/Original Root.jpg" class="product-img" alt="Original Root">
+            <img src="./image/Original Root.jpg" class="product-img" alt="Original Root" loading="lazy" decoding="async" width="320" height="280">
             <div class="product-name">The Original Root</div>
             <div class="product-price">$8.00</div>
             <p class="product-desc">Our award-winning flagship blend. Simple, balanced, and perfectly pressed.</p>
             <button class="btn-primary">Add to Cart</button>
           </div>
           <div class="product-card">
-            <img src="./image/Glow Berry.jpg" class="product-img" alt="Glow Berry">
+            <img src="./image/Glow Berry.jpg" class="product-img" alt="Glow Berry" loading="lazy" decoding="async" width="320" height="280">
             <div class="product-name">Glow Berry Blend</div>
             <div class="product-price">$9.50</div>
             <p class="product-desc">A premium mix of beetroot and wild berries designed for skin radiance and glow.</p>
@@ -736,7 +739,7 @@
             </div>
           </div>
           <div class="creative-visual">
-            <img src="./image/bg3.jpg" class="creative-img" alt="Juice Process">
+            <img src="./image/bg3.jpg" class="creative-img" alt="Juice Process" loading="lazy" decoding="async">
           </div>
         </div>
       </div>
@@ -747,7 +750,7 @@
       <div class="container">
         <div class="ritual-grid">
           <div class="ritual-image">
-            <img src="./image/bg4.jpg" class="creative-img" alt="Subscription Ritual" style="transform: rotate(-2deg);">
+            <img src="./image/bg4.jpg" class="creative-img" alt="Subscription Ritual" style="transform: rotate(-2deg);" loading="lazy" decoding="async">
           </div>
           <div class="ritual-text">
             <div class="section-tag">Healthy Habits</div>
@@ -793,7 +796,7 @@
           </div>
         </div>
         <div style="margin-top: 4rem;">
-          <img src="./image/Organic beetroot harvest.jpg" class="creative-img" style="max-height: 500px; object-fit: cover;" alt="Beetroot Harvest">
+          <img src="./image/Organic beetroot harvest.jpg" class="creative-img" style="max-height: 500px; object-fit: cover;" alt="Beetroot Harvest" loading="lazy" decoding="async">
         </div>
       </div>
     </section>
