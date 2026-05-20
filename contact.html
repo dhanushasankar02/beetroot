@@ -137,7 +137,7 @@
       -webkit-background-clip: text !important;
       color: transparent !important;
       -webkit-text-fill-color: transparent;
-      font-weight: 800;
+      font-weight: 500;
       font-size: 1rem;
       letter-spacing: -0.3px;
     }
@@ -259,21 +259,18 @@
       gap: 0.7rem;
       flex-shrink: 0;
     }
-    .mode-toggle, .rtl-toggle, .login-btn {
-      background: transparent;
-      border: 1.5px solid var(--accent);
-      border-radius: 40px;
-      padding: 0.4rem 0.9rem;
+    .mode-toggle, .rtl-toggle,     .login-btn {
+      background: linear-gradient(105deg, var(--accent), #9E2C46) !important;
+      color: white !important;
+      border: none !important;
+      box-shadow: 0 4px 10px rgba(188, 47, 76, 0.3);
+          padding: 0.5rem 1rem;
+      border-radius: 8px;
       cursor: pointer;
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--text-primary);
-      transition: all 0.2s ease;
-      backdrop-filter: blur(4px);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      white-space: nowrap;
+}
+    .login-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(188, 47, 76, 0.4);
     }
     .mode-toggle:hover, .rtl-toggle:hover, .login-btn:hover {
       background: var(--accent);
@@ -281,8 +278,15 @@
       border-color: var(--accent);
       transform: translateY(-2px);
     }
-    .login-btn {
-      background: color-mix(in srgb, var(--accent) 15%, transparent);
+        .login-btn {
+      background: linear-gradient(105deg, var(--accent), #9E2C46) !important;
+      color: white !important;
+      border: none !important;
+      box-shadow: 0 4px 10px rgba(188, 47, 76, 0.3);
+    }
+    .login-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(188, 47, 76, 0.4);
     }
 
     /* Hamburger */
@@ -433,7 +437,7 @@
     }
     .hero h1 {
       font-size: 3.2rem;
-      font-weight: 700;
+      font-weight: 500;
       color: var(--text-primary);
       margin-bottom: 1rem;
       line-height: 1.2;
@@ -457,7 +461,7 @@
       color: white;
       border: none;
       padding: 0.9rem 2rem;
-      font-weight: 600;
+      font-weight: 500;
       border-radius: 60px;
       cursor: pointer;
       font-size: 1rem;
@@ -478,7 +482,7 @@
       border: 2px solid var(--accent);
       color: var(--accent);
       padding: 0.85rem 2rem;
-      font-weight: 600;
+      font-weight: 500;
       border-radius: 60px;
       cursor: pointer;
       transition: 0.2s;
@@ -537,7 +541,7 @@
       margin-bottom: 1.2rem;
     }
     .benefit-card h3 {
-      font-size: 1.5rem;
+      font-size: 24px;
       margin-bottom: 0.6rem;
       color: var(--text-primary);
     }
@@ -563,7 +567,7 @@
     }
     .package-card .price {
       font-size: 2rem;
-      font-weight: 800;
+      font-weight: 500;
       color: var(--accent);
       margin: 1rem 0;
     }
@@ -624,7 +628,7 @@
       justify-content: center;
       margin: 0 auto 1rem;
       border-radius: 60px;
-      font-weight: bold;
+      font-weight: 500;
       font-size: 1.5rem;
       color: white;
     }
@@ -678,7 +682,7 @@
       border: none;
       padding: 0.9rem 1.8rem;
       border-radius: 40px;
-      font-weight: 600;
+      font-weight: 500;
       cursor: pointer;
       width: 100%;
       font-size: 1rem;
@@ -710,7 +714,7 @@
       display: flex;
       align-items: center;
       margin-bottom: 1.5rem;
-      font-size: 1.4rem;
+      font-size: 24px;
       color: var(--accent);
     }
     .contact-details p {
@@ -790,9 +794,16 @@
 
     @media (max-width: 760px) {
       .hero h1 { font-size: 2.4rem; }
-      .contact-wrapper, .location-session { flex-direction: column; }
+      .contact-wrapper { flex-direction: column; }
+      .location-session { grid-template-columns: 1fr; gap: 1.5rem; }
       .steps { flex-direction: column; }
       .section { padding: 3rem 0; }
+    }
+    @media (max-width: 480px) {
+      .container { padding: 0 16px; }
+      .contact-wrapper { padding: 1.5rem; border-radius: 32px; }
+      .location-session { padding: 1.5rem; border-radius: 32px; }
+      .hero h1 { font-size: 2rem; }
     }
 
     /* ----- FOOTER STYLES (from footer-only file, integrated) ----- */
@@ -917,7 +928,7 @@
           <i class="fas fa-droplet"></i>
           <i class="fas fa-leaf"></i>
         </div>
-        <span class="logo-text">Beetroot Detox</span>
+        <span class="logo-text">Pure Cleanse</span>
       </a>
 
       <!-- Nav links and controls grouped for mobile menu -->
@@ -1145,7 +1156,7 @@
             <i class="fas fa-droplet"></i>
             <i class="fas fa-leaf"></i>
           </div>
-          <span class="logo-text">Beetroot Detox</span>
+          <span class="logo-text">Pure Cleanse</span>
         </a>
         <p>Cold-pressed organic juices. Cleanse, energize, thrive.</p>
         <div class="social-links">
@@ -1176,7 +1187,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      © 2025 Beetroot Detox — Organic Juice Cleanse. Rooted vitality.
+      © 2025 Pure Cleanse — Organic Juice Cleanse. Rooted vitality.
     </div>
   </footer>
 

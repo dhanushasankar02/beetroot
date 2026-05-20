@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <link rel="icon" type="image/png" href="favicon.png">
-  <title>Beetroot Detox | Organic Juice Cleanse — Rooted Vitality</title>
+  <title>Pure Cleanse | Organic Juice Cleanse — Rooted Vitality</title>
   <link rel="preload" as="image" href="./image/bg3.jpg">
   <link rel="preload" as="image" href="./image/Fresh vegetables harvest.jpg">
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -138,7 +138,7 @@
       -webkit-background-clip: text !important;
       color: transparent !important;
       -webkit-text-fill-color: transparent;
-      font-weight: 800;
+      font-weight: 500;
       font-size: 1rem;
       letter-spacing: -0.3px;
     }
@@ -261,21 +261,18 @@
       gap: 0.7rem;
       flex-shrink: 0;
     }
-    .mode-toggle, .rtl-toggle, .login-btn {
-      background: transparent;
-      border: 1.5px solid var(--accent);
-      border-radius: 40px;
-      padding: 0.4rem 0.9rem;
+    .mode-toggle, .rtl-toggle,     .login-btn {
+      background: linear-gradient(105deg, var(--accent), #9E2C46) !important;
+      color: white !important;
+      border: none !important;
+      box-shadow: 0 4px 10px rgba(188, 47, 76, 0.3);
+          padding: 0.5rem 1rem;
+      border-radius: 8px;
       cursor: pointer;
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--text-primary);
-      transition: all 0.2s ease;
-      backdrop-filter: blur(4px);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      white-space: nowrap;
+}
+    .login-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(188, 47, 76, 0.4);
     }
     .mode-toggle:hover, .rtl-toggle:hover, .login-btn:hover {
       background: var(--accent);
@@ -283,8 +280,15 @@
       border-color: var(--accent);
       transform: translateY(-2px);
     }
-    .login-btn {
-      background: color-mix(in srgb, var(--accent) 15%, transparent);
+        .login-btn {
+      background: linear-gradient(105deg, var(--accent), #9E2C46) !important;
+      color: white !important;
+      border: none !important;
+      box-shadow: 0 4px 10px rgba(188, 47, 76, 0.3);
+    }
+    .login-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(188, 47, 76, 0.4);
     }
 
     /* Hamburger - hidden on desktop */
@@ -492,7 +496,7 @@
     }
     h1 {
       font-size: 5rem;
-      font-weight: 800;
+      font-weight: 500;
       line-height: 1.1;
       letter-spacing: -0.03em;
       background: linear-gradient(135deg, var(--text-primary) 25%, var(--accent-secondary), var(--accent));
@@ -502,20 +506,20 @@
       margin-bottom: 1.5rem;
     }
     h2 {
-      font-size: 3.5rem;
-      font-weight: 700;
+      font-size: 48px;
+      font-weight: 500;
       letter-spacing: -0.02em;
       margin-bottom: 1.5rem;
       color: var(--text-primary);
     }
     h3 {
-      font-size: 2.2rem;
-      font-weight: 600;
+      font-size: 24px;
+      font-weight: 500;
       margin-bottom: 1rem;
     }
     .section-tag {
       display: inline-block;
-      font-weight: 700;
+      font-weight: 500;
       font-size: 0.9rem;
       text-transform: uppercase;
       letter-spacing: 3px;
@@ -529,7 +533,7 @@
       border: none;
       padding: 1.2rem 2.8rem;
       border-radius: 50px;
-      font-weight: 700;
+      font-weight: 500;
       color: white;
       transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
       cursor: pointer;
@@ -549,7 +553,7 @@
       backdrop-filter: blur(10px);
       border-radius: 50px;
       padding: 1.1rem 2.6rem;
-      font-weight: 600;
+      font-weight: 500;
       color: var(--text-primary);
       transition: all 0.3s ease;
       cursor: pointer;
@@ -708,7 +712,7 @@
         padding: 6rem 0;
       }
       h1 { font-size: 4rem; }
-      h2 { font-size: 3rem; }
+      h2 { font-size: 48px; }
     }
     
     @media (max-width: 992px) {
@@ -731,8 +735,8 @@
         max-height: 380px; 
       }
       h1 { font-size: 3.5rem; }
-      h2 { font-size: 2.5rem; }
-      h3 { font-size: 1.8rem; }
+      h2 { font-size: 48px; }
+      h3 { font-size: 24px; }
       .btn-primary, .btn-outline {
         padding: 0.9rem 2rem;
         font-size: 1rem;
@@ -747,8 +751,8 @@
         padding: 0 1.2rem;
       }
       h1 { font-size: 2.8rem; }
-      h2 { font-size: 2rem; }
-      h3 { font-size: 1.5rem; }
+      h2 { font-size: 48px; }
+      h3 { font-size: 24px; }
       .section-tag {
         font-size: 0.75rem;
         letter-spacing: 2px;
@@ -799,8 +803,8 @@
         padding: 0 1rem;
       }
       h1 { font-size: 2.2rem; }
-      h2 { font-size: 1.6rem; }
-      h3 { font-size: 1.3rem; }
+      h2 { font-size: 48px; }
+      h3 { font-size: 24px; }
       .hero-text p {
         font-size: 1rem !important;
       }
@@ -912,7 +916,7 @@
           <i class="fas fa-droplet"></i>
           <i class="fas fa-leaf"></i>
         </div>
-        <span class="logo-text">Beetroot Detox</span>
+        <span class="logo-text">Pure Cleanse</span>
       </a>
 
       <!-- Nav links and controls grouped for mobile menu -->
@@ -965,7 +969,7 @@
             </div>
             <div style="display: flex; gap: 1.5rem; flex-wrap: wrap; margin-top: 2rem;">
               <button class="btn-primary" id="heroCta">Start Your Journey <i class="fas fa-arrow-right"></i></button>
-              <button class="btn-outline" id="revealBtn">Read More</button>
+              <button class="btn-primary" id="revealBtn" style="background: var(--accent-secondary); color: #fff;">Read More</button>
             </div>
           </div>
           <div class="hero-image-wrap fade-on-scroll">
@@ -1001,17 +1005,17 @@
           <div class="juice-card">
             <img src="./image/Original Root.jpg" alt="Original Root" loading="lazy" decoding="async" width="300" height="220">
             <h3>Original Root</h3>
-            <p style="color: var(--accent); font-weight: 700;">$8.50</p><button class="btn-primary" style="padding: 0.8rem 1.5rem; font-size: 0.9rem;">Add to Cart</button>
+            <p style="color: var(--accent); font-weight: 500;">$8.50</p><button class="btn-primary" style="padding: 0.8rem 1.5rem; font-size: 0.9rem;">Add to Cart</button>
           </div>
           <div class="juice-card">
             <img src="./image/Zen Beet.jpg" alt="Zen Beet" loading="lazy" decoding="async" width="300" height="220">
             <h3>Zen Beet</h3>
-            <p style="color: var(--accent); font-weight: 700;">$9.00</p><button class="btn-primary" style="padding: 0.8rem 1.5rem; font-size: 0.9rem;">Add to Cart</button>
+            <p style="color: var(--accent); font-weight: 500;">$9.00</p><button class="btn-primary" style="padding: 0.8rem 1.5rem; font-size: 0.9rem;">Add to Cart</button>
           </div>
           <div class="juice-card">
             <img src="./image/Ruby Zest.jpg" alt="Ruby Zest" loading="lazy" decoding="async" width="300" height="220">
             <h3>Ruby Zest</h3>
-            <p style="color: var(--accent); font-weight: 700;">$9.50</p><button class="btn-primary" style="padding: 0.8rem 1.5rem; font-size: 0.9rem;">Add to Cart</button>
+            <p style="color: var(--accent); font-weight: 500;">$9.50</p><button class="btn-primary" style="padding: 0.8rem 1.5rem; font-size: 0.9rem;">Add to Cart</button>
           </div>
         </div>
       </div>
@@ -1059,7 +1063,7 @@
             <i class="fas fa-droplet"></i>
             <i class="fas fa-leaf"></i>
           </div>
-          <span class="logo-text">Beetroot Detox</span>
+          <span class="logo-text">Pure Cleanse</span>
         </a>
         <p>Cold-pressed organic juices. Cleanse, energize, thrive.</p>
         <div class="social-links">
@@ -1080,7 +1084,7 @@
       <p><a href="./Nutrition.html">Nutrition</a></p>
     </div>
     <div class="footer-col"><h4>Get Fresh Updates</h4><p><i class="fas fa-envelope"></i> hello@beetrootdetox.com</p><p><i class="fas fa-phone-alt"></i> +1 (800) 234-5678</p><p><i class="fas fa-map-marker-alt"></i> Nationwide delivery</p></div></div>
-    <div class="footer-bottom">© 2025 Beetroot Detox — Organic Juice Cleanse. Rooted vitality.</div>
+    <div class="footer-bottom">© 2025 Pure Cleanse — Organic Juice Cleanse. Rooted vitality.</div>
   </footer>
 
   <script>

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <link rel="icon" type="image/png" href="favicon.png">
-  <title>Beetroot Detox | Farm-to-Bottle Organic Juices</title>
+  <title>Pure Cleanse | Farm-to-Bottle Organic Juices</title>
   <link rel="preload" as="image" href="./image/in.jpg">
   <link rel="preload" as="image" href="./image/Fresh beetroot and juice.jpg">
   <!-- Google Fonts + Tailwind CSS + Font Awesome -->
@@ -70,17 +70,17 @@
     body.dark .text-gray-800, 
     body.dark .text-gray-900,
     body.dark .text-gray-700,
-    body.dark .text-emerald-800,
-    body.dark .text-emerald-700 { color: var(--text-primary) !important; }
+    body.dark .text-rose-800,
+    body.dark .text-rose-700 { color: var(--text-primary) !important; }
     
     body.dark .text-gray-600,
     body.dark .text-gray-500,
-    body.dark .text-emerald-600 { color: var(--text-muted) !important; }
+    body.dark .text-rose-600 { color: var(--text-muted) !important; }
     
     body.dark .bg-white,
-    body.dark .bg-emerald-50,
+    body.dark .bg-rose-50,
     body.dark .bg-amber-50,
-    body.dark .bg-emerald-100 { background-color: var(--card-bg) !important; }
+    body.dark .bg-rose-100 { background-color: var(--card-bg) !important; }
     
     body.dark .bg-gradient-to-br,
     body.dark .bg-gradient-to-r { background-image: none !important; background-color: var(--bg-primary) !important; }
@@ -102,15 +102,14 @@
       transition: background-color 0.3s ease, color 0.3s ease;
       padding-top: 68px;
     }
-    .playfair {
-      font-family: 'Playfair Display', serif;
-    }
+
     /* session layout */
     .session {
       min-height: 100vh;
       width: 100%;
       display: flex;
       align-items: center;
+      justify-content: center;
       position: relative;
       overflow: hidden;
       background-size: cover;
@@ -151,7 +150,7 @@
     }
     .counter-number {
       font-size: 3.5rem;
-      font-weight: 800;
+      font-weight: 500;
       line-height: 1.1;
     }
     @media (min-width: 768px) {
@@ -219,7 +218,7 @@
       -webkit-background-clip: text !important;
       color: transparent !important;
       -webkit-text-fill-color: transparent;
-      font-weight: 800;
+      font-weight: 500;
       font-size: 1rem;
       letter-spacing: -0.3px;
     }
@@ -341,21 +340,18 @@
       gap: 0.7rem;
       flex-shrink: 0;
     }
-    .mode-toggle, .rtl-toggle, .login-btn {
-      background: transparent;
-      border: 1.5px solid var(--accent);
-      border-radius: 40px;
-      padding: 0.4rem 0.9rem;
+    .mode-toggle, .rtl-toggle,     .login-btn {
+      background: linear-gradient(105deg, var(--accent), #9E2C46) !important;
+      color: white !important;
+      border: none !important;
+      box-shadow: 0 4px 10px rgba(188, 47, 76, 0.3);
+          padding: 0.5rem 1rem;
+      border-radius: 8px;
       cursor: pointer;
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--text-primary);
-      transition: all 0.2s ease;
-      backdrop-filter: blur(4px);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      white-space: nowrap;
+}
+    .login-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(188, 47, 76, 0.4);
     }
     .mode-toggle:hover, .rtl-toggle:hover, .login-btn:hover {
       background: var(--accent);
@@ -363,8 +359,15 @@
       border-color: var(--accent);
       transform: translateY(-2px);
     }
-    .login-btn {
-      background: color-mix(in srgb, var(--accent) 15%, transparent);
+        .login-btn {
+      background: linear-gradient(105deg, var(--accent), #9E2C46) !important;
+      color: white !important;
+      border: none !important;
+      box-shadow: 0 4px 10px rgba(188, 47, 76, 0.3);
+    }
+    .login-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(188, 47, 76, 0.4);
     }
 
     /* Hamburger */
@@ -534,7 +537,7 @@
           <i class="fas fa-droplet"></i>
           <i class="fas fa-leaf"></i>
         </div>
-        <span class="logo-text">Beetroot Detox</span>
+        <span class="logo-text">Pure Cleanse</span>
       </a>
 
       <!-- Nav links and controls grouped for mobile menu -->
@@ -578,11 +581,11 @@
   <section id="session1" class="session" style="background-image: linear-gradient(135deg, rgba(28, 52, 27, 0.6), rgba(0,0,0,0.4)), url('./image/in.jpg'); background-size: cover; background-position: center 30%;">
     <div class="content-container text-white">
       <div class="max-w-3xl fade-up">
-        <span class="inline-block px-4 py-1.5 bg-amber-500/80 backdrop-blur-sm rounded-full text-sm font-semibold tracking-wide mb-5"><i class="fas fa-seedling mr-2"></i> Regenerative Organic</span>
-        <h1 class="playfair text-5xl md:text-7xl font-bold leading-tight mb-6">Where the Earth<br>Speaks <span class="border-b-4 border-amber-400">Purity</span></h1>
+        <span class="inline-block px-4 py-1.5 bg-amber-500/80 backdrop-blur-sm rounded-full text-sm font-medium tracking-wide mb-5"><i class="fas fa-seedling mr-2"></i> Regenerative Organic</span>
+        <h1 class="text-5xl md:text-7xl font-medium leading-tight mb-6">Where the Earth<br>Speaks <span class="border-b-4 border-amber-400">Purity</span></h1>
         <p class="text-lg md:text-xl text-white/90 max-w-xl mb-8">Nestled in pristine farmlands, our organic fields produce nutrient-rich harvest—untouched by chemicals, kissed by nature.</p>
         <div class="flex flex-wrap gap-4">
-          <a href="#session5" class="bg-white text-gray-900 hover:bg-amber-100 px-8 py-3 rounded-full font-semibold transition-all shadow-lg flex items-center gap-2">Discover the roots <i class="fas fa-arrow-right"></i></a>
+          <a href="#session5" class="bg-white text-gray-900 hover:bg-amber-100 px-8 py-3 rounded-full font-medium transition-all shadow-lg flex items-center gap-2">Discover the roots <i class="fas fa-arrow-right"></i></a>
           <a href="#session3" class="border border-white/60 hover:bg-white/20 px-8 py-3 rounded-full font-medium transition-all">Farm-to-bottle journey</a>
         </div>
       </div>
@@ -598,7 +601,7 @@
       <div class="grid md:grid-cols-2 gap-12 items-center">
         <div class="fade-up">
           <i class="fas fa-hands-helping text-amber-300 text-4xl mb-5"></i>
-          <h2 class="playfair text-4xl md:text-5xl font-bold mb-5">Honoring the Hands<br>That Feed Us</h2>
+          <h2 class="text-4xl md:text-5xl font-medium mb-5">Honoring the Hands<br>That Feed Us</h2>
           <p class="text-white/90 text-lg leading-relaxed">Generations of dedicated farmers nurture every seedling, hand-picking each heirloom vegetable at peak ripeness. Their wisdom and care translate into vibrant produce — earthy carrots, crimson tomatoes, and crisp greens.</p>
           <div class="mt-8 flex items-center gap-6 flex-wrap">
             <div><i class="fas fa-check-circle text-amber-400 mr-2"></i> Heirloom varieties</div>
@@ -616,121 +619,107 @@
     </div>
   </section>
 
-  <!-- SESSION 3: Farm-to-Bottle Process -->
+  
+  <!-- SESSION 3: KEY INGREDIENTS & BENEFITS -->
   <section id="session3" class="session" style="background: linear-gradient(145deg, #FEF3E4 0%, #E9F0E3 100%);">
     <div class="content-container">
       <div class="text-center mb-12 fade-up">
-        <span class="text-emerald-700 text-sm font-semibold tracking-wider bg-emerald-100/70 px-4 py-1 rounded-full">FROM EARTH TO ELIXIR</span>
-        <h2 class="playfair text-4xl md:text-5xl font-bold mt-3 text-gray-800">The Artisanal Farm-to-Bottle<br> Journey</h2>
-        <p class="text-gray-600 max-w-2xl mx-auto mt-4">Cold-pressed within hours of harvest, locking nature’s vitality in every bottle.</p>
+        <span class="text-rose-700 text-sm font-medium tracking-wider bg-rose-100/70 px-4 py-1 rounded-full">NATURE'S PHARMACY</span>
+        <h2 class="text-4xl md:text-5xl font-medium mt-3 text-gray-800">Our Core Ingredients<br>& Their Benefits</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto mt-4">We select only the most nutrient-dense superfoods to craft our functional blends.</p>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mt-8">
         <div class="process-step rounded-2xl p-6 text-center shadow-lg">
-          <div class="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fas fa-tractor text-2xl text-emerald-700"></i></div>
-          <h3 class="font-bold text-xl mb-2">1. Organic Harvest</h3>
-          <p class="text-gray-600">Hand-selected vegetables & botanicals at sunrise.</p>
+          <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fas fa-heart text-2xl text-red-700"></i></div>
+          <h3 class="font-medium text-xl mb-2">Organic Beetroot</h3>
+          <p class="text-gray-600">Rich in nitrates and betalains. Supports healthy blood flow, liver detoxification, and natural stamina.</p>
         </div>
         <div class="process-step rounded-2xl p-6 text-center shadow-lg">
-          <div class="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fas fa-oil-can text-2xl text-emerald-700"></i></div>
-          <h3 class="font-bold text-xl mb-2">2. Cold-Pressed</h3>
-          <p class="text-gray-600">Gentle hydraulic press, zero heat for max nutrients.</p>
+          <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fas fa-leaf text-2xl text-green-700"></i></div>
+          <h3 class="font-medium text-xl mb-2">Leafy Greens</h3>
+          <p class="text-gray-600">Kale and spinach packed with chlorophyll. Highly alkalizing, oxygenating, and rich in essential minerals.</p>
         </div>
         <div class="process-step rounded-2xl p-6 text-center shadow-lg">
-          <div class="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fas fa-flask text-2xl text-emerald-700"></i></div>
-          <h3 class="font-bold text-xl mb-2">3. Bottled Fresh</h3>
-          <p class="text-gray-600">Glass bottles, antioxidant protection, sealed in hours.</p>
+          <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fas fa-sun text-2xl text-yellow-700"></i></div>
+          <h3 class="font-medium text-xl mb-2">Turmeric & Ginger</h3>
+          <p class="text-gray-600">Nature's most potent anti-inflammatories. Enhances digestion, soothes the gut, and boosts immunity.</p>
         </div>
         <div class="process-step rounded-2xl p-6 text-center shadow-lg">
-          <div class="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fas fa-truck-fast text-2xl text-emerald-700"></i></div>
-          <h3 class="font-bold text-xl mb-2">4. To Your Table</h3>
-          <p class="text-gray-600">Direct farm-to-table delivery, minimal carbon footprint.</p>
+          <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fas fa-lemon text-2xl text-orange-700"></i></div>
+          <h3 class="font-medium text-xl mb-2">Citrus & Berries</h3>
+          <p class="text-gray-600">Abundant in Vitamin C and antioxidants. Promotes skin radiance and protects cells from oxidative stress.</p>
         </div>
-      </div>
-      <div class="mt-12 bg-white/70 backdrop-blur-sm p-6 rounded-2xl flex flex-wrap justify-between items-center gap-4 border border-emerald-100 shadow-sm fade-up">
-        <div class="flex items-center gap-3"><i class="fas fa-leaf text-3xl text-emerald-600"></i><span class="font-semibold">No preservatives • No additives</span></div>
-        <div class="flex items-center gap-3"><i class="fas fa-clock text-3xl text-amber-600"></i><span class="font-semibold">Bottled within 4h of harvest</span></div>
-        <div><i class="fas fa-recycle text-3xl text-emerald-600"></i><span class="font-semibold ml-2">100% recyclable glass</span></div>
       </div>
     </div>
   </section>
 
-  <!-- SESSION 4: Healthy Lifestyle Branding -->
+  <!-- SESSION 4: SOURCING & NUTRITION -->
   <section id="session4" class="session" style="background: linear-gradient(125deg, #264e2e 0%, #2B5B2F 100%), url('./image/in1.jpg'); background-blend-mode: overlay; background-size: cover; background-position: center;">
     <div class="content-container text-white text-center">
-      <div class="max-w-3xl mx-auto fade-up bg-black/20 backdrop-blur-md p-8 md:p-12 rounded-[2rem] border border-white/10">
-        <i class="fas fa-heartbeat text-amber-300 text-4xl mb-4"></i>
-        <h2 class="playfair text-4xl md:text-5xl font-bold mb-5">Reconnect with<br>Vibrant Living</h2>
-        <p class="text-white/95 text-lg mb-6">Beetroot Detox isn't just a drink — it's a daily ritual that fuels your body with clean, plant-powered energy. Embrace a lifestyle where wellness meets flavor, and each sip supports organic farming communities.</p>
-        <div class="flex flex-wrap justify-center gap-6 my-6">
-          <div><i class="fas fa-person-walking text-amber-300 text-xl"></i> <span class="ml-2">Boosted vitality</span></div>
-          <div><i class="fas fa-spa text-amber-300 text-xl"></i> <span class="ml-2">Radiant skin & immunity</span></div>
-          <div><i class="fas fa-brain text-amber-300 text-xl"></i> <span class="ml-2">Mental clarity</span></div>
+      <div class="max-w-4xl mx-auto fade-up bg-black/30 backdrop-blur-md p-8 md:p-12 rounded-[2rem] border border-white/10">
+        <i class="fas fa-seedling text-amber-300 text-4xl mb-4"></i>
+        <h2 class="text-4xl md:text-5xl font-medium mb-5">Our Sourcing & Nutrition Promise</h2>
+        <p class="text-white/95 text-lg mb-6">We believe that true health begins in the soil. All our ingredients are 100% USDA Certified Organic, sourced directly from regenerative farms that prioritize biodiversity and soil health.</p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left mt-8">
+            <div>
+                <h3 class="text-2xl text-amber-300 mb-3 font-medium"><i class="fas fa-globe-americas mr-2"></i> Ethical Sourcing</h3>
+                <p class="text-white/80">We partner exclusively with fair-trade cooperatives and local organic farmers. Every bottle supports agricultural practices that restore the earth rather than deplete it.</p>
+            </div>
+            <div>
+                <h3 class="text-2xl text-amber-300 mb-3 font-medium"><i class="fas fa-flask mr-2"></i> Uncompromised Nutrition</h3>
+                <p class="text-white/80">Our zero-heat hydraulic cold-press process extracts liquid gold that retains 99% of its vitamins, minerals, and live enzymes. No pasteurization. No HPP. Just raw, living juice.</p>
+            </div>
         </div>
-        <a href="#session5" class="inline-flex items-center bg-white text-emerald-800 hover:bg-amber-50 px-8 py-3 rounded-full font-semibold transition-all shadow-xl gap-2">Join the wellness movement <i class="fas fa-arrow-right"></i></a>
       </div>
     </div>
   </section>
 
-  <!-- SESSION 5: Animated Statistics -->
-  <section id="session5" class="session bg-gradient-to-br from-white to-amber-50/40">
-    <div class="content-container">
+  <!-- SESSION 5: WHO IS THIS FOR? -->
+  <section id="session5" class="session bg-gradient-to-br from-white to-amber-50/40" style="display: flex; align-items: center; justify-content: center;">
+    <div class="content-container" style="margin: 0 auto; display: flex; flex-direction: column; align-items: center;">
       <div class="text-center max-w-3xl mx-auto mb-16 fade-up">
-        <span class="text-emerald-700 font-semibold bg-emerald-100 px-5 py-1.5 rounded-full text-sm"><i class="fas fa-chart-line mr-1"></i> Our impact in numbers</span>
-        <h2 class="playfair text-4xl md:text-5xl font-bold text-gray-800 mt-4">Rooted in Trust,<br> Harvesting Happiness</h2>
-        <p class="text-gray-600 text-lg mt-3">Every statistic reflects our dedication to organic integrity and community well-being.</p>
+        <span class="text-rose-700 font-medium bg-rose-100 px-5 py-1.5 rounded-full text-sm"><i class="fas fa-bullseye mr-1"></i> Target Your Wellness Goals</span>
+        <h2 class="text-4xl md:text-5xl font-medium text-gray-800 mt-4">Who Is This For?</h2>
+        <p class="text-gray-600 text-lg mt-3">Find the perfect cleanse tailored to your unique body and lifestyle objectives.</p>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="stat-card p-8 text-center transition-all duration-500 hover:scale-105">
-          <div class="w-20 h-20 bg-emerald-100 rounded-3xl flex items-center justify-center mx-auto mb-5 shadow-md"><i class="fas fa-certificate text-4xl text-emerald-700"></i></div>
-          <div class="counter-number text-emerald-800" id="counterOrganic">0</div>
-          <div class="text-2xl font-bold text-emerald-700 inline-block ml-1">%</div>
-          <h3 class="text-2xl font-bold text-gray-800 mt-3">Certified Organic</h3>
-          <p class="text-gray-500 mt-2">USDA & EU organic standards, farm verified</p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Goal: Detox -->
+        <div class="stat-card p-8 text-center transition-all duration-500 hover:scale-105 border-t-4 border-green-500">
+          <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-5"><i class="fas fa-leaf text-2xl text-green-700"></i></div>
+          <h3 class="text-xl font-medium text-gray-800 mb-3">The Detox Seeker</h3>
+          <p class="text-gray-600 text-sm mb-4">Perfect if you've been overindulging, feeling sluggish, or experiencing brain fog. Our deep greens and beetroot blends support liver function and cellular.</p>
+          <a href="./packages.html" class="text-green-600 font-medium text-sm hover:underline">Explore Detox Plans &rarr;</a>
         </div>
-        <div class="stat-card p-8 text-center transition-all duration-500 hover:scale-105">
-          <div class="w-20 h-20 bg-amber-100 rounded-3xl flex items-center justify-center mx-auto mb-5 shadow-md"><i class="fas fa-smile-wink text-4xl text-amber-700"></i></div>
-          <div class="counter-number text-amber-800" id="counterCustomers">0</div>
-          <span class="text-2xl font-bold text-amber-800">+</span>
-          <h3 class="text-2xl font-bold text-gray-800 mt-3">Happy Customers</h3>
-          <p class="text-gray-500 mt-2">5-star reviews & love from 10k+ households</p>
+        
+        <!-- Goal: Energy -->
+        <div class="stat-card p-8 text-center transition-all duration-500 hover:scale-105 border-t-4 border-amber-500">
+          <div class="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-5"><i class="fas fa-bolt text-2xl text-amber-700"></i></div>
+          <h3 class="text-xl font-medium text-gray-800 mb-3">The Energy Chaser</h3>
+          <p class="text-gray-600 text-sm mb-4">Ideal for athletes, busy professionals, or those relying on caffeine. Our nitrate-rich juices improve oxygen flow and provide sustained, jitter-free vitality.</p>
+          <a href="./packages.html" class="text-amber-600 font-medium text-sm hover:underline">Explore Energy Plans &rarr;</a>
         </div>
-        <div class="stat-card p-8 text-center transition-all duration-500 hover:scale-105">
-          <div class="w-20 h-20 bg-emerald-100 rounded-3xl flex items-center justify-center mx-auto mb-5 shadow-md"><i class="fas fa-droplet text-4xl text-emerald-700"></i></div>
-          <div class="counter-number text-emerald-800" id="counterDaily">0</div>
-          <span class="text-2xl font-bold text-emerald-800">+ Bottles</span>
-          <h3 class="text-2xl font-bold text-gray-800 mt-3">Fresh Daily Production</h3>
-          <p class="text-gray-500 mt-2">Cold-pressed & shipped within 24h</p>
+
+        <!-- Goal: Immunity -->
+        <div class="stat-card p-8 text-center transition-all duration-500 hover:scale-105 border-t-4 border-orange-500">
+          <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-5"><i class="fas fa-shield-alt text-2xl text-orange-700"></i></div>
+          <h3 class="text-xl font-medium text-gray-800 mb-3">The Immunity Builder</h3>
+          <p class="text-gray-600 text-sm mb-4">For those feeling run down or facing seasonal shifts. Packed with Vitamin C, zinc, and potent anti-inflammatories like turmeric to fortify your defenses.</p>
+          <a href="./packages.html" class="text-orange-600 font-medium text-sm hover:underline">Explore Immunity Plans &rarr;</a>
         </div>
-      </div>
-      <div class="text-center mt-12 fade-up">
-        <p class="text-gray-500 italic flex items-center justify-center gap-2"><i class="fas fa-seedling text-emerald-600"></i> Our production runs on solar energy & zero waste philosophy</p>
+
+        <!-- Goal: Weight Balance -->
+        <div class="stat-card p-8 text-center transition-all duration-500 hover:scale-105 border-t-4 border-blue-500">
+          <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-5"><i class="fas fa-weight text-2xl text-blue-700"></i></div>
+          <h3 class="text-xl font-medium text-gray-800 mb-3">The Weight Balancer</h3>
+          <p class="text-gray-600 text-sm mb-4">Designed to break sugar cravings, reduce water retention, and reset your palate. A low-glycemic approach to discovering your body's natural equilibrium.</p>
+          <a href="./packages.html" class="text-blue-600 font-medium text-sm hover:underline">Explore Balance Plans &rarr;</a>
+        </div>
       </div>
     </div>
   </section>
-
-  <!-- SESSION 6: Fresh Daily Production Showcase -->
-  <section id="session6" class="session" style="background: #FBF7F0 url('./image/in3.jpg') no-repeat center center/cover; background-blend-mode: overlay; background-color: rgba(0,0,0,0.55);">
-    <div class="content-container text-white">
-      <div class="max-w-3xl fade-up bg-black/30 backdrop-blur-sm rounded-3xl p-8 md:p-12 border border-white/20">
-        <i class="fas fa-sun-plant-wilt text-4xl text-amber-300 mb-4"></i>
-        <h2 class="playfair text-4xl md:text-5xl font-bold mb-4">Fresh Every Sunrise,<br> Delivered to You</h2>
-        <p class="text-white/95 text-lg mb-6">Our commitment: production starts before dawn — crisp vegetables become vibrant bottles, reaching your doorstep within a day. 100% traceable from farm to bottle.</p>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 my-8">
-          <div class="flex items-center gap-3"><i class="fas fa-check-circle text-amber-400 text-xl"></i> <span>Today's harvest → tomorrow's bottle</span></div>
-          <div class="flex items-center gap-3"><i class="fas fa-check-circle text-amber-400 text-xl"></i> <span>Farmers' cooperative model</span></div>
-          <div class="flex items-center gap-3"><i class="fas fa-check-circle text-amber-400 text-xl"></i> <span>Zero synthetic inputs</span></div>
-        </div>
-        <div class="flex flex-wrap gap-4 mt-4">
-          <a href="#" class="bg-amber-500 hover:bg-amber-600 text-white px-8 py-3 rounded-full font-semibold transition-all inline-flex items-center gap-2 shadow-lg"><i class="fas fa-store"></i> Shop Fresh Collection</a>
-          <a href="#" class="border border-white/70 hover:bg-white/20 px-7 py-3 rounded-full font-medium transition-all"><i class="fas fa-truck-fast"></i> Subscribe & Save</a>
-        </div>
-        <p class="text-sm text-white/70 mt-6"><i class="fas fa-map-marker-alt mr-1"></i> Partner farms: California, Tuscany, & Costa Rica</p>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ==================== ALL SCRIPTS (dark/light, RTL, mobile, counters, animations) ==================== -->
+<!-- ==================== ALL SCRIPTS (dark/light, RTL, mobile, counters, animations) ==================== -->
   <!-- ================= UNIFIED FOOTER (last) ================= -->
   <footer>
     <div class="footer-container">
@@ -740,7 +729,7 @@
             <i class="fas fa-droplet"></i>
             <i class="fas fa-leaf"></i>
           </div>
-          <span class="logo-text">Beetroot Detox</span>
+          <span class="logo-text">Pure Cleanse</span>
         </a>
         <p>Cold-pressed organic juices. Cleanse, energize, thrive.</p>
         <div class="social-links">
@@ -771,7 +760,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      © 2025 Beetroot Detox — Organic Juice Cleanse. Rooted vitality.
+      © 2025 Pure Cleanse — Organic Juice Cleanse. Rooted vitality.
     </div>
   </footer>
 

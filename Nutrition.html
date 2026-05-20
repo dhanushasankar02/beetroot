@@ -111,7 +111,7 @@
 
     .hero-content h1 {
       font-size: clamp(2.8rem, 8vw, 5rem);
-      font-weight: 800;
+      font-weight: 500;
       letter-spacing: -0.02em;
       margin-bottom: 1.25rem;
       background: linear-gradient(135deg, #FFFFFF, #FFD9C5);
@@ -140,7 +140,7 @@
       border: none;
       padding: 1rem 2.2rem;
       font-size: 1.1rem;
-      font-weight: 600;
+      font-weight: 500;
       color: white;
       border-radius: 60px;
       cursor: pointer;
@@ -222,8 +222,8 @@
 
     /* TOPIC COLOR: BEETROOT COLOR ONLY (deep beetroot red) */
     .session h2 {
-      font-size: 2.2rem;
-      font-weight: 700;
+      font-size: 48px;
+      font-weight: 500;
       color: var(--accent);    /* pure beetroot hue — rich, earthy crimson */
       margin-bottom: 1rem;
       letter-spacing: -0.3px;
@@ -264,7 +264,7 @@
     .session li::before {
       content: "●";
       color: #c73d23;
-      font-weight: bold;
+      font-weight: 500;
       position: absolute;
       left: 0;
       font-size: 1.2rem;
@@ -277,7 +277,7 @@
       padding: 0.2rem 0.8rem;
       border-radius: 30px;
       font-size: 0.85rem;
-      font-weight: 600;
+      font-weight: 500;
       margin-bottom: 1rem;
     }
 
@@ -293,7 +293,7 @@
         padding: 3rem 1.5rem;
       }
       .session h2 {
-        font-size: 1.9rem;
+        font-size: 48px;
       }
       .hero-content h1 {
         font-size: 2.6rem;
@@ -355,7 +355,7 @@
       -webkit-background-clip: text !important;
       color: transparent !important;
       -webkit-text-fill-color: transparent;
-      font-weight: 800;
+      font-weight: 500;
       font-size: 1rem;
       letter-spacing: -0.3px;
     }
@@ -478,21 +478,18 @@
       gap: 0.7rem;
       flex-shrink: 0;
     }
-    .mode-toggle, .rtl-toggle, .login-btn {
-      background: transparent;
-      border: 1.5px solid var(--accent);
-      border-radius: 40px;
-      padding: 0.4rem 0.9rem;
+    .mode-toggle, .rtl-toggle,     .login-btn {
+      background: linear-gradient(105deg, var(--accent), #9E2C46) !important;
+      color: white !important;
+      border: none !important;
+      box-shadow: 0 4px 10px rgba(188, 47, 76, 0.3);
+          padding: 0.5rem 1rem;
+      border-radius: 8px;
       cursor: pointer;
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--text-primary);
-      transition: all 0.2s ease;
-      backdrop-filter: blur(4px);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      white-space: nowrap;
+}
+    .login-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(188, 47, 76, 0.4);
     }
     .mode-toggle:hover, .rtl-toggle:hover, .login-btn:hover {
       background: var(--accent);
@@ -500,8 +497,15 @@
       border-color: var(--accent);
       transform: translateY(-2px);
     }
-    .login-btn {
-      background: color-mix(in srgb, var(--accent) 15%, transparent);
+        .login-btn {
+      background: linear-gradient(105deg, var(--accent), #9E2C46) !important;
+      color: white !important;
+      border: none !important;
+      box-shadow: 0 4px 10px rgba(188, 47, 76, 0.3);
+    }
+    .login-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(188, 47, 76, 0.4);
     }
 
     /* Hamburger - hidden on desktop */
@@ -669,6 +673,13 @@
       transition: color 0.2s, border-color 0.2s;
       cursor: default;
     }
+
+    /* RTL Specific Adjustments */
+    body[dir="rtl"] .session-text { text-align: right; }
+    body[dir="rtl"] .session li { padding-left: 0; padding-right: 1.5rem; }
+    body[dir="rtl"] .session li::before { left: auto; right: 0; }
+    body[dir="rtl"] .session h2:after { left: auto; right: 0; }
+    body[dir="rtl"] .session ul { margin: 1rem 1.25rem 0 0; }
   </style>
 </head>
 <body class="light">
@@ -680,7 +691,7 @@
           <i class="fas fa-droplet"></i>
           <i class="fas fa-leaf"></i>
         </div>
-        <span class="logo-text">Beetroot Detox</span>
+        <span class="logo-text">Pure Cleanse</span>
       </a>
 
       <!-- Nav links and controls grouped for mobile menu -->
@@ -872,7 +883,7 @@
             <i class="fas fa-droplet"></i>
             <i class="fas fa-leaf"></i>
           </div>
-          <span class="logo-text">Beetroot Detox</span>
+          <span class="logo-text">Pure Cleanse</span>
         </a>
         <p>Cold-pressed organic juices. Cleanse, energize, thrive.</p>
         <div class="social-links">
@@ -903,7 +914,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      © 2025 Beetroot Detox — Organic Juice Cleanse. Rooted vitality.
+      © 2025 Pure Cleanse — Organic Juice Cleanse. Rooted vitality.
     </div>
   </footer>
 

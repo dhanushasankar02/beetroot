@@ -124,7 +124,7 @@
       -webkit-background-clip: text !important;
       color: transparent !important;
       -webkit-text-fill-color: transparent;
-      font-weight: 800;
+      font-weight: 500;
       font-size: 1rem;
       letter-spacing: -0.3px;
     }
@@ -247,21 +247,18 @@
       gap: 0.7rem;
       flex-shrink: 0;
     }
-    .mode-toggle, .rtl-toggle, .login-btn {
-      background: transparent;
-      border: 1.5px solid var(--accent);
-      border-radius: 40px;
-      padding: 0.4rem 0.9rem;
+    .mode-toggle, .rtl-toggle,     .login-btn {
+      background: linear-gradient(105deg, var(--accent), #9E2C46) !important;
+      color: white !important;
+      border: none !important;
+      box-shadow: 0 4px 10px rgba(188, 47, 76, 0.3);
+          padding: 0.5rem 1rem;
+      border-radius: 8px;
       cursor: pointer;
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--text-primary);
-      transition: all 0.2s ease;
-      backdrop-filter: blur(4px);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      white-space: nowrap;
+}
+    .login-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(188, 47, 76, 0.4);
     }
     .mode-toggle:hover, .rtl-toggle:hover, .login-btn:hover {
       background: var(--accent);
@@ -269,8 +266,15 @@
       border-color: var(--accent);
       transform: translateY(-2px);
     }
-    .login-btn {
-      background: color-mix(in srgb, var(--accent) 15%, transparent);
+        .login-btn {
+      background: linear-gradient(105deg, var(--accent), #9E2C46) !important;
+      color: white !important;
+      border: none !important;
+      box-shadow: 0 4px 10px rgba(188, 47, 76, 0.3);
+    }
+    .login-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(188, 47, 76, 0.4);
     }
 
     /* Hamburger - hidden on desktop */
@@ -543,7 +547,7 @@
 
     .hero-content h1 {
       font-size: clamp(2.6rem, 8vw, 4.8rem);
-      font-weight: 700;
+      font-weight: 500;
       letter-spacing: -0.02em;
       margin-bottom: 1.2rem;
       line-height: 1.2;
@@ -562,7 +566,7 @@
       display: inline-block;
       background: linear-gradient(105deg, var(--accent), #9E2C46);
       color: white;
-      font-weight: 700;
+      font-weight: 500;
       padding: 1rem 2.8rem;
       border-radius: 60px;
       text-decoration: none;
@@ -720,7 +724,7 @@
 
     .pkg-tag {
       font-size: 0.85rem;
-      font-weight: 700;
+      font-weight: 500;
       text-transform: uppercase;
       letter-spacing: 3px;
       color: var(--accent);
@@ -729,7 +733,7 @@
 
     .pkg-title {
       font-size: clamp(2.5rem, 6vw, 3.8rem);
-      font-weight: 700;
+      font-weight: 500;
       line-height: 1.1;
       margin-bottom: 1.5rem;
       color: var(--text-primary);
@@ -742,7 +746,7 @@
       color: var(--text-muted);
     }
     .pkg-price strong {
-      font-weight: 800;
+      font-weight: 500;
       color: var(--accent);
     }
 
@@ -773,7 +777,7 @@
       position: absolute;
       left: 0;
       color: var(--accent);
-      font-weight: bold;
+      font-weight: 500;
       font-size: 1.5rem;
       line-height: 1;
     }
@@ -784,7 +788,7 @@
       color: white;
       padding: 1.2rem 3rem;
       border-radius: 50px;
-      font-weight: 700;
+      font-weight: 500;
       text-transform: uppercase;
       letter-spacing: 2px;
       transition: 0.3s;
@@ -851,7 +855,7 @@
     }
     .lib-title {
       font-size: 1.5rem;
-      font-weight: 700;
+      font-weight: 500;
       margin-bottom: 0.5rem;
     }
     .lib-desc {
@@ -921,7 +925,7 @@
           <i class="fas fa-droplet"></i>
           <i class="fas fa-leaf"></i>
         </div>
-        <span class="logo-text">Beetroot Detox</span>
+        <span class="logo-text">Pure Cleanse</span>
       </a>
 
       <!-- Nav links and controls grouped for mobile menu -->
@@ -977,7 +981,7 @@
       <div class="package-details">
         
         <h2 class="pkg-title">1-Day Reset</h2>
-        <p class="pkg-price">Starting at <strong>$39</strong></p>
+        <p class="pkg-price"><strong>$39</strong></p>
         <p class="pkg-info">A gentle introduction to cleansing. Perfect for a weekly digestive rest or a post-weekend reboot. This program focuses on flooding your system with micronutrients while giving your digestion a much-needed break.</p>
         <ul class="pkg-list">
           <li>6 cold-pressed organic juices</li>
@@ -995,7 +999,7 @@
     <div class="package-container session-reverse reveal">
       <div class="package-details">
         <h2 class="pkg-title">2-Day Refresher</h2>
-        <p class="pkg-price">Only <strong>$69</strong></p>
+        <p class="pkg-price"><strong>$69</strong></p>
         <p class="pkg-info">Step up your wellness journey with a 48-hour program designed to enhance skin clarity and energy levels. We combine green elixirs with adaptogen blends to help your body manage stress while detoxing.</p>
         <ul class="pkg-list">
           <li>12 signature cold-pressed blends</li>
@@ -1017,7 +1021,7 @@
     <div class="content-wrap reveal">
      
       <h2 class="pkg-title">3-Day Detox</h2>
-      <p class="pkg-price">Complete Program <strong>$99</strong></p>
+      <p class="pkg-price"><strong>$99</strong></p>
       <p class="pkg-info">Our most popular program. Three days of focused cellular renewal. By day three, you'll experience heightened mental clarity, reduced inflammation, and a significant boost in natural energy.</p>
       <ul class="pkg-list" style="margin-bottom: 3rem;">
         <li style="color: white;">18 functional organic juices</li>
@@ -1038,7 +1042,7 @@
       <div class="package-details">
         
         <h2 class="pkg-title">5-Day Purify</h2>
-        <p class="pkg-price">Intensive Care <strong>$149</strong></p>
+        <p class="pkg-price"><strong>$149</strong></p>
         <p class="pkg-info">For the dedicated wellness enthusiast. This 5-day journey goes beyond simple juicing, incorporating medicinal mushrooms and microbiome support to foster long-term gut health and vitality.</p>
         <ul class="pkg-list">
           <li>30 bespoke cold-pressed juices</li>
@@ -1053,7 +1057,7 @@
 
   <!-- SESSION 6: THE JUICE SPECTRUM (Image Library) -->
   <section class="juice-library">
-    <div class="container reveal">
+    <div class="reveal" style="max-width: 1200px; margin: 0 auto;">
       
       <h2 class="pkg-title">The Juice Spectrum</h2>
       <p style="max-width: 700px; margin: 0 auto; opacity: 0.8;">Explore our range of functional ingredients, each crafted for specific cellular benefits.</p>
@@ -1094,7 +1098,7 @@
             <i class="fas fa-droplet"></i>
             <i class="fas fa-leaf"></i>
           </div>
-          <span class="logo-text">Beetroot Detox</span>
+          <span class="logo-text">Pure Cleanse</span>
         </a>
         <p>Cold-pressed organic juices. Cleanse, energize, thrive.</p>
         <div class="social-links">
@@ -1125,7 +1129,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      © 2025 Beetroot Detox — Organic Juice Cleanse. Rooted vitality.
+      © 2025 Pure Cleanse — Organic Juice Cleanse. Rooted vitality.
     </div>
   </footer>
 

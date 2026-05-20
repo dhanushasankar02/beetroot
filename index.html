@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Beetroot Detox | Earth’s Crimson Energy</title>
+  <title>Pure Cleanse | Organic Juice Delivery</title>
   <link rel="icon" type="image/png" href="favicon.png">
   <!-- Preload Critical Images -->
   <link rel="preload" as="image" href="./image/bg.jpg">
@@ -141,7 +141,7 @@
       -webkit-background-clip: text !important;
       color: transparent !important;
       -webkit-text-fill-color: transparent;
-      font-weight: 800;
+      font-weight: 500;
       font-size: 1rem;
       letter-spacing: -0.3px;
     }
@@ -263,21 +263,18 @@
       gap: 0.7rem;
       flex-shrink: 0;
     }
-    .mode-toggle, .rtl-toggle, .login-btn {
-      background: transparent;
-      border: 1.5px solid var(--accent);
-      border-radius: 40px;
-      padding: 0.4rem 0.9rem;
+    .mode-toggle, .rtl-toggle,     .login-btn {
+      background: linear-gradient(105deg, var(--accent), #9E2C46) !important;
+      color: white !important;
+      border: none !important;
+      box-shadow: 0 4px 10px rgba(188, 47, 76, 0.3);
+          padding: 0.5rem 1rem;
+      border-radius: 8px;
       cursor: pointer;
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--text-primary);
-      transition: all 0.2s ease;
-      backdrop-filter: blur(4px);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      white-space: nowrap;
+}
+    .login-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(188, 47, 76, 0.4);
     }
     .mode-toggle:hover, .rtl-toggle:hover, .login-btn:hover {
       background: var(--accent);
@@ -285,8 +282,15 @@
       border-color: var(--accent);
       transform: translateY(-2px);
     }
-    .login-btn {
-      background: color-mix(in srgb, var(--accent) 15%, transparent);
+        .login-btn {
+      background: linear-gradient(105deg, var(--accent), #9E2C46) !important;
+      color: white !important;
+      border: none !important;
+      box-shadow: 0 4px 10px rgba(188, 47, 76, 0.3);
+    }
+    .login-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(188, 47, 76, 0.4);
     }
 
     /* Hamburger */
@@ -421,7 +425,7 @@
     }
     h1 {
       font-size: 5rem;
-      font-weight: 800;
+      font-weight: 500;
       line-height: 1.1;
       letter-spacing: -0.03em;
       background: linear-gradient(135deg, var(--text-primary) 25%, var(--accent-secondary), var(--accent));
@@ -431,20 +435,20 @@
       margin-bottom: 1.5rem;
     }
     h2 {
-      font-size: 3.5rem;
-      font-weight: 700;
+      font-size: 48px;
+      font-weight: 500;
       letter-spacing: -0.02em;
       margin-bottom: 1.5rem;
       color: var(--text-primary);
     }
     h3 {
-      font-size: 2.2rem;
-      font-weight: 600;
+      font-size: 24px;
+      font-weight: 500;
       margin-bottom: 1rem;
     }
     .section-tag {
       display: inline-block;
-      font-weight: 700;
+      font-weight: 500;
       font-size: 0.9rem;
       text-transform: uppercase;
       letter-spacing: 3px;
@@ -458,7 +462,7 @@
       border: none;
       padding: 1.2rem 2.8rem;
       border-radius: 50px;
-      font-weight: 700;
+      font-weight: 500;
       color: white;
       transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
       cursor: pointer;
@@ -479,7 +483,7 @@
       backdrop-filter: blur(10px);
       border-radius: 50px;
       padding: 1.1rem 2.6rem;
-      font-weight: 600;
+      font-weight: 500;
       color: var(--text-primary);
       transition: all 0.3s ease;
       cursor: pointer;
@@ -608,7 +612,7 @@
     @media (max-width: 1200px) {
       .session { padding: 6rem 0; }
       h1 { font-size: 4rem; }
-      h2 { font-size: 3rem; }
+      h2 { font-size: 48px; }
     }
     @media (max-width: 992px) {
       .session { padding: 5rem 0; }
@@ -617,16 +621,16 @@
       .testimonial-wrapper { grid-template-columns: 1fr; }
       .feature-img-wrap img { max-height: 380px; }
       h1 { font-size: 3.5rem; }
-      h2 { font-size: 2.5rem; }
-      h3 { font-size: 1.8rem; }
+      h2 { font-size: 48px; }
+      h3 { font-size: 24px; }
       .btn-primary, .btn-outline { padding: 0.9rem 2rem; font-size: 1rem; }
     }
     @media (max-width: 768px) {
       .session { padding: 4rem 0; }
       .container { padding: 0 1.2rem; }
       h1 { font-size: 2.8rem; }
-      h2 { font-size: 2rem; }
-      h3 { font-size: 1.5rem; }
+      h2 { font-size: 48px; }
+      h3 { font-size: 24px; }
       .juice-grid { gap: 1.5rem; margin-top: 2rem; }
       .newsletter-form { flex-direction: column; border-radius: 40px; background: rgba(255,255,255,0.1); padding: 1rem; }
       .newsletter-form input { padding: 0.8rem 1rem; text-align: center; }
@@ -636,8 +640,8 @@
     @media (max-width: 480px) {
       .session { padding: 3rem 0; }
       h1 { font-size: 2.2rem; }
-      h2 { font-size: 1.6rem; }
-      h3 { font-size: 1.3rem; }
+      h2 { font-size: 48px; }
+      h3 { font-size: 24px; }
     }
     
     footer {
@@ -677,7 +681,7 @@
     img { max-width: 100%; height: auto; border-radius: 20px; }
 
     /* Custom styles for index.html sections */
-    .stat-number { font-size: 2.5rem; font-weight: 800; color: var(--accent); display: block; }
+    .stat-number { font-size: 2.5rem; font-weight: 500; color: var(--accent); display: block; }
     .stat { text-align: center; }
     .stats-row { display: flex; gap: 3rem; margin-top: 2rem; flex-wrap: wrap; }
     
@@ -686,12 +690,12 @@
     .card:hover { transform: translateY(-8px); border-color: var(--accent); }
     .card-img { width: 100%; height: 220px; object-fit: cover; }
     .card-body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
-    .card-title { font-size: 1.4rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text-primary); }
+    .card-title { font-size: 1.4rem; font-weight: 500; margin-bottom: 0.5rem; color: var(--text-primary); }
     .card-text { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1rem; }
-    .card-price { font-weight: 800; font-size: 1.3rem; color: var(--accent); margin-top: auto; }
+    .card-price { font-weight: 500; font-size: 1.3rem; color: var(--accent); margin-top: auto; }
 
     .rating { color: #ffb347; margin-bottom: 0.5rem; }
-    .customer-name { font-weight: 700; margin-top: 1rem; display: block; color: var(--text-primary); }
+    .customer-name { font-weight: 500; margin-top: 1rem; display: block; color: var(--text-primary); }
 
     /* Section 4 spacing */
     .story-text h3 { margin-bottom: 1.5rem; }
@@ -745,7 +749,7 @@
     }
     .benefit-item h4 {
       font-size: 1.5rem;
-      font-weight: 700;
+      font-weight: 500;
       color: var(--text-primary);
     }
     .benefit-item p {
@@ -774,12 +778,12 @@
       position: relative;
     }
     .cta-inner h2 {
-      font-size: 4rem;
+      font-size: 48px;
       margin-bottom: 1.5rem;
       background: linear-gradient(to right, #fff, var(--accent-secondary));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      font-weight: 800;
+      font-weight: 500;
     }
     .cta-inner p {
       font-size: 1.3rem;
@@ -792,7 +796,7 @@
       color: var(--accent);
       padding: 1.2rem 3rem;
       border-radius: 50px;
-      font-weight: 700;
+      font-weight: 500;
       text-decoration: none;
       font-size: 1.1rem;
       transition: all 0.3s ease;
@@ -820,7 +824,7 @@
 
     @media (max-width: 768px) {
       .cta-section { margin: 40px 1rem; border-radius: 30px; padding: 60px 0; }
-      .cta-inner h2 { font-size: 2.5rem; }
+      .cta-inner h2 { font-size: 48px; }
       .cta-inner p { font-size: 1.1rem; }
     }
   </style>
@@ -835,7 +839,7 @@
           <i class="fas fa-droplet"></i>
           <i class="fas fa-leaf"></i>
         </div>
-        <span class="logo-text">Beetroot Detox</span>
+        <span class="logo-text">Pure Cleanse</span>
       </a>
 
       <!-- Nav links and controls grouped for mobile menu -->
@@ -882,7 +886,7 @@
       <div class="container">
         <div class="hero-grid fade-on-scroll">
           <div class="hero-text">
-            <div class="section-tag">Earth's Crimson Energy</div>
+            <div class="section-tag">Organic Juice Delivery</div>
             <h1>Beetroot<br>Vitality, Naturally</h1>
             <p style="font-size: 1.3rem; margin-bottom: 2rem;">Organic cold-pressed elixirs & beetroot blends — fuel your day with deep crimson energy, antioxidants, and earthy goodness.</p>
           <div class="btn-wrapper">
@@ -892,7 +896,7 @@
 </div>
           </div>
           <div class="hero-image-wrap">
-            <img src="./image/Fresh beetroot and juice.jpg" alt="Fresh beetroot and juice" fetchpriority="high" decoding="async" width="450" height="450" style="background: radial-gradient(circle, rgba(188,47,76,0.3) 0%, rgba(0,0,0,0) 70%); border-radius: 50%; padding: 0.5rem; max-height: 450px; width: auto; object-fit: contain;">
+            <img src="./image/organic_juice_hero.png" alt="Fresh organic juice" fetchpriority="high" decoding="async" style="max-height: 450px; width: 100%; object-fit: contain; border-radius: 20px;">
           </div>
         </div>
       </div>
@@ -904,7 +908,7 @@
           <div class="about-text">
             <div class="section-tag">Our Roots</div>
             <h3>Rooted in Nature, Bursting with Life</h3>
-            <p>Beetroot has been treasured for centuries — from ancient Roman tables to modern wellness rituals. Our signature juices are crafted from heirloom beets, cold-pressed within hours of harvest.</p>
+            <p>Our organic juice cleanses are crafted from a vibrant spectrum of heirloom fruits and vegetables. From alkalizing leafy greens to revitalizing citrus, we cold-press our produce within hours of harvest to lock in maximum nutrition.</p>
             <p>Every sip supports healthy blood flow, glowing skin, and stamina. No additives, no refined sugar — just pure earth-to-glass power.</p>
             <div class="stats-row">
               <div class="stat"><span class="stat-number">100%</span>Organic</div>
@@ -913,7 +917,7 @@
             </div>
           </div>
           <div class="feature-img-wrap" style="text-align: center;">
-            <img src="./image/Fresh beetroot and juice.jpg" alt="Fresh beetroot and juice" loading="eager" decoding="async" width="600" height="400">
+            <img src="./image/organic_juice_hero.png" alt="Fresh organic juice" fetchpriority="high" decoding="async" style="max-height: 450px; width: 100%; object-fit: contain; border-radius: 20px;">
           </div>
         </div>
       </div>
@@ -921,8 +925,9 @@
 
     <section class="section section-alt" id="benefits">
       <div class="container">
-        <h2 class="section-title">Why Beetroot?</h2>
-        <p class="section-sub">Packed with nature’s most vibrant nutrients — science-backed benefits in every glass</p>
+        <div class="section-tag" style="text-align: center; display: block; margin: 0 auto 1rem;">Featured Collection</div>
+        <h2 class="section-title">The Beetroot Detox Focus</h2>
+        <p class="section-sub">Our signature beetroot elixirs are packed with nature’s most vibrant nutrients — science-backed benefits for deep cleansing and endurance in every glass.</p>
         <div class="benefits-grid">
           <div class="benefit-item"><i class="fas fa-heartbeat"></i><h4>Heart & Flow</h4><p>Natural nitrates improve circulation & support healthy blood pressure.</p></div>
           <div class="benefit-item"><i class="fas fa-brain"></i><h4>Mental Edge</h4><p>Increases oxygen flow to the brain, enhancing focus & cognitive endurance.</p></div>
@@ -955,7 +960,7 @@
       </div>
     </section>
 
-    <section class="section section-alt" id="juices">
+    <section class="session section-alt" id="juices">
       <div class="container">
         <h2 class="section-title">Our Signature Ruby Blends</h2>
         <p class="section-sub">Cold-pressed, never watered down — experience beetroot reimagined in 6 vibrant recipes</p>
@@ -974,23 +979,23 @@
       <div class="container">
         <div class="cta-content fade-on-scroll">
           <div class="section-tag">Premium Quality</div>
-          <h2>Experience the Ruby Difference</h2>
+          <h1 style="font-size: 48px; font-weight: 500;">Experience the Ruby Difference</h1>
           <p style="font-size: 1.2rem; margin-bottom: 2.5rem; color: var(--text-muted);">More than just juice — it's a commitment to your body's natural rhythm and the planet's health.</p>
           
           <div class="benefits-grid" style="margin-bottom: 3rem;">
             <div class="benefit-card">
               <i class="fas fa-microscope fa-3x" style="color:var(--accent); margin-bottom:1.5rem;"></i>
-              <h3>Available</h3>
+              <h3 style="font-size: 24px;">Available</h3>
               <p>Our cold-press technology ensures 99% nutrient retention for immediate</p>
             </div>
             <div class="benefit-card">
               <i class="fas fa-hand-holding-heart fa-3x" style="color:var(--accent); margin-bottom:1.5rem;"></i>
-              <h3>Small Batch</h3>
+              <h3 style="font-size: 24px;">Small Batch</h3>
               <p>Hand-crafted in quantities of 50 or less to guarantee artisan precision</p>
             </div>
             <div class="benefit-card">
               <i class="fas fa-infinity fa-3x" style="color:var(--accent); margin-bottom:1.5rem;"></i>
-              <h3>Zero Waste</h3>
+              <h3 style="font-size: 24px;">Zero Waste</h3>
               <p>From compostable pulp to glass recycling, our loop is perfectly closed.</p>
             </div>
           </div>
@@ -1020,7 +1025,7 @@
             <i class="fas fa-droplet"></i>
             <i class="fas fa-leaf"></i>
           </div>
-          <span class="logo-text">Beetroot Detox</span>
+          <span class="logo-text">Pure Cleanse</span>
         </a>
         <p>Cold-pressed organic juices. Cleanse, energize, thrive.</p>
         <div class="social-links">
@@ -1041,7 +1046,7 @@
       <p><a href="./Nutrition.html">Nutrition</a></p>
     </div>
     <div class="footer-col"><h4>Get Fresh Updates</h4><p><i class="fas fa-envelope"></i> hello@beetrootdetox.com</p><p><i class="fas fa-phone-alt"></i> +1 (800) 234-5678</p><p><i class="fas fa-map-marker-alt"></i> Nationwide delivery</p></div></div>
-    <div class="footer-bottom">© 2025 Beetroot Detox — Organic Juice Cleanse. Rooted vitality.</div>
+    <div class="footer-bottom">© 2025 Pure Cleanse — Organic Juice Cleanse. Rooted vitality.</div>
   </footer>
 
   <script>
